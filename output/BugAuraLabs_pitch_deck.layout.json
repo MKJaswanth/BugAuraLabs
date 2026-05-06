@@ -1,0 +1,1308 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/apv9tp",
+    "id": "apv9tp",
+    "slide": 1,
+    "layoutId": "17a5c7e2-5ae9-486d-9de7-04778a3e5c91",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "bdfedd34-3c6f-4603-ac94-c1032a9850ca",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "17a5c7e2-5ae9-486d-9de7-04778a3e5c91",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "bdfedd34-3c6f-4603-ac94-c1032a9850ca",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "bdfedd34-3c6f-4603-ac94-c1032a9850ca",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a9w3m94f",
+      "id": "1",
+      "name": "background",
+      "bbox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.0"
+      },
+      "geometry": "rect",
+      "fillColor": "#07100E"
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0fepkzu",
+      "id": "2",
+      "name": "cover-bg",
+      "bbox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.0"
+      },
+      "geometry": "rect",
+      "fillColor": "#07100E"
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sfil0rqd",
+      "id": "3",
+      "name": "brand",
+      "bbox": [
+        112,
+        86,
+        184,
+        40
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.0.0"
+      },
+      "geometry": "rect",
+      "text": "BugAuraLabs",
+      "textPreview": "BugAuraLabs",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "BugAuraLabs"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "BugAuraLabs",
+          "runs": [
+            {
+              "index": 1,
+              "text": "BugAuraLabs",
+              "fontSize": 34,
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z61032ls",
+      "id": "4",
+      "name": "chip-release-risk-qa-audits",
+      "bbox": [
+        1586.29,
+        84,
+        221.71,
+        44
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.0.1"
+      },
+      "geometry": "roundRect",
+      "fillColor": "#122924"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/al87ed8b",
+      "id": "5",
+      "name": "chip-text",
+      "bbox": [
+        1604,
+        94,
+        186,
+        24
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.0.1.0"
+      },
+      "geometry": "rect",
+      "text": "Release-risk QA audits",
+      "textPreview": "Release-risk QA audits",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Release-risk QA audits"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Release-risk QA audits",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Release-risk QA audits",
+              "fontSize": 20,
+              "color": "#CCEFE2",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcrmhk3q",
+      "id": "6",
+      "name": "cover-title",
+      "bbox": [
+        112,
+        320,
+        1212,
+        284
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.0"
+      },
+      "geometry": "rect",
+      "text": "Proof before production.",
+      "textPreview": "Proof before production.",
+      "resolvedFontSize": 118,
+      "resolvedTextStyle": {
+        "fontSize": 118,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Proof before"
+          },
+          {
+            "index": 2,
+            "text": "production."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Proof before production.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Proof before production.",
+              "fontSize": 118,
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/orytsvu9",
+      "id": "7",
+      "name": "cover-subtitle",
+      "bbox": [
+        112,
+        638,
+        972,
+        112
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.1"
+      },
+      "geometry": "rect",
+      "text": "A premium manual audit for agencies, ecommerce builders and MVP teams who need confidence before a client handoff, founder demo or public launch.",
+      "textPreview": "A premium manual audit for agencies, ecommerce builders and MVP teams who need confidence before a client handoff, founder demo or public...",
+      "resolvedFontSize": 31,
+      "resolvedTextStyle": {
+        "fontSize": 31,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "A premium manual audit for agencies, ecommerce builders and MVP teams"
+          },
+          {
+            "index": 2,
+            "text": "who need confidence before a client handoff, founder demo or public"
+          },
+          {
+            "index": 3,
+            "text": "launch."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "A premium manual audit for agencies, ecommerce builders and MVP teams who need confidence before a client handoff, founder demo or public launch.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "A premium manual audit for agencies, ecommerce builders and MVP teams who need confidence before a client handoff, founder demo or public launch.",
+              "fontSize": 31,
+              "color": "#CCEFE2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zed8v6ps",
+      "id": "8",
+      "name": "cover-note",
+      "bbox": [
+        112,
+        944,
+        614,
+        52
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.0"
+      },
+      "geometry": "rect",
+      "text": "48-hour scoped audits | Evidence-backed reports | Clear fix priority",
+      "textPreview": "48-hour scoped audits | Evidence-backed reports | Clear fix priority",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "48-hour scoped audits | Evidence-backed reports | Clear fix"
+          },
+          {
+            "index": 2,
+            "text": "priority"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "48-hour scoped audits | Evidence-backed reports | Clear fix priority",
+          "runs": [
+            {
+              "index": 1,
+              "text": "48-hour scoped audits | Evidence-backed reports | Clear fix priority",
+              "fontSize": 22,
+              "color": "#D59B3B",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6xkf6dcb",
+      "id": "9",
+      "name": "cover-date",
+      "bbox": [
+        1728,
+        948,
+        80,
+        48
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.1"
+      },
+      "geometry": "rect",
+      "text": "May 2026",
+      "textPreview": "May 2026",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "May"
+          },
+          {
+            "index": 2,
+            "text": "2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "May 2026",
+          "runs": [
+            {
+              "index": 1,
+              "text": "May 2026",
+              "fontSize": 20,
+              "color": "#7EA79B"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8z25kb6x",
+      "id": "10",
+      "name": "gold-spine",
+      "bbox": [
+        0,
+        0,
+        12,
+        1080
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.2"
+      },
+      "geometry": "rect",
+      "fillColor": "#D59B3B"
+    }
+  ],
+  "composeRuns": [
+    {
+      "index": 1,
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "baseUnit": 8,
+      "root": {
+        "path": "0",
+        "kind": "layers",
+        "name": "root",
+        "requestedSize": {
+          "width": {
+            "mode": "fill",
+            "value": 1
+          },
+          "height": {
+            "mode": "fill",
+            "value": 1
+          }
+        },
+        "intrinsicSize": {
+          "width": 0,
+          "height": 0
+        },
+        "frame": {
+          "left": 0,
+          "top": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "children": [
+          {
+            "path": "0.0",
+            "kind": "shape",
+            "name": "background",
+            "requestedSize": {
+              "width": {
+                "mode": "fill",
+                "value": 1
+              },
+              "height": {
+                "mode": "fill",
+                "value": 1
+              }
+            },
+            "intrinsicSize": {
+              "width": 0,
+              "height": 0
+            },
+            "frame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "snappedFrame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "children": [],
+            "geometry": "rect",
+            "element": {
+              "aid": "sh/a9w3m94f",
+              "id": "1",
+              "kind": "shape"
+            }
+          },
+          {
+            "path": "0.1",
+            "kind": "layers",
+            "name": "cover-stage",
+            "requestedSize": {
+              "width": {
+                "mode": "fill",
+                "value": 1
+              },
+              "height": {
+                "mode": "fill",
+                "value": 1
+              }
+            },
+            "intrinsicSize": {
+              "width": 12,
+              "height": 0
+            },
+            "frame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "children": [
+              {
+                "path": "0.1.0",
+                "kind": "shape",
+                "name": "cover-bg",
+                "requestedSize": {
+                  "width": {
+                    "mode": "fill",
+                    "value": 1
+                  },
+                  "height": {
+                    "mode": "fill",
+                    "value": 1
+                  }
+                },
+                "intrinsicSize": {
+                  "width": 0,
+                  "height": 0
+                },
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 1080
+                },
+                "snappedFrame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 1080
+                },
+                "children": [],
+                "geometry": "rect",
+                "element": {
+                  "aid": "sh/h0fepkzu",
+                  "id": "2",
+                  "kind": "shape"
+                }
+              },
+              {
+                "path": "0.1.1",
+                "kind": "grid",
+                "name": "cover-grid",
+                "requestedSize": {
+                  "width": {
+                    "mode": "fill",
+                    "value": 1
+                  },
+                  "height": {
+                    "mode": "fill",
+                    "value": 1
+                  }
+                },
+                "intrinsicSize": {
+                  "width": 224,
+                  "height": 236.4
+                },
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 1080
+                },
+                "children": [
+                  {
+                    "path": "0.1.1.0",
+                    "kind": "row",
+                    "name": "cover-top",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "fill",
+                        "value": 1
+                      },
+                      "height": {
+                        "mode": "hug"
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 404.89,
+                      "height": 42
+                    },
+                    "frame": {
+                      "left": 112,
+                      "top": 84,
+                      "width": 1696,
+                      "height": 42
+                    },
+                    "children": [
+                      {
+                        "path": "0.1.1.0.0",
+                        "kind": "text",
+                        "name": "brand",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "hug"
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 183.18,
+                          "height": 40.8
+                        },
+                        "frame": {
+                          "left": 112,
+                          "top": 86,
+                          "width": 183.18,
+                          "height": 40
+                        },
+                        "snappedFrame": {
+                          "left": 112,
+                          "top": 86,
+                          "width": 184,
+                          "height": 40
+                        },
+                        "children": [],
+                        "text": "BugAuraLabs",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/sfil0rqd",
+                          "id": "3",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.0.1",
+                        "kind": "panel",
+                        "name": "chip-release-risk-qa-audits",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "hug"
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 221.71,
+                          "height": 42
+                        },
+                        "frame": {
+                          "left": 1586.29,
+                          "top": 84,
+                          "width": 221.71,
+                          "height": 44
+                        },
+                        "snappedFrame": {
+                          "left": 1586.29,
+                          "top": 84,
+                          "width": 221.71,
+                          "height": 44
+                        },
+                        "children": [
+                          {
+                            "path": "0.1.1.0.1.0",
+                            "kind": "text",
+                            "name": "chip-text",
+                            "requestedSize": {
+                              "width": {
+                                "mode": "hug"
+                              },
+                              "height": {
+                                "mode": "hug"
+                              }
+                            },
+                            "intrinsicSize": {
+                              "width": 185.71,
+                              "height": 24
+                            },
+                            "frame": {
+                              "left": 1604.29,
+                              "top": 93,
+                              "width": 185.71,
+                              "height": 24
+                            },
+                            "snappedFrame": {
+                              "left": 1604,
+                              "top": 94,
+                              "width": 186,
+                              "height": 24
+                            },
+                            "children": [],
+                            "text": "Release-risk QA audits",
+                            "transform": "none",
+                            "element": {
+                              "aid": "sh/al87ed8b",
+                              "id": "5",
+                              "kind": "shape"
+                            }
+                          }
+                        ],
+                        "padding": {
+                          "top": 9,
+                          "right": 18,
+                          "bottom": 9,
+                          "left": 18
+                        },
+                        "align": "start",
+                        "justify": "start",
+                        "contentFrame": {
+                          "left": 1604.29,
+                          "top": 93,
+                          "width": 185.71,
+                          "height": 26
+                        },
+                        "element": {
+                          "aid": "sh/z61032ls",
+                          "id": "4",
+                          "kind": "shape"
+                        }
+                      }
+                    ],
+                    "padding": {
+                      "top": 0,
+                      "right": 0,
+                      "bottom": 0,
+                      "left": 0
+                    },
+                    "gap": 0,
+                    "effectiveGap": 1291.11,
+                    "justifyOffset": 0,
+                    "align": "center",
+                    "justify": "between",
+                    "contentFrame": {
+                      "left": 112,
+                      "top": 84,
+                      "width": 1696,
+                      "height": 42
+                    },
+                    "items": [
+                      {
+                        "path": "0.1.1.0.0",
+                        "frame": {
+                          "left": 112,
+                          "top": 86,
+                          "width": 183.18,
+                          "height": 40
+                        }
+                      },
+                      {
+                        "path": "0.1.1.0.1",
+                        "frame": {
+                          "left": 1586.29,
+                          "top": 84,
+                          "width": 221.71,
+                          "height": 44
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "path": "0.1.1.1",
+                    "kind": "column",
+                    "name": "cover-main",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "fill",
+                        "value": 1
+                      },
+                      "height": {
+                        "mode": "fill",
+                        "value": 1
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 1212.37,
+                      "height": 250
+                    },
+                    "frame": {
+                      "left": 112,
+                      "top": 126,
+                      "width": 1696,
+                      "height": 817.2
+                    },
+                    "children": [
+                      {
+                        "path": "0.1.1.1.0",
+                        "kind": "text",
+                        "name": "cover-title",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "wrap",
+                            "max": 1220
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 1212.37,
+                          "height": 141.6
+                        },
+                        "frame": {
+                          "left": 112,
+                          "top": 320.2,
+                          "width": 1212.37,
+                          "height": 283.2
+                        },
+                        "snappedFrame": {
+                          "left": 112,
+                          "top": 320,
+                          "width": 1212,
+                          "height": 284
+                        },
+                        "children": [],
+                        "text": "Proof before production.",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/hcrmhk3q",
+                          "id": "6",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.1.1",
+                        "kind": "text",
+                        "name": "cover-subtitle",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "wrap",
+                            "max": 980
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 972.09,
+                          "height": 74.4
+                        },
+                        "frame": {
+                          "left": 112,
+                          "top": 637.4,
+                          "width": 972.09,
+                          "height": 111.6
+                        },
+                        "snappedFrame": {
+                          "left": 112,
+                          "top": 638,
+                          "width": 972,
+                          "height": 112
+                        },
+                        "children": [],
+                        "text": "A premium manual audit for agencies, ecommerce builders and MVP teams who need confidence before a client handoff, founder demo or public launch.",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/orytsvu9",
+                          "id": "7",
+                          "kind": "shape"
+                        }
+                      }
+                    ],
+                    "padding": {
+                      "top": 0,
+                      "right": 0,
+                      "bottom": 0,
+                      "left": 0
+                    },
+                    "gap": 34,
+                    "effectiveGap": 34,
+                    "justifyOffset": 194.2,
+                    "align": "start",
+                    "justify": "center",
+                    "contentFrame": {
+                      "left": 112,
+                      "top": 126,
+                      "width": 1696,
+                      "height": 817.2
+                    },
+                    "items": [
+                      {
+                        "path": "0.1.1.1.0",
+                        "frame": {
+                          "left": 112,
+                          "top": 320.2,
+                          "width": 1212.37,
+                          "height": 283.2
+                        }
+                      },
+                      {
+                        "path": "0.1.1.1.1",
+                        "frame": {
+                          "left": 112,
+                          "top": 637.4,
+                          "width": 972.09,
+                          "height": 111.6
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "path": "0.1.1.2",
+                    "kind": "row",
+                    "name": "cover-bottom",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "fill",
+                        "value": 1
+                      },
+                      "height": {
+                        "mode": "hug"
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 695.06,
+                      "height": 26.4
+                    },
+                    "frame": {
+                      "left": 112,
+                      "top": 943.2,
+                      "width": 1696,
+                      "height": 52.8
+                    },
+                    "children": [
+                      {
+                        "path": "0.1.1.2.0",
+                        "kind": "text",
+                        "name": "cover-note",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "wrap",
+                            "max": 980
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 614.65,
+                          "height": 26.4
+                        },
+                        "frame": {
+                          "left": 112,
+                          "top": 944,
+                          "width": 614.65,
+                          "height": 52
+                        },
+                        "snappedFrame": {
+                          "left": 112,
+                          "top": 944,
+                          "width": 614,
+                          "height": 52
+                        },
+                        "children": [],
+                        "text": "48-hour scoped audits | Evidence-backed reports | Clear fix priority",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/zed8v6ps",
+                          "id": "8",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.2.1",
+                        "kind": "text",
+                        "name": "cover-date",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "hug"
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 80.41,
+                          "height": 24
+                        },
+                        "frame": {
+                          "left": 1727.59,
+                          "top": 948,
+                          "width": 80.41,
+                          "height": 48
+                        },
+                        "snappedFrame": {
+                          "left": 1728,
+                          "top": 948,
+                          "width": 80,
+                          "height": 48
+                        },
+                        "children": [],
+                        "text": "May 2026",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/6xkf6dcb",
+                          "id": "9",
+                          "kind": "shape"
+                        }
+                      }
+                    ],
+                    "padding": {
+                      "top": 0,
+                      "right": 0,
+                      "bottom": 0,
+                      "left": 0
+                    },
+                    "gap": 0,
+                    "effectiveGap": 1000.94,
+                    "justifyOffset": 0,
+                    "align": "end",
+                    "justify": "between",
+                    "contentFrame": {
+                      "left": 112,
+                      "top": 943.2,
+                      "width": 1696,
+                      "height": 52.8
+                    },
+                    "items": [
+                      {
+                        "path": "0.1.1.2.0",
+                        "frame": {
+                          "left": 112,
+                          "top": 944,
+                          "width": 614.65,
+                          "height": 52
+                        }
+                      },
+                      {
+                        "path": "0.1.1.2.1",
+                        "frame": {
+                          "left": 1727.59,
+                          "top": 948,
+                          "width": 80.41,
+                          "height": 48
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "padding": {
+                  "top": 84,
+                  "right": 112,
+                  "bottom": 84,
+                  "left": 112
+                },
+                "columnGap": 0,
+                "rowGap": 0,
+                "alignItems": "stretch",
+                "justifyItems": "stretch",
+                "contentFrame": {
+                  "left": 112,
+                  "top": 84,
+                  "width": 1696,
+                  "height": 912
+                },
+                "columns": [
+                  {
+                    "mode": "fr",
+                    "value": 1
+                  }
+                ],
+                "rows": [
+                  "auto",
+                  {
+                    "mode": "fr",
+                    "value": 1
+                  },
+                  "auto"
+                ],
+                "autoRows": "auto",
+                "resolvedRows": [
+                  "auto",
+                  {
+                    "mode": "fr",
+                    "value": 1
+                  },
+                  "auto"
+                ],
+                "columnSizes": [
+                  1696
+                ],
+                "rowSizes": [
+                  42,
+                  817.2,
+                  52.8
+                ],
+                "cells": [
+                  {
+                    "path": "0.1.1.0",
+                    "column": 0,
+                    "row": 0,
+                    "columnSpan": 1,
+                    "rowSpan": 1,
+                    "cellFrame": {
+                      "left": 112,
+                      "top": 84,
+                      "width": 1696,
+                      "height": 42
+                    }
+                  },
+                  {
+                    "path": "0.1.1.1",
+                    "column": 0,
+                    "row": 1,
+                    "columnSpan": 1,
+                    "rowSpan": 1,
+                    "cellFrame": {
+                      "left": 112,
+                      "top": 126,
+                      "width": 1696,
+                      "height": 817.2
+                    }
+                  },
+                  {
+                    "path": "0.1.1.2",
+                    "column": 0,
+                    "row": 2,
+                    "columnSpan": 1,
+                    "rowSpan": 1,
+                    "cellFrame": {
+                      "left": 112,
+                      "top": 943.2,
+                      "width": 1696,
+                      "height": 52.8
+                    }
+                  }
+                ]
+              },
+              {
+                "path": "0.1.2",
+                "kind": "shape",
+                "name": "gold-spine",
+                "requestedSize": {
+                  "width": {
+                    "mode": "fixed",
+                    "value": 12
+                  },
+                  "height": {
+                    "mode": "fill",
+                    "value": 1
+                  }
+                },
+                "intrinsicSize": {
+                  "width": 12,
+                  "height": 0
+                },
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 12,
+                  "height": 1080
+                },
+                "snappedFrame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 12,
+                  "height": 1080
+                },
+                "children": [],
+                "geometry": "rect",
+                "element": {
+                  "aid": "sh/8z25kb6x",
+                  "id": "10",
+                  "kind": "shape"
+                }
+              }
+            ],
+            "padding": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            },
+            "alignItems": "stretch",
+            "justifyItems": "stretch",
+            "contentFrame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "items": [
+              {
+                "path": "0.1.0",
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 1080
+                }
+              },
+              {
+                "path": "0.1.1",
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 1080
+                }
+              },
+              {
+                "path": "0.1.2",
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 12,
+                  "height": 1080
+                }
+              }
+            ]
+          }
+        ],
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "alignItems": "stretch",
+        "justifyItems": "stretch",
+        "contentFrame": {
+          "left": 0,
+          "top": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "items": [
+          {
+            "path": "0.0",
+            "frame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          {
+            "path": "0.1",
+            "frame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

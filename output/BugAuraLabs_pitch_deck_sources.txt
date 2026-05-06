@@ -1,0 +1,6 @@
+Positioning reference scan:
+QAura - launch readiness audits / release confidence
+SpecGrade QA - evidence-backed inspections / 48-hour turnaround
+On Tap - outsourced QA for ecommerce and agencies
+ReleaseReady QA - go/hold recommendation for startup teams
+PLUS QA - web and mobile launch quality support
