@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BugAura Labs — Premium QA Testing Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #0a0a0b;
+    --obsidian-2: #111113;
+    --obsidian-3: #18181c;
+    --obsidian-4: #1f1f25;
+    --obsidian-5: #26262e;
+    --gold: #c9a84c;
+    --gold-light: #e8cc7a;
+    --gold-dim: #8a6d2f;
+    --jade: #2a7a5a;
+    --jade-light: #3da876;
+    --jade-dim: #1a4d38;
+    --jade-pale: #0f2d22;
+    --copper: #b5622a;
+    --copper-light: #d4804a;
+    --copper-dim: #7a3e18;
+    --ivory: #f2edd8;
+    --ivory-dim: #c8c2a8;
+    --ivory-muted: #8a8470;
+    --border: rgba(201,168,76,0.15);
+    --border-strong: rgba(201,168,76,0.3);
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--obsidian);
+    color: var(--ivory);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ---- Noise texture overlay ---- */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 5%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,10,11,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-brand {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+
+  .nav-brand span {
+    color: var(--ivory-dim);
+    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    display: block;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--ivory-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--obsidian) !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 2px;
+    font-weight: 500 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.08em !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--obsidian) !important; }
+
+  /* ---- SECTIONS ---- */
+  section { position: relative; z-index: 1; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+
+  /* ---- SECTION LABELS ---- */
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--ivory);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-copy {
+    color: var(--ivory-dim);
+    font-size: 1.05rem;
+    max-width: 600px;
+    line-height: 1.75;
+  }
+
+  /* ---- HERO ---- */
+  #hero {
+    min-height: 100vh;
+    padding: 120px 5% 80px;
+    display: flex;
+    align-items: center;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(42,122,90,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(201,168,76,0.05) 0%, transparent 50%),
+      var(--obsidian);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
+    padding: 0.3rem 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--jade-light);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ivory);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ivory-dim);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-sub strong {
+    color: var(--jade-light);
+    font-weight: 500;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--obsidian);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--ivory);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+    border: 1px solid rgba(242,237,216,0.25);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-trust {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trust-num {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .trust-label {
+    font-size: 0.72rem;
+    color: var(--ivory-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+  }
+
+  /* ---- HERO CARD ---- */
+  .hero-card {
+    background: var(--obsidian-3);
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--jade), var(--gold), var(--copper));
+  }
+
+  .hero-card::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.06), transparent);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--ivory);
+    font-weight: 500;
+  }
+
+  .card-badge {
+    background: rgba(42,122,90,0.2);
+    border: 1px solid rgba(42,122,90,0.4);
+    color: var(--jade-light);
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .card-badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--jade-light);
+    animation: pulse 2s infinite;
+  }
+
+  .card-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .stat-num {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--gold);
+    font-weight: 500;
+    min-width: 52px;
+    padding-top: 0.05rem;
+  }
+
+  .stat-info {
+    flex: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--ivory);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .stat-desc {
+    font-size: 0.72rem;
+    color: var(--ivory-muted);
+    line-height: 1.4;
+    margin-top: 0.15rem;
+  }
+
+  .card-footer {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.9rem 1rem;
+  }
+
+  .card-footer-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-footer p {
+    font-size: 0.78rem;
+    color: var(--ivory-dim);
+    line-height: 1.5;
+  }
+
+  /* ---- DIVIDER ---- */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+    margin: 0;
+  }
+
+  /* ---- SERVICES ---- */
+  #services {
+    padding: 100px 0;
+    background: var(--obsidian-2);
+  }
+
+  .services-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  .services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .service-card {
+    background: var(--obsidian-4);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.75rem;
+    position: relative;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    border-color: var(--border-strong);
+    background: var(--obsidian-5);
+    transform: translateY(-2px);
+  }
+
+  .service-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 16px;
+  }
+
+  .icon-gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); }
+  .icon-jade { background: rgba(42,122,90,0.15); border: 1px solid rgba(42,122,90,0.25); }
+  .icon-copper { background: rgba(181,98,42,0.12); border: 1px solid rgba(181,98,42,0.22); }
+
+  .service-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--ivory-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--ivory);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--ivory-muted);
+    line-height: 1.65;
+  }
+
+  .service-card:nth-child(1) .service-icon { color: var(--gold); }
+  .service-card:nth-child(2) .service-icon { color: var(--jade-light); }
+  .service-card:nth-child(3) .service-icon { color: var(--copper-light); }
+  .service-card:nth-child(4) .service-icon { color: var(--gold); }
+  .service-card:nth-child(5) .service-icon { color: var(--jade-light); }
+  .service-card:nth-child(6) .service-icon { color: var(--copper-light); }
+
+  /* ---- CASE STUDIES ---- */
+  #casestudies {
+    padding: 100px 0;
+    background: var(--obsidian);
+  }
+
+  .casestudies-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+  }
+
+  .casestudies-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .case-card {
+    background: var(--obsidian-3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .case-card:hover { border-color: var(--border-strong); }
+
+  .case-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+  }
+
+  .case-card:nth-child(1)::before { background: linear-gradient(180deg, var(--gold), var(--jade)); }
+  .case-card:nth-child(2)::before { background: linear-gradient(180deg, var(--jade), var(--copper)); }
+
+  .case-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--jade-light);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    background: rgba(42,122,90,0.1);
+    border: 1px solid rgba(42,122,90,0.2);
+    padding: 0.25rem 0.65rem;
+    border-radius: 2px;
+  }
+
+  .case-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ivory);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .case-desc {
+    font-size: 0.9rem;
+    color: var(--ivory-dim);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .case-bullets li {
+    font-size: 0.82rem;
+    color: var(--ivory-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    line-height: 1.5;
+  }
+
+  .case-bullets li::before {
+    content: '';
+    display: inline-block;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  /* ---- ARTIFACTS ---- */
+  #artifacts {
+    padding: 100px 0;
+    background: var(--obsidian-2);
+  }
+
+  .artifacts-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+  }
+
+  .artifacts-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .artifact-card {
+    background: var(--obsidian-4);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .artifact-card:hover {
+    border-color: var(--border-strong);
+    background: var(--obsidian-5);
+  }
+
+  .artifact-icon-wrap {
+    width: 36px; height: 36px;
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .artifact-icon {
+    font-size: 14px;
+    color: var(--gold);
+  }
+
+  .artifact-name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--ivory);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .artifact-desc {
+    font-size: 0.78rem;
+    color: var(--ivory-muted);
+    line-height: 1.6;
+  }
+
+  /* ---- PROOF ---- */
+  #proof {
+    padding: 100px 0;
+    background: var(--obsidian);
+  }
+
+  .proof-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  .proof-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .proof-card {
+    background: var(--obsidian-3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.5rem;
+    min-height: 210px;
+  }
+
+  .proof-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .proof-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--ivory);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .proof-copy {
+    font-size: 0.8rem;
+    color: var(--ivory-muted);
+    line-height: 1.6;
+  }
+
+  /* ---- PROCESS ---- */
+  #process {
+    padding: 100px 0;
+    background: var(--obsidian);
+    overflow: hidden;
+  }
+
+  .process-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+  }
+
+  .process-steps {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: calc(5% + 28px);
+    right: calc(5% + 28px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--jade-dim), var(--gold-dim), var(--copper-dim), var(--gold-dim), var(--jade-dim));
+    z-index: 0;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: var(--obsidian-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s;
+  }
+
+  .process-step:hover .step-num {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+  }
+
+  .step-title {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    color: var(--ivory);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .step-desc {
+    font-size: 0.73rem;
+    color: var(--ivory-muted);
+    line-height: 1.5;
+  }
+
+  /* ---- TOOLS ---- */
+  #tools {
+    padding: 100px 0;
+    background: var(--obsidian-2);
+  }
+
+  .tools-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  .tools-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tool-pill {
+    background: var(--obsidian-4);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.6rem 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--ivory-dim);
+    letter-spacing: 0.05em;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .tool-pill::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tool-pill:nth-child(1)::before, .tool-pill:nth-child(4)::before, .tool-pill:nth-child(7)::before { background: var(--jade-light); }
+  .tool-pill:nth-child(2)::before, .tool-pill:nth-child(5)::before, .tool-pill:nth-child(8)::before { background: var(--gold); }
+  .tool-pill:nth-child(3)::before, .tool-pill:nth-child(6)::before, .tool-pill:nth-child(9)::before { background: var(--copper-light); }
+  .tool-pill:nth-child(10)::before { background: var(--jade-light); }
+
+  .tool-pill:hover {
+    border-color: var(--border-strong);
+    color: var(--ivory);
+    background: var(--obsidian-5);
+  }
+
+  /* ---- PRICING ---- */
+  #pricing {
+    padding: 100px 0;
+    background: var(--obsidian);
+  }
+
+  .pricing-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+  }
+
+  .pricing-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .pricing-card {
+    background: var(--obsidian-3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .pricing-card:hover { border-color: var(--border-strong); }
+
+  .pricing-card.featured {
+    border-color: rgba(201,168,76,0.4);
+    background: var(--obsidian-4);
+  }
+
+  .pricing-card.featured::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--gold);
+    color: var(--obsidian);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0 3px 0 2px;
+  }
+
+  .plan-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--ivory-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .plan-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--ivory);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .plan-price {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .plan-price.free { color: var(--jade-light); }
+  .plan-price.custom { color: var(--gold); }
+  .plan-price.monthly { color: var(--copper-light); }
+
+  .plan-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 1.25rem 0;
+  }
+
+  .plan-desc {
+    font-size: 0.85rem;
+    color: var(--ivory-dim);
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ---- ABOUT ---- */
+  #about {
+    padding: 100px 0;
+    background: var(--obsidian-2);
+  }
+
+  .about-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .about-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--ivory-dim);
+    line-height: 1.6;
+  }
+
+  .about-bullets li::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 1px;
+    background: var(--gold);
+    margin-top: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .about-visual {
+    background: var(--obsidian-4);
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--jade));
+  }
+
+  .qa-terminal {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 2;
+  }
+
+  .terminal-line { display: flex; gap: 0.75rem; }
+  .terminal-key { color: var(--jade-light); min-width: 100px; }
+  .terminal-val { color: var(--ivory-dim); }
+  .terminal-val.gold { color: var(--gold); }
+  .terminal-val.copper { color: var(--copper-light); }
+  .terminal-val.jade { color: var(--jade-light); }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .t-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ---- CONTACT ---- */
+  #contact {
+    padding: 100px 0;
+    background: var(--obsidian);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+
+  .contact-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--ivory);
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .contact-copy {
+    color: var(--ivory-dim);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 2.25rem;
+  }
+
+  .contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .contact-detail-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--ivory-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .contact-detail a, .contact-detail span {
+    font-size: 0.88rem;
+    color: var(--ivory-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-detail a:hover { color: var(--gold); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    padding: 1.75rem 5%;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--ivory-muted);
+  }
+
+  /* ---- SCROLL ANIMATIONS ---- */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+  .fade-in-delay-5 { transition-delay: 0.5s; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .services-header { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .casestudies-grid { grid-template-columns: 1fr; }
+    .artifacts-grid { grid-template-columns: 1fr 1fr; }
+    .proof-header { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+    .tools-header { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .artifacts-grid { grid-template-columns: 1fr 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+  }
+
+  /* Horizontal rule accent */
+  .accent-line {
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    vertical-align: middle;
+    margin-right: 0.75rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">
+    BugAura Labs
+    <span>Quality Testing Studio</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#casestudies">Work</a></li>
+    <li><a href="#proof">Proof</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Get Audit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-tag fade-in">Boutique QA Studio &mdash; Release-Ready Testing</div>
+      <h1 class="hero-headline fade-in fade-in-delay-1">
+        Testing that makes your product feel <em>expensive,</em> stable, and trusted.
+      </h1>
+      <p class="hero-sub fade-in fade-in-delay-2">
+        BugAura Labs helps startups, ecommerce teams, and app builders find the bugs that break trust — <strong>checkout failures, weak validation, broken admin flows, API mismatches, mobile layout issues,</strong> and regression risks.
+      </p>
+      <div class="btn-group fade-in fade-in-delay-3">
+        <a href="#contact" class="btn-primary">Request a Free QA Audit &#8599;</a>
+        <a href="#casestudies" class="btn-outline">See the Work</a>
+      </div>
+      <div class="hero-trust fade-in fade-in-delay-4">
+        <div class="trust-item">
+          <span class="trust-num">100+</span>
+          <span class="trust-label">Test Cases</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">50+</span>
+          <span class="trust-label">Bugs Found</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">Web</span>
+          <span class="trust-label">+ Admin Coverage</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">API</span>
+          <span class="trust-label">Validated</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO CARD -->
+    <div class="hero-card fade-in fade-in-delay-2">
+      <div class="card-header">
+        <div class="card-title">Release Quality Snapshot</div>
+        <div class="card-badge">Audit Ready</div>
+      </div>
+      <div class="card-stats">
+        <div class="stat-row">
+          <span class="stat-num">100+</span>
+          <div class="stat-info">
+            <div class="stat-label">Structured Test Cases</div>
+            <div class="stat-desc">Across real user and admin workflows</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-num">50+</span>
+          <div class="stat-info">
+            <div class="stat-label">Bugs Documented</div>
+            <div class="stat-desc">With reproduction-ready detail and evidence</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-num">Admin</span>
+          <div class="stat-info">
+            <div class="stat-label">CRUD + Workflow Checks</div>
+            <div class="stat-desc">Product, board, and management flows</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-num">API</span>
+          <div class="stat-info">
+            <div class="stat-label">Request &amp; Response Validation</div>
+            <div class="stat-desc">Data integrity and error handling mindset</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-label">Signature Strength</div>
+        <p>Not just "bug found." Every defect includes severity, business impact, steps, actual vs expected result, evidence, and retest scope.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-eyebrow">Services</div>
+      <h2 class="section-title">QA coverage designed around business risk.</h2>
+    </div>
+    <p class="section-copy">The goal is not to test randomly. It is to protect the flows where users lose trust, orders fail, data breaks, or releases feel unfinished.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon icon-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <span class="service-num">01</span>
+      <h3 class="service-name">Manual Testing</h3>
+      <p class="service-desc">Functional, UI/UX, exploratory, regression, and real-world user flow testing for websites, apps, and dashboards.</p>
+    </div>
+    <div class="service-card fade-in fade-in-delay-1">
+      <div class="service-icon icon-jade">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <span class="service-num">02</span>
+      <h3 class="service-name">Automation Testing</h3>
+      <p class="service-desc">Automation-ready QA using Playwright thinking, scalable test scenarios, smoke flows, and repeatable release checks.</p>
+    </div>
+    <div class="service-card fade-in fade-in-delay-2">
+      <div class="service-icon icon-copper">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      </div>
+      <span class="service-num">03</span>
+      <h3 class="service-name">API Testing</h3>
+      <p class="service-desc">Request and response validation, status codes, data integrity, error handling, and UI-to-API behavior checks.</p>
+    </div>
+    <div class="service-card fade-in fade-in-delay-1">
+      <div class="service-icon icon-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="service-num">04</span>
+      <h3 class="service-name">Performance Testing</h3>
+      <p class="service-desc">Response time, stability, load awareness, and practical performance testing support with tools like k6.</p>
+    </div>
+    <div class="service-card fade-in fade-in-delay-2">
+      <div class="service-icon icon-jade">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <span class="service-num">05</span>
+      <h3 class="service-name">Security Testing</h3>
+      <p class="service-desc">Input validation, basic vulnerability checks, SQL injection awareness, auth behavior, and OWASP ZAP scan support.</p>
+    </div>
+    <div class="service-card fade-in fade-in-delay-3">
+      <div class="service-icon icon-copper">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <span class="service-num">06</span>
+      <h3 class="service-name">Regression Testing</h3>
+      <p class="service-desc">Retesting fixed bugs and checking that new changes do not quietly break existing customer or admin workflows.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CASE STUDIES -->
+<section id="casestudies">
+  <div class="casestudies-header">
+    <div class="section-eyebrow">Case Studies</div>
+    <h2 class="section-title">QA substance you can actually read.</h2>
+    <p class="section-copy">What was tested, what failed, and why the work mattered for release quality.</p>
+  </div>
+
+  <div class="casestudies-grid">
+    <div class="case-card fade-in">
+      <div class="case-tag">Ecommerce &bull; Web + Admin Panel</div>
+      <h3 class="case-title">E-Commerce Website Testing</h3>
+      <p class="case-desc">End-to-end testing across website and admin flows, covering checkout behavior, product data, pricing, validation, and responsive experience across devices.</p>
+      <ul class="case-bullets">
+        <li>Identified checkout issue with out-of-stock products reaching payment step</li>
+        <li>Reported product pricing bug showing INR 0.00 on live catalogue</li>
+        <li>Found form validation gaps and mobile responsiveness breakpoints</li>
+        <li>Validated admin CRUD flows and product management behavior end-to-end</li>
+      </ul>
+    </div>
+    <div class="case-card fade-in fade-in-delay-1">
+      <div class="case-tag">Scrum Platform &bull; Kanban + Workflow</div>
+      <h3 class="case-title">Scrum Platform Testing</h3>
+      <p class="case-desc">Tested Kanban board behavior, task creation, workflow navigation, swim lanes, UI feedback, and system-level usability across the complete Scrum platform.</p>
+      <ul class="case-bullets">
+        <li>Designed 95+ structured test cases covering all platform modules</li>
+        <li>Found critical system errors blocking task progression and board state</li>
+        <li>Validated task creation and board navigation across all workflow states</li>
+        <li>Prepared reproducible bug reports with clear steps and severity context</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ARTIFACTS -->
+<section id="artifacts">
+  <div class="artifacts-header">
+    <div class="section-eyebrow">Deliverables</div>
+    <h2 class="section-title">QA output clients can actually use.</h2>
+    <p class="section-copy">Every engagement produces structured, evidence-backed documentation — not a list of vague observations.</p>
+  </div>
+
+  <div class="artifacts-grid">
+    <div class="artifact-card fade-in">
+      <div class="artifact-icon-wrap">
+        <svg class="artifact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+      </div>
+      <h4 class="artifact-name">Test Cases</h4>
+      <p class="artifact-desc">Scenario, precondition, test data, steps, expected result, actual result, pass/fail, severity, and retest notes.</p>
+    </div>
+    <div class="artifact-card fade-in fade-in-delay-1">
+      <div class="artifact-icon-wrap">
+        <svg class="artifact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      </div>
+      <h4 class="artifact-name">Bug Reports</h4>
+      <p class="artifact-desc">Clear title, environment, exact steps, screenshot note, severity, priority, business impact, and fix verification scope.</p>
+    </div>
+    <div class="artifact-card fade-in fade-in-delay-2">
+      <div class="artifact-icon-wrap">
+        <svg class="artifact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <h4 class="artifact-name">QA Dashboards</h4>
+      <p class="artifact-desc">Pass, fail, blocked, retest, critical issues, and release readiness tracked in one clean, shareable view.</p>
+    </div>
+    <div class="artifact-card fade-in fade-in-delay-3">
+      <div class="artifact-icon-wrap">
+        <svg class="artifact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <h4 class="artifact-name">Regression Notes</h4>
+      <p class="artifact-desc">Fix verification and nearby-flow checks completed before final release confidence is confirmed.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROOF OF WORK -->
+<section id="proof">
+  <div class="proof-header">
+    <div>
+      <div class="section-eyebrow">Proof of Work</div>
+      <h2 class="section-title">Evidence clients can review before they commit.</h2>
+    </div>
+    <p class="section-copy">The portfolio now shows concrete QA proof points instead of empty claims: tested flows, documented defects, repeatable report formats, and a downloadable presentation deck.</p>
+  </div>
+
+  <div class="proof-grid">
+    <div class="proof-card fade-in">
+      <span class="proof-label">Ecommerce</span>
+      <h3 class="proof-title">Checkout and catalogue defects found</h3>
+      <p class="proof-copy">Proof includes out-of-stock checkout behavior, INR 0.00 pricing issues, validation gaps, mobile layout issues, and admin product-management coverage.</p>
+    </div>
+    <div class="proof-card fade-in fade-in-delay-1">
+      <span class="proof-label">Scrum Platform</span>
+      <h3 class="proof-title">95+ workflow test cases designed</h3>
+      <p class="proof-copy">Coverage includes task creation, Kanban board states, swim lanes, navigation, UI feedback, and workflow progression risks.</p>
+    </div>
+    <div class="proof-card fade-in fade-in-delay-2">
+      <span class="proof-label">Bug Evidence</span>
+      <h3 class="proof-title">Developer-ready defect format</h3>
+      <p class="proof-copy">Each bug can be shown with severity, priority, environment, exact steps, actual result, expected result, business impact, and retest scope.</p>
+    </div>
+    <div class="proof-card fade-in fade-in-delay-3">
+      <span class="proof-label">Portfolio Deck</span>
+      <h3 class="proof-title">BugAura Labs presentation available</h3>
+      <p class="proof-copy">A pitch deck is included in this project as a supporting portfolio asset for clients who want a quick overview of services and positioning.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-header">
+    <div class="section-eyebrow">Process</div>
+    <h2 class="section-title">A disciplined process from requirement to regression.</h2>
+  </div>
+
+  <div class="process-steps">
+    <div class="process-step fade-in">
+      <div class="step-num">01</div>
+      <div class="step-title">Requirement Analysis</div>
+      <p class="step-desc">Understand business rules, flows, roles, and risks.</p>
+    </div>
+    <div class="process-step fade-in fade-in-delay-1">
+      <div class="step-num">02</div>
+      <div class="step-title">Test Planning</div>
+      <p class="step-desc">Define scope, devices, browsers, test data, and priority areas.</p>
+    </div>
+    <div class="process-step fade-in fade-in-delay-2">
+      <div class="step-num">03</div>
+      <div class="step-title">Test Case Design</div>
+      <p class="step-desc">Create positive, negative, boundary, and edge-case scenarios.</p>
+    </div>
+    <div class="process-step fade-in fade-in-delay-3">
+      <div class="step-num">04</div>
+      <div class="step-title">Test Execution</div>
+      <p class="step-desc">Validate UI, API behavior, admin actions, forms, and responsiveness.</p>
+    </div>
+    <div class="process-step fade-in fade-in-delay-4">
+      <div class="step-num">05</div>
+      <div class="step-title">Bug Reporting</div>
+      <p class="step-desc">Document severity, priority, steps, expected vs actual, and evidence.</p>
+    </div>
+    <div class="process-step fade-in fade-in-delay-5">
+      <div class="step-num">06</div>
+      <div class="step-title">Retest &amp; Regression</div>
+      <p class="step-desc">Confirm fixes and verify nearby flows before release.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="tools-header">
+    <div>
+      <div class="section-eyebrow">Tools</div>
+      <h2 class="section-title">Chosen for practical QA, not decoration.</h2>
+    </div>
+    <p class="section-copy">A lean QA stack for testing, reporting, debugging, automation planning, performance checks, and team collaboration.</p>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-pill">Playwright</div>
+    <div class="tool-pill">Postman</div>
+    <div class="tool-pill">k6</div>
+    <div class="tool-pill">OWASP ZAP</div>
+    <div class="tool-pill">Google Sheets</div>
+    <div class="tool-pill">Chrome DevTools</div>
+    <div class="tool-pill">Jira</div>
+    <div class="tool-pill">GitHub</div>
+    <div class="tool-pill">Selenium</div>
+    <div class="tool-pill">JMeter</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-header">
+    <div class="section-eyebrow">Engagement</div>
+    <h2 class="section-title">Simple ways to start.</h2>
+    <p class="section-copy">The first step should feel low-risk for clients while still making the value obvious from day one.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="pricing-card fade-in">
+      <span class="plan-label">Entry Point</span>
+      <div class="plan-name">Free QA Audit</div>
+      <div class="plan-price free">Free</div>
+      <div class="plan-divider"></div>
+      <p class="plan-desc">Review one important flow and receive top risks, visible defects, and recommended next scope — no commitment required.</p>
+      <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Request Audit &#8599;</a>
+    </div>
+    <div class="pricing-card featured fade-in fade-in-delay-1">
+      <span class="plan-label">Project-Based</span>
+      <div class="plan-name">Manual QA Sprint</div>
+      <div class="plan-price custom">Custom</div>
+      <div class="plan-divider"></div>
+      <p class="plan-desc">Best for ecommerce flows, web app releases, admin panels, validation coverage, and regression passes before launch.</p>
+      <a href="#contact" class="btn-primary" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Discuss Project &#8599;</a>
+    </div>
+    <div class="pricing-card fade-in fade-in-delay-2">
+      <span class="plan-label">Ongoing</span>
+      <div class="plan-name">Dedicated QA</div>
+      <div class="plan-price monthly">Monthly</div>
+      <div class="plan-divider"></div>
+      <p class="plan-desc">Recurring support for agencies, startups, and teams shipping frequent product updates who need a QA partner, not a one-time audit.</p>
+      <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Plan Support &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-eyebrow">About</div>
+      <h2 class="section-title">A QA studio built around evidence, not assumptions.</h2>
+      <p class="section-copy" style="margin-bottom: 0;">BugAura Labs is led by Jaswanth M K, a QA tester focused on practical product quality. The work combines manual exploratory testing, structured test case design, API validation thinking, regression checks, and clear bug reporting — so teams know exactly what is broken, why it matters, and what to fix first.</p>
+      <ul class="about-bullets">
+        <li>I test like a user, report like a QA engineer, and prioritize like a product team.</li>
+        <li>Every defect is written with reproduction steps and business impact documented.</li>
+        <li>Strong fit for ecommerce, web apps, admin panels, MVPs, and agency handoffs.</li>
+      </ul>
+    </div>
+    <div class="about-visual fade-in">
+      <div class="terminal-header">
+        <div class="t-dot" style="background:#c9a84c;"></div>
+        <div class="t-dot" style="background:#2a7a5a;"></div>
+        <div class="t-dot" style="background:#b5622a;"></div>
+        <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--ivory-muted);margin-left:0.5rem;">jaswanth.mk / profile</span>
+      </div>
+      <div class="qa-terminal">
+        <div class="terminal-line">
+          <span class="terminal-key">name</span>
+          <span class="terminal-val ivory">Jaswanth M K</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">role</span>
+          <span class="terminal-val gold">QA Engineer</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">studio</span>
+          <span class="terminal-val jade">BugAura Labs</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">focus</span>
+          <span class="terminal-val">Web, Admin, API, Ecommerce</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">style</span>
+          <span class="terminal-val">Manual + Automation mindset</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">test_cases</span>
+          <span class="terminal-val gold">100+ designed</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">bugs_filed</span>
+          <span class="terminal-val copper">50+ with evidence</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">reporting</span>
+          <span class="terminal-val jade">severity + impact + steps</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">status</span>
+          <span class="terminal-val gold">available &mdash; open to projects</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow" style="justify-content:center;">Contact</div>
+    <h2 class="contact-title">Ready to make your product feel <em>release-ready?</em></h2>
+    <p class="contact-copy">Send your URL, the flows you care about, and the deadline. I will suggest a clean QA scope and what access is needed to get started.</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="mailto:jaswanth.mk63@gmail.com" class="btn-primary">Email Jaswanth &#8599;</a>
+      <a href="output/BugAuraLabs_pitch_deck.pptx" class="btn-outline">Portfolio Deck</a>
+    </div>
+    <div class="contact-details">
+      <div class="contact-detail">
+        <span class="contact-detail-label">Email</span>
+        <a href="mailto:jaswanth.mk63@gmail.com">jaswanth.mk63@gmail.com</a>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Phone</span>
+        <a href="tel:+916374376247">+91 63743 76247</a>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Location</span>
+        <span>India — Remote Worldwide</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Response</span>
+        <span>Within 24 hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">BugAura Labs</div>
+  <p class="footer-copy">Quality testing for products that need trust.</p>
+  <p class="footer-copy">&copy; 2025 Jaswanth M K</p>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Smooth active nav state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      if (link.getAttribute('href') === '#' + current) {
+        link.style.color = 'var(--gold)';
+      }
+    });
+  });
+</script>
+</body>
+</html>
