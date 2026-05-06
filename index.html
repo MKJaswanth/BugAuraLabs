@@ -768,6 +768,65 @@
     line-height: 1.6;
   }
 
+  /* ---- TESTIMONIALS ---- */
+  #testimonials {
+    padding: 100px 0;
+    background: var(--obsidian-2);
+  }
+
+  .testimonials-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  .testimonials-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .testimonial-card {
+    background: var(--obsidian-4);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.75rem;
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 0.4rem;
+    right: 1rem;
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: rgba(201,168,76,0.2);
+    line-height: 1;
+  }
+
+  .testimonial-quote {
+    color: var(--ivory-dim);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-source {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
   /* ---- PROCESS ---- */
   #process {
     padding: 100px 0;
@@ -999,6 +1058,47 @@
     margin-bottom: 1.75rem;
   }
 
+  /* ---- FAQ ---- */
+  #faq {
+    padding: 100px 0;
+    background: var(--obsidian-2);
+  }
+
+  .faq-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 5%;
+  }
+
+  .faq-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .faq-item {
+    background: var(--obsidian-4);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.5rem;
+  }
+
+  .faq-item h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--ivory);
+    margin-bottom: 0.65rem;
+  }
+
+  .faq-item p {
+    font-size: 0.84rem;
+    color: var(--ivory-muted);
+    line-height: 1.65;
+  }
+
   /* ---- ABOUT ---- */
   #about {
     padding: 100px 0;
@@ -1116,6 +1216,63 @@
     margin-bottom: 2.25rem;
   }
 
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin: 2rem auto 0;
+    text-align: left;
+  }
+
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    background: var(--obsidian-3);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--ivory);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    padding: 0.8rem 0.9rem;
+    outline: none;
+  }
+
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .form-full {
+    grid-column: 1 / -1;
+  }
+
+  .form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
   .contact-details {
     display: flex;
     justify-content: center;
@@ -1201,10 +1358,13 @@
     .artifacts-grid { grid-template-columns: 1fr 1fr; }
     .proof-header { grid-template-columns: 1fr; }
     .proof-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-header { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; }
     .process-steps::before { display: none; }
     .tools-header { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+    .faq-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
   }
@@ -1213,6 +1373,7 @@
     .services-grid { grid-template-columns: 1fr; }
     .artifacts-grid { grid-template-columns: 1fr 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
+    .contact-form { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr; }
   }
 
@@ -1242,6 +1403,8 @@
     <li><a href="#process">Process</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://in.linkedin.com/in/mkjaswanth" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="#contact" class="nav-cta">Get Audit</a></li>
   </ul>
 </nav>
@@ -1263,12 +1426,12 @@
       </div>
       <div class="hero-trust fade-in fade-in-delay-4">
         <div class="trust-item">
-          <span class="trust-num">100+</span>
-          <span class="trust-label">Test Cases</span>
+          <span class="trust-num">95+</span>
+          <span class="trust-label">Cases in one audit</span>
         </div>
         <div class="trust-item">
-          <span class="trust-num">50+</span>
-          <span class="trust-label">Bugs Found</span>
+          <span class="trust-num">Checkout</span>
+          <span class="trust-label">Risk uncovered</span>
         </div>
         <div class="trust-item">
           <span class="trust-num">Web</span>
@@ -1289,17 +1452,17 @@
       </div>
       <div class="card-stats">
         <div class="stat-row">
-          <span class="stat-num">100+</span>
+          <span class="stat-num">95+</span>
           <div class="stat-info">
-            <div class="stat-label">Structured Test Cases</div>
-            <div class="stat-desc">Across real user and admin workflows</div>
+            <div class="stat-label">Scrum Platform Test Cases</div>
+            <div class="stat-desc">Designed for one workflow-heavy product audit</div>
           </div>
         </div>
         <div class="stat-row">
-          <span class="stat-num">50+</span>
+          <span class="stat-num">High</span>
           <div class="stat-info">
-            <div class="stat-label">Bugs Documented</div>
-            <div class="stat-desc">With reproduction-ready detail and evidence</div>
+            <div class="stat-label">Checkout & Pricing Risks</div>
+            <div class="stat-desc">Issues tied to revenue loss and user trust</div>
           </div>
         </div>
         <div class="stat-row">
@@ -1401,9 +1564,9 @@
 
   <div class="casestudies-grid">
     <div class="case-card fade-in">
-      <div class="case-tag">Ecommerce &bull; Web + Admin Panel</div>
+      <div class="case-tag">Ecommerce &bull; Web + Admin Panel &bull; Redacted Client</div>
       <h3 class="case-title">E-Commerce Website Testing</h3>
-      <p class="case-desc">End-to-end testing across website and admin flows, covering checkout behavior, product data, pricing, validation, and responsive experience across devices.</p>
+      <p class="case-desc">End-to-end testing for a retail-style ecommerce flow, covering checkout behavior, product data, pricing, validation, and responsive experience across devices.</p>
       <ul class="case-bullets">
         <li>Identified checkout issue with out-of-stock products reaching payment step</li>
         <li>Reported product pricing bug showing INR 0.00 on live catalogue</li>
@@ -1412,9 +1575,9 @@
       </ul>
     </div>
     <div class="case-card fade-in fade-in-delay-1">
-      <div class="case-tag">Scrum Platform &bull; Kanban + Workflow</div>
+      <div class="case-tag">B2B SaaS &bull; Kanban + Workflow &bull; Sample Report Available</div>
       <h3 class="case-title">Scrum Platform Testing</h3>
-      <p class="case-desc">Tested Kanban board behavior, task creation, workflow navigation, swim lanes, UI feedback, and system-level usability across the complete Scrum platform.</p>
+      <p class="case-desc">Tested a workflow-heavy Scrum platform, including Kanban board behavior, task creation, workflow navigation, swim lanes, UI feedback, and system-level usability.</p>
       <ul class="case-bullets">
         <li>Designed 95+ structured test cases covering all platform modules</li>
         <li>Found critical system errors blocking task progression and board state</li>
@@ -1496,9 +1659,37 @@
       <p class="proof-copy">Each bug can be shown with severity, priority, environment, exact steps, actual result, expected result, business impact, and retest scope.</p>
     </div>
     <div class="proof-card fade-in fade-in-delay-3">
-      <span class="proof-label">Portfolio Deck</span>
-      <h3 class="proof-title">BugAura Labs presentation available</h3>
-      <p class="proof-copy">A pitch deck is included in this project as a supporting portfolio asset for clients who want a quick overview of services and positioning.</p>
+      <span class="proof-label">Sample Report</span>
+      <h3 class="proof-title">PDF proof clients can view fast</h3>
+      <p class="proof-copy">A sanitized QA sample report is available as a quick PDF, so clients can judge report quality without opening a slide deck. <a href="output/C2C_Agri_Sanitized_QA_Document.pdf" target="_blank" style="color:var(--gold);text-decoration:none;">View PDF &#8599;</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header">
+    <div>
+      <div class="section-eyebrow">Trust Signals</div>
+      <h2 class="section-title">Feedback themes that reduce buyer doubt.</h2>
+    </div>
+    <p class="section-copy">Until named client testimonials are approved, these anonymized proof notes keep the page credible without pretending to show public endorsements.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in">
+      <p class="testimonial-quote">The most useful part was not just the bug list. It was knowing which issues could block checkout, break trust, or wait until a later sprint.</p>
+      <div class="testimonial-source">Founder-style feedback &bull; Ecommerce audit</div>
+    </div>
+    <div class="testimonial-card fade-in fade-in-delay-1">
+      <p class="testimonial-quote">The report format made fixes easier to discuss because every issue had steps, expected behavior, actual behavior, severity, and retest notes.</p>
+      <div class="testimonial-source">Developer-style feedback &bull; Web app QA</div>
+    </div>
+    <div class="testimonial-card fade-in fade-in-delay-2">
+      <p class="testimonial-quote">The test cases helped us see missing workflow coverage before release, especially around task movement, state changes, and admin actions.</p>
+      <div class="testimonial-source">Product-style feedback &bull; Scrum platform</div>
     </div>
   </div>
 </section>
@@ -1611,6 +1802,44 @@
 
 <div class="section-divider"></div>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-header">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">Questions clients usually ask before a QA sprint.</h2>
+    <p class="section-copy">Clear answers remove friction before the first call.</p>
+  </div>
+
+  <div class="faq-grid">
+    <div class="faq-item fade-in">
+      <h3>Do you sign an NDA?</h3>
+      <p>Yes. I can sign an NDA before reviewing staging links, admin panels, test data, internal docs, or unreleased product flows.</p>
+    </div>
+    <div class="faq-item fade-in fade-in-delay-1">
+      <h3>How long does a QA sprint take?</h3>
+      <p>A focused audit can usually start with 1 to 3 priority flows. Full web app or ecommerce QA depends on scope, devices, browsers, and access.</p>
+    </div>
+    <div class="faq-item fade-in fade-in-delay-2">
+      <h3>Do you work with international teams?</h3>
+      <p>Yes. BugAura Labs is based in India and works remotely with founders, agencies, and product teams across time zones.</p>
+    </div>
+    <div class="faq-item fade-in fade-in-delay-3">
+      <h3>What happens after bugs are fixed?</h3>
+      <p>I retest fixed issues, check nearby flows for regressions, and update the report with pass, fail, blocked, or retest notes.</p>
+    </div>
+    <div class="faq-item fade-in">
+      <h3>What access do you need?</h3>
+      <p>Usually a staging URL, test account, admin access when needed, test payment mode, expected rules, and any known risk areas.</p>
+    </div>
+    <div class="faq-item fade-in fade-in-delay-1">
+      <h3>What if I only need a quick review?</h3>
+      <p>The free QA audit is built for that. Send one important flow and I will return the top visible risks and the recommended next scope.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
@@ -1622,6 +1851,7 @@
         <li>I test like a user, report like a QA engineer, and prioritize like a product team.</li>
         <li>Every defect is written with reproduction steps and business impact documented.</li>
         <li>Strong fit for ecommerce, web apps, admin panels, MVPs, and agency handoffs.</li>
+        <li><a href="https://in.linkedin.com/in/mkjaswanth" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">View LinkedIn profile &#8599;</a></li>
       </ul>
     </div>
     <div class="about-visual fade-in">
@@ -1654,11 +1884,11 @@
         </div>
         <div class="terminal-line">
           <span class="terminal-key">test_cases</span>
-          <span class="terminal-val gold">100+ designed</span>
+          <span class="terminal-val gold">95+ in one workflow audit</span>
         </div>
         <div class="terminal-line">
-          <span class="terminal-key">bugs_filed</span>
-          <span class="terminal-val copper">50+ with evidence</span>
+          <span class="terminal-key">risk_focus</span>
+          <span class="terminal-val copper">checkout + admin + API</span>
         </div>
         <div class="terminal-line">
           <span class="terminal-key">reporting</span>
@@ -1680,11 +1910,43 @@
   <div class="contact-inner">
     <div class="section-eyebrow" style="justify-content:center;">Contact</div>
     <h2 class="contact-title">Ready to make your product feel <em>release-ready?</em></h2>
-    <p class="contact-copy">Send your URL, the flows you care about, and the deadline. I will suggest a clean QA scope and what access is needed to get started.</p>
-    <div class="btn-group" style="justify-content:center;">
-      <a href="mailto:jaswanth.mk63@gmail.com" class="btn-primary">Email Jaswanth &#8599;</a>
-      <a href="output/BugAuraLabs_pitch_deck.pptx" class="btn-outline">Portfolio Deck</a>
-    </div>
+    <p class="contact-copy">Share your URL, deadline, budget range, and the flow you care about most. The form opens your email with the QA brief ready to send.</p>
+    <form class="contact-form" action="mailto:jaswanth.mk63@gmail.com" method="post" enctype="text/plain">
+      <label>
+        Name
+        <input type="text" name="name" autocomplete="name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+      <label class="form-full">
+        Product URL
+        <input type="url" name="product_url" placeholder="https://your-product.com">
+      </label>
+      <label>
+        Deadline
+        <input type="text" name="deadline" placeholder="Launch date or sprint week">
+      </label>
+      <label>
+        Budget Range
+        <select name="budget_range">
+          <option value="Free audit">Free audit first</option>
+          <option value="Project sprint">Project sprint</option>
+          <option value="Monthly support">Monthly support</option>
+          <option value="Not sure">Not sure yet</option>
+        </select>
+      </label>
+      <label class="form-full">
+        What should be tested?
+        <textarea name="qa_scope" placeholder="Checkout, admin panel, API, mobile layout, regression, or one risky flow..." required></textarea>
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Send QA Brief &#8599;</button>
+        <a href="output/C2C_Agri_Sanitized_QA_Document.pdf" class="btn-outline" target="_blank">View Sample Report</a>
+        <a href="https://in.linkedin.com/in/mkjaswanth" class="btn-outline" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </form>
     <div class="contact-details">
       <div class="contact-detail">
         <span class="contact-detail-label">Email</span>
@@ -1710,7 +1972,7 @@
 <footer>
   <div class="footer-brand">BugAura Labs</div>
   <p class="footer-copy">Quality testing for products that need trust.</p>
-  <p class="footer-copy">&copy; 2025 Jaswanth M K</p>
+  <p class="footer-copy">&copy; 2026 Jaswanth M K</p>
 </footer>
 
 <script>
