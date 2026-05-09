@@ -5,11 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>BugAura Labs — Premium QA Testing Studio</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>BugAura Labs — Remote QA Testing Studio for Global Teams</title>
+<meta name="description" content="BugAura Labs is a remote QA testing studio for global startups, SaaS teams, ecommerce brands, and agencies. Manual QA, API checks, regression testing, and release-readiness reports for international clients.">
+<link rel="canonical" href="https://bugauralabs.studio/">
+<meta property="og:title" content="BugAura Labs — Remote QA Testing Studio">
+<meta property="og:description" content="Remote QA testing for global teams shipping web apps, ecommerce flows, admin panels, and APIs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bugauralabs.studio/">
+<meta property="og:image" content="https://bugauralabs.studio/bugaura-labs-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BugAura Labs — Remote QA Testing Studio">
+<meta name="twitter:description" content="Manual QA, API validation, regression testing, and release-readiness reports for global product teams.">
+<meta name="twitter:image" content="https://bugauralabs.studio/bugaura-labs-logo.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="image_src" href="https://bugauralabs.studio/bugaura-labs-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "BugAura Labs",
+  "url": "https://bugauralabs.studio/",
+  "logo": "https://bugauralabs.studio/bugaura-labs-logo.png",
+  "image": "https://bugauralabs.studio/bugaura-labs-logo.png",
+  "description": "Remote QA testing studio for global SaaS teams, ecommerce brands, agencies, and startups.",
+  "areaServed": ["United States", "United Kingdom", "European Union", "United Arab Emirates", "Australia", "India"],
+  "serviceType": ["Manual QA Testing", "API Testing", "Regression Testing", "Ecommerce QA", "SaaS QA"]
+}
+</script>
 <style>
   :root {
     --obsidian: #0a0a0b;
@@ -82,9 +111,12 @@
     color: var(--gold);
     letter-spacing: 0.03em;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
   }
 
-  .nav-brand span {
+  .nav-brand-text span {
     color: var(--ivory-dim);
     font-size: 0.75rem;
     font-family: var(--font-sans);
@@ -93,6 +125,21 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     line-height: 1;
+  }
+
+  .nav-logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    object-fit: cover;
+    background: var(--ivory);
+  }
+
+  .nav-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    color: var(--gold);
   }
 
   .nav-links {
@@ -1395,8 +1442,11 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-brand">
-    BugAura Labs
-    <span>Quality Testing Studio</span>
+    <img src="favicon-48.png" alt="" class="nav-logo" width="34" height="34">
+    <span class="nav-brand-text">
+      BugAura Labs
+      <span>Remote QA Studio</span>
+    </span>
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -1415,33 +1465,33 @@
 <section id="hero">
   <div class="hero-grid">
     <div class="hero-left">
-      <div class="hero-tag fade-in">Boutique QA Studio &mdash; Release-Ready Testing</div>
+      <div class="hero-tag fade-in">Remote QA Studio &mdash; Built for Global Product Teams</div>
       <h1 class="hero-headline fade-in fade-in-delay-1">
-        Testing that makes your product feel <em>expensive,</em> stable, and trusted.
+        QA testing for international teams that need releases to feel <em>stable,</em> trusted, and client-ready.
       </h1>
       <p class="hero-sub fade-in fade-in-delay-2">
-        BugAura Labs helps startups, ecommerce teams, and app builders find the bugs that break trust — <strong>checkout failures, weak validation, broken admin flows, API mismatches, mobile layout issues,</strong> and regression risks.
+        BugAura Labs helps SaaS founders, ecommerce brands, agencies, and remote product teams catch the bugs that hurt revenue and trust — <strong>checkout failures, weak validation, broken admin flows, API mismatches, mobile layout issues,</strong> and regression risks.
       </p>
       <div class="btn-group fade-in fade-in-delay-3">
-        <a href="#contact" class="btn-primary">Request a Free QA Audit &#8599;</a>
+        <a href="#contact" class="btn-primary">Request a Remote QA Audit &#8599;</a>
         <a href="#casestudies" class="btn-outline">See the Work</a>
       </div>
       <div class="hero-trust fade-in fade-in-delay-4">
         <div class="trust-item">
           <span class="trust-num">95+</span>
-          <span class="trust-label">Cases in one audit</span>
+          <span class="trust-label">Cases in one workflow audit</span>
         </div>
         <div class="trust-item">
-          <span class="trust-num">Checkout</span>
-          <span class="trust-label">Risk uncovered</span>
+          <span class="trust-num">NDA</span>
+          <span class="trust-label">Ready for client work</span>
         </div>
         <div class="trust-item">
-          <span class="trust-num">Web</span>
-          <span class="trust-label">+ Admin Coverage</span>
+          <span class="trust-num">Async</span>
+          <span class="trust-label">Slack, Jira, email</span>
         </div>
         <div class="trust-item">
-          <span class="trust-num">API</span>
-          <span class="trust-label">Validated</span>
+          <span class="trust-num">Global</span>
+          <span class="trust-label">Remote delivery</span>
         </div>
       </div>
     </div>
@@ -1449,36 +1499,36 @@
     <!-- HERO CARD -->
     <div class="hero-card fade-in fade-in-delay-2">
       <div class="card-header">
-        <div class="card-title">Release Quality Snapshot</div>
-        <div class="card-badge">Audit Ready</div>
+        <div class="card-title">Global QA Delivery Snapshot</div>
+        <div class="card-badge">Remote Ready</div>
       </div>
       <div class="card-stats">
         <div class="stat-row">
           <span class="stat-num">95+</span>
           <div class="stat-info">
             <div class="stat-label">Scrum Platform Test Cases</div>
-            <div class="stat-desc">Designed for one workflow-heavy product audit</div>
+            <div class="stat-desc">Structured coverage for a workflow-heavy product audit</div>
           </div>
         </div>
         <div class="stat-row">
-          <span class="stat-num">High</span>
+          <span class="stat-num">NDA</span>
           <div class="stat-info">
-            <div class="stat-label">Checkout & Pricing Risks</div>
-            <div class="stat-desc">Issues tied to revenue loss and user trust</div>
+            <div class="stat-label">Confidential Client Testing</div>
+            <div class="stat-desc">Comfortable with staging links, admin access, and private flows</div>
           </div>
         </div>
         <div class="stat-row">
-          <span class="stat-num">Admin</span>
+          <span class="stat-num">Async</span>
           <div class="stat-info">
-            <div class="stat-label">CRUD + Workflow Checks</div>
-            <div class="stat-desc">Product, board, and management flows</div>
+            <div class="stat-label">Remote Team Communication</div>
+            <div class="stat-desc">Clear updates for Slack, Jira, GitHub, email, and shared docs</div>
           </div>
         </div>
         <div class="stat-row">
-          <span class="stat-num">API</span>
+          <span class="stat-num">EN</span>
           <div class="stat-info">
-            <div class="stat-label">Request &amp; Response Validation</div>
-            <div class="stat-desc">Data integrity and error handling mindset</div>
+            <div class="stat-label">English QA Reports</div>
+            <div class="stat-desc">Severity, impact, steps, expected result, actual result, and retest notes</div>
           </div>
         </div>
       </div>
@@ -1497,9 +1547,9 @@
   <div class="services-header">
     <div>
       <div class="section-eyebrow">Services</div>
-      <h2 class="section-title">QA coverage designed around business risk.</h2>
+      <h2 class="section-title">QA coverage designed for remote teams and business risk.</h2>
     </div>
-    <p class="section-copy">The goal is not to test randomly. It is to protect the flows where users lose trust, orders fail, data breaks, or releases feel unfinished.</p>
+    <p class="section-copy">The goal is not to test randomly. It is to protect the flows where international users lose trust, payments fail, data breaks, or releases feel unfinished.</p>
   </div>
 
   <div class="services-grid">
@@ -1777,7 +1827,7 @@
   <div class="pricing-grid">
     <div class="pricing-card fade-in">
       <span class="plan-label">Entry Point</span>
-      <div class="plan-name">Free QA Audit</div>
+      <div class="plan-name">Remote QA Audit</div>
       <div class="plan-price free">Free</div>
       <div class="plan-divider"></div>
       <p class="plan-desc">Review one important flow and receive top risks, visible defects, and recommended next scope — no commitment required.</p>
@@ -1785,7 +1835,7 @@
     </div>
     <div class="pricing-card featured fade-in fade-in-delay-1">
       <span class="plan-label">Project-Based</span>
-      <div class="plan-name">Manual QA Sprint</div>
+      <div class="plan-name">Global QA Sprint</div>
       <div class="plan-price custom">Custom</div>
       <div class="plan-divider"></div>
       <p class="plan-desc">Best for ecommerce flows, web app releases, admin panels, validation coverage, and regression passes before launch.</p>
@@ -1793,7 +1843,7 @@
     </div>
     <div class="pricing-card fade-in fade-in-delay-2">
       <span class="plan-label">Ongoing</span>
-      <div class="plan-name">Dedicated QA</div>
+      <div class="plan-name">Remote QA Partner</div>
       <div class="plan-price monthly">Monthly</div>
       <div class="plan-divider"></div>
       <p class="plan-desc">Recurring support for agencies, startups, and teams shipping frequent product updates who need a QA partner, not a one-time audit.</p>
@@ -1823,7 +1873,7 @@
     </div>
     <div class="faq-item fade-in fade-in-delay-2">
       <h3>Do you work with international teams?</h3>
-      <p>Yes. BugAura Labs is based in India and works remotely with founders, agencies, and product teams across time zones.</p>
+      <p>Yes. BugAura Labs works remotely with founders, agencies, SaaS teams, and ecommerce brands across the US, UK, EU, UAE, Australia, and India.</p>
     </div>
     <div class="faq-item fade-in fade-in-delay-3">
       <h3>What happens after bugs are fixed?</h3>
@@ -1848,11 +1898,12 @@
     <div>
       <div class="section-eyebrow">About</div>
       <h2 class="section-title">A QA studio built around evidence, not assumptions.</h2>
-      <p class="section-copy" style="margin-bottom: 0;">BugAura Labs is led by Jaswanth M K, a QA tester focused on practical product quality. The work combines manual exploratory testing, structured test case design, API validation thinking, regression checks, and clear bug reporting — so teams know exactly what is broken, why it matters, and what to fix first.</p>
+      <p class="section-copy" style="margin-bottom: 0;">BugAura Labs is led by Jaswanth M K, a QA tester focused on practical product quality for remote-first teams. The work combines manual exploratory testing, structured test case design, API validation thinking, regression checks, and clear English bug reporting — so international clients know exactly what is broken, why it matters, and what to fix first.</p>
       <ul class="about-bullets">
         <li>I test like a user, report like a QA engineer, and prioritize like a product team.</li>
-        <li>Every defect is written with reproduction steps and business impact documented.</li>
-        <li>Strong fit for ecommerce, web apps, admin panels, MVPs, and agency handoffs.</li>
+        <li>Every defect is written with reproduction steps, business impact, severity, and retest scope documented.</li>
+        <li>Strong fit for ecommerce, SaaS, web apps, admin panels, MVPs, and agency handoffs.</li>
+        <li>Remote-friendly delivery with NDA readiness, async updates, and timezone-aware communication.</li>
         <li><a href="https://in.linkedin.com/in/mkjaswanth" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">View LinkedIn profile &#8599;</a></li>
       </ul>
     </div>
@@ -1878,11 +1929,11 @@
         </div>
         <div class="terminal-line">
           <span class="terminal-key">focus</span>
-          <span class="terminal-val">Web, Admin, API, Ecommerce</span>
+          <span class="terminal-val">SaaS, Ecommerce, Web, API</span>
         </div>
         <div class="terminal-line">
           <span class="terminal-key">style</span>
-          <span class="terminal-val">Manual + Automation mindset</span>
+          <span class="terminal-val">Remote manual QA + automation mindset</span>
         </div>
         <div class="terminal-line">
           <span class="terminal-key">test_cases</span>
@@ -1898,7 +1949,7 @@
         </div>
         <div class="terminal-line">
           <span class="terminal-key">status</span>
-          <span class="terminal-val gold">available &mdash; open to projects</span>
+          <span class="terminal-val gold">available &mdash; global remote projects</span>
         </div>
       </div>
     </div>
@@ -1912,7 +1963,7 @@
   <div class="contact-inner">
     <div class="section-eyebrow" style="justify-content:center;">Contact</div>
     <h2 class="contact-title">Ready to make your product feel <em>release-ready?</em></h2>
-    <p class="contact-copy">Share your URL, deadline, budget range, and the flow you care about most. The form opens your email with the QA brief ready to send.</p>
+    <p class="contact-copy">Share your URL, launch timeline, budget range, timezone, and the flow you care about most. The form opens your email with the QA brief ready to send.</p>
     <form class="contact-form" action="mailto:jaswanth.mk63@gmail.com" method="post" enctype="text/plain">
       <label>
         Name
@@ -1931,11 +1982,16 @@
         <input type="text" name="deadline" placeholder="Launch date or sprint week">
       </label>
       <label>
+        Timezone
+        <input type="text" name="timezone" placeholder="EST, GMT, CET, GST, AEST...">
+      </label>
+      <label>
         Budget Range
         <select name="budget_range">
           <option value="Free audit">Free audit first</option>
-          <option value="Project sprint">Project sprint</option>
-          <option value="Monthly support">Monthly support</option>
+          <option value="USD 200-500 sprint">USD 200-500 sprint</option>
+          <option value="USD 500-1500 sprint">USD 500-1500 sprint</option>
+          <option value="Monthly support">Monthly remote QA support</option>
           <option value="Not sure">Not sure yet</option>
         </select>
       </label>
@@ -1960,11 +2016,11 @@
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Location</span>
-        <span>India — Remote Worldwide</span>
+        <span>India — US, UK, EU, UAE, AU remote</span>
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Response</span>
-        <span>Within 24 hours</span>
+        <span>Within 24 hours, async-friendly</span>
       </div>
     </div>
   </div>
