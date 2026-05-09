@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://formsubmit.co mailto:; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>BugAura Labs — Remote QA Testing Studio for Global Teams</title>
 <meta name="description" content="BugAura Labs is a remote QA testing studio for global startups, SaaS teams, ecommerce brands, and agencies. Manual QA, API checks, regression testing, and release-readiness reports for international clients.">
@@ -35,7 +35,8 @@
   "logo": "https://bugauralabs.studio/bugaura-labs-logo.png",
   "image": "https://bugauralabs.studio/bugaura-labs-logo.png",
   "description": "Remote QA testing studio for global SaaS teams, ecommerce brands, agencies, and startups.",
-  "areaServed": ["United States", "United Kingdom", "European Union", "United Arab Emirates", "Australia", "India"],
+  "sameAs": ["https://www.linkedin.com/company/bugauralabs"],
+  "areaServed": ["United States", "United Kingdom", "European Union", "United Arab Emirates", "Australia", "Canada", "Worldwide"],
   "serviceType": ["Manual QA Testing", "API Testing", "Regression Testing", "Ecommerce QA", "SaaS QA"]
 }
 </script>
@@ -614,7 +615,7 @@
     margin: 0 auto;
     padding: 0 5%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
@@ -639,6 +640,7 @@
 
   .case-card:nth-child(1)::before { background: linear-gradient(180deg, var(--gold), var(--jade)); }
   .case-card:nth-child(2)::before { background: linear-gradient(180deg, var(--jade), var(--copper)); }
+  .case-card:nth-child(3)::before { background: linear-gradient(180deg, var(--copper), var(--gold)); }
 
   .case-tag {
     display: inline-flex;
@@ -828,7 +830,7 @@
     margin: 0 auto 3.5rem;
     padding: 0 5%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     align-items: end;
   }
@@ -1456,7 +1458,7 @@
     <li><a href="#tools">Tools</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="https://in.linkedin.com/in/mkjaswanth" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://www.linkedin.com/company/bugauralabs" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="#contact" class="nav-cta">Get Audit</a></li>
   </ul>
 </nav>
@@ -1525,10 +1527,10 @@
           </div>
         </div>
         <div class="stat-row">
-          <span class="stat-num">EN</span>
+          <span class="stat-num">48h</span>
           <div class="stat-info">
-            <div class="stat-label">English QA Reports</div>
-            <div class="stat-desc">Severity, impact, steps, expected result, actual result, and retest notes</div>
+            <div class="stat-label">Fast First Findings</div>
+            <div class="stat-desc">Priority risks surfaced quickly so teams know what to fix first</div>
           </div>
         </div>
       </div>
@@ -1621,7 +1623,7 @@
       <p class="case-desc">End-to-end testing for a retail-style ecommerce flow, covering checkout behavior, product data, pricing, validation, and responsive experience across devices.</p>
       <ul class="case-bullets">
         <li>Identified checkout issue with out-of-stock products reaching payment step</li>
-        <li>Reported product pricing bug showing INR 0.00 on live catalogue</li>
+        <li>Reported zero-price catalogue bug that could create revenue leakage</li>
         <li>Found form validation gaps and mobile responsiveness breakpoints</li>
         <li>Validated admin CRUD flows and product management behavior end-to-end</li>
       </ul>
@@ -1635,6 +1637,17 @@
         <li>Found critical system errors blocking task progression and board state</li>
         <li>Validated task creation and board navigation across all workflow states</li>
         <li>Prepared reproducible bug reports with clear steps and severity context</li>
+      </ul>
+    </div>
+    <div class="case-card fade-in fade-in-delay-2">
+      <div class="case-tag">SaaS API &bull; Auth + Data Integrity &bull; Sample Scope</div>
+      <h3 class="case-title">API & SaaS Workflow Testing</h3>
+      <p class="case-desc">A focused SaaS-style QA scope for login, role access, API response validation, error handling, dashboard data consistency, and regression risk.</p>
+      <ul class="case-bullets">
+        <li>Validated expected response structures, status codes, and error messages</li>
+        <li>Checked role-based access behavior across user and admin flows</li>
+        <li>Compared UI data against API behavior to catch mismatch risks</li>
+        <li>Prepared QA notes suitable for Jira, GitHub Issues, or shared client docs</li>
       </ul>
     </div>
   </div>
@@ -1691,14 +1704,14 @@
       <div class="section-eyebrow">Proof of Work</div>
       <h2 class="section-title">Evidence clients can review before they commit.</h2>
     </div>
-    <p class="section-copy">The portfolio now shows concrete QA proof points instead of empty claims: tested flows, documented defects, repeatable report formats, and a downloadable presentation deck.</p>
+    <p class="section-copy">The portfolio shows concrete QA proof points instead of empty claims: tested flows, documented defects, repeatable report formats, and viewable sample reports.</p>
   </div>
 
   <div class="proof-grid">
     <div class="proof-card fade-in">
       <span class="proof-label">Ecommerce</span>
       <h3 class="proof-title">Checkout and catalogue defects found</h3>
-      <p class="proof-copy">Proof includes out-of-stock checkout behavior, INR 0.00 pricing issues, validation gaps, mobile layout issues, and admin product-management coverage.</p>
+      <p class="proof-copy">Proof includes out-of-stock checkout behavior, zero-price catalogue risks, validation gaps, mobile layout issues, and admin product-management coverage.</p>
     </div>
     <div class="proof-card fade-in fade-in-delay-1">
       <span class="proof-label">Scrum Platform</span>
@@ -1720,28 +1733,28 @@
 
 <div class="section-divider"></div>
 
-<!-- TESTIMONIALS -->
+<!-- CLIENT CONFIDENCE -->
 <section id="testimonials">
   <div class="testimonials-header">
     <div>
-      <div class="section-eyebrow">Trust Signals</div>
-      <h2 class="section-title">Feedback themes that reduce buyer doubt.</h2>
+      <div class="section-eyebrow">Client Confidence</div>
+      <h2 class="section-title">Trust signals while verified reviews are collected.</h2>
     </div>
-    <p class="section-copy">Until named client testimonials are approved, these anonymized proof notes keep the page credible without pretending to show public endorsements.</p>
+    <p class="section-copy">Named reviews and company logos will be added only after client approval. Until then, clients can review public presence, sample reports, and anonymized QA evidence.</p>
   </div>
 
   <div class="testimonials-grid">
     <div class="testimonial-card fade-in">
-      <p class="testimonial-quote">The most useful part was not just the bug list. It was knowing which issues could block checkout, break trust, or wait until a later sprint.</p>
-      <div class="testimonial-source">Founder-style feedback &bull; Ecommerce audit</div>
+      <p class="testimonial-quote">Public company presence is available through the BugAura Labs LinkedIn page, so overseas clients can verify the studio before starting a conversation.</p>
+      <div class="testimonial-source">LinkedIn company page &bull; Public profile</div>
     </div>
     <div class="testimonial-card fade-in fade-in-delay-1">
-      <p class="testimonial-quote">The report format made fixes easier to discuss because every issue had steps, expected behavior, actual behavior, severity, and retest notes.</p>
-      <div class="testimonial-source">Developer-style feedback &bull; Web app QA</div>
+      <p class="testimonial-quote">Sample QA documentation is available for review, including the structure used for severity, expected result, actual result, impact, and retest notes.</p>
+      <div class="testimonial-source">Sample report &bull; Review before hiring</div>
     </div>
     <div class="testimonial-card fade-in fade-in-delay-2">
-      <p class="testimonial-quote">The test cases helped us see missing workflow coverage before release, especially around task movement, state changes, and admin actions.</p>
-      <div class="testimonial-source">Product-style feedback &bull; Scrum platform</div>
+      <p class="testimonial-quote">Client names, references, or call notes can be shared when available and approved. The site does not use invented reviews or unverified client logos.</p>
+      <div class="testimonial-source">References &bull; Available when approved</div>
     </div>
   </div>
 </section>
@@ -1828,25 +1841,25 @@
     <div class="pricing-card fade-in">
       <span class="plan-label">Entry Point</span>
       <div class="plan-name">Remote QA Audit</div>
-      <div class="plan-price free">Free</div>
+      <div class="plan-price free">Free first look</div>
       <div class="plan-divider"></div>
-      <p class="plan-desc">Review one important flow and receive top risks, visible defects, and recommended next scope — no commitment required.</p>
+      <p class="plan-desc">Review one important flow and receive top risks, visible defects, and recommended next scope. Good for clients who want to validate fit before a paid sprint.</p>
       <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Request Audit &#8599;</a>
     </div>
     <div class="pricing-card featured fade-in fade-in-delay-1">
       <span class="plan-label">Project-Based</span>
       <div class="plan-name">Global QA Sprint</div>
-      <div class="plan-price custom">Custom</div>
+      <div class="plan-price custom">USD 200-500</div>
       <div class="plan-divider"></div>
-      <p class="plan-desc">Best for ecommerce flows, web app releases, admin panels, validation coverage, and regression passes before launch.</p>
+      <p class="plan-desc">Best for ecommerce flows, SaaS releases, admin panels, validation coverage, API checks, and regression passes before launch.</p>
       <a href="#contact" class="btn-primary" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Discuss Project &#8599;</a>
     </div>
     <div class="pricing-card fade-in fade-in-delay-2">
       <span class="plan-label">Ongoing</span>
       <div class="plan-name">Remote QA Partner</div>
-      <div class="plan-price monthly">Monthly</div>
+      <div class="plan-price monthly">From USD 750/mo</div>
       <div class="plan-divider"></div>
-      <p class="plan-desc">Recurring support for agencies, startups, and teams shipping frequent product updates who need a QA partner, not a one-time audit.</p>
+      <p class="plan-desc">Recurring support for agencies, startups, and teams shipping frequent updates who need predictable remote QA coverage.</p>
       <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Plan Support &#8599;</a>
     </div>
   </div>
@@ -1873,7 +1886,7 @@
     </div>
     <div class="faq-item fade-in fade-in-delay-2">
       <h3>Do you work with international teams?</h3>
-      <p>Yes. BugAura Labs works remotely with founders, agencies, SaaS teams, and ecommerce brands across the US, UK, EU, UAE, Australia, and India.</p>
+      <p>Yes. BugAura Labs works remotely with founders, agencies, SaaS teams, and ecommerce brands across the US, UK, EU, UAE, Australia, Canada, and other remote-first markets.</p>
     </div>
     <div class="faq-item fade-in fade-in-delay-3">
       <h3>What happens after bugs are fixed?</h3>
@@ -1886,6 +1899,14 @@
     <div class="faq-item fade-in fade-in-delay-1">
       <h3>What if I only need a quick review?</h3>
       <p>The free QA audit is built for that. Send one important flow and I will return the top visible risks and the recommended next scope.</p>
+    </div>
+    <div class="faq-item fade-in fade-in-delay-2">
+      <h3>Can you support agencies or larger teams?</h3>
+      <p>Yes. BugAura Labs works well as a focused QA owner for agencies and lean product teams that need clear reports, async updates, and repeatable release checks.</p>
+    </div>
+    <div class="faq-item fade-in fade-in-delay-3">
+      <h3>What proof can I review before hiring?</h3>
+      <p>You can review the sample QA report, case study summaries, LinkedIn company page, and the exact defect-reporting format used during paid QA sprints.</p>
     </div>
   </div>
 </section>
@@ -1904,7 +1925,7 @@
         <li>Every defect is written with reproduction steps, business impact, severity, and retest scope documented.</li>
         <li>Strong fit for ecommerce, SaaS, web apps, admin panels, MVPs, and agency handoffs.</li>
         <li>Remote-friendly delivery with NDA readiness, async updates, and timezone-aware communication.</li>
-        <li><a href="https://in.linkedin.com/in/mkjaswanth" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">View LinkedIn profile &#8599;</a></li>
+        <li><a href="https://www.linkedin.com/company/bugauralabs" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">View BugAura Labs on LinkedIn &#8599;</a></li>
       </ul>
     </div>
     <div class="about-visual fade-in">
@@ -1963,8 +1984,11 @@
   <div class="contact-inner">
     <div class="section-eyebrow" style="justify-content:center;">Contact</div>
     <h2 class="contact-title">Ready to make your product feel <em>release-ready?</em></h2>
-    <p class="contact-copy">Share your URL, launch timeline, budget range, timezone, and the flow you care about most. The form opens your email with the QA brief ready to send.</p>
-    <form class="contact-form" action="mailto:jaswanth.mk63@gmail.com" method="post" enctype="text/plain">
+    <p class="contact-copy">Share your URL, launch timeline, budget range, timezone, and the flow you care about most. The brief goes straight to email without asking you to open an email client.</p>
+    <form class="contact-form" action="https://formsubmit.co/jaswanth.mk63@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New BugAura Labs QA brief">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
       <label>
         Name
         <input type="text" name="name" autocomplete="name" required>
@@ -1988,7 +2012,7 @@
       <label>
         Budget Range
         <select name="budget_range">
-          <option value="Free audit">Free audit first</option>
+          <option value="Free first look">Free first look</option>
           <option value="USD 200-500 sprint">USD 200-500 sprint</option>
           <option value="USD 500-1500 sprint">USD 500-1500 sprint</option>
           <option value="Monthly support">Monthly remote QA support</option>
@@ -2002,7 +2026,7 @@
       <div class="form-actions">
         <button type="submit" class="btn-primary">Send QA Brief &#8599;</button>
         <a href="output/C2C_Agri_Sanitized_QA_Document.pdf" class="btn-outline" target="_blank">View Sample Report</a>
-        <a href="https://in.linkedin.com/in/mkjaswanth" class="btn-outline" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/company/bugauralabs" class="btn-outline" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </form>
     <div class="contact-details">
@@ -2016,7 +2040,7 @@
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Location</span>
-        <span>India — US, UK, EU, UAE, AU remote</span>
+        <span>Global remote delivery</span>
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Response</span>
