@@ -67,8 +67,8 @@
     --copper-light: #d4804a;
     --copper-dim: #7a3e18;
     --ivory: #f2edd8;
-    --ivory-dim: #c8c2a8;
-    --ivory-muted: #8a8470;
+    --ivory-dim: #eee7cf;
+    --ivory-muted: #d4ccb3;
     --border: rgba(201,168,76,0.15);
     --border-strong: rgba(201,168,76,0.3);
     --font-serif: 'Playfair Display', Georgia, serif;
@@ -262,7 +262,7 @@
   }
 
   .section-copy {
-    color: var(--ivory-dim);
+    color: #e8e0c8;
     font-size: 1.05rem;
     max-width: 600px;
     line-height: 1.75;
@@ -527,7 +527,7 @@
 
   .stat-desc {
     font-size: 0.72rem;
-    color: var(--ivory-muted);
+    color: var(--ivory-dim);
     line-height: 1.4;
     margin-top: 0.15rem;
   }
@@ -574,7 +574,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: end;
+    align-items: center;
   }
 
   .services-grid {
@@ -636,7 +636,7 @@
 
   .service-desc {
     font-size: 0.85rem;
-    color: var(--ivory-muted);
+    color: var(--ivory-dim);
     line-height: 1.65;
   }
 
@@ -732,7 +732,7 @@
 
   .case-bullets li {
     font-size: 0.82rem;
-    color: var(--ivory-muted);
+    color: var(--ivory-dim);
     display: flex;
     align-items: flex-start;
     gap: 0.65rem;
@@ -807,7 +807,7 @@
 
   .artifact-desc {
     font-size: 0.78rem;
-    color: var(--ivory-muted);
+    color: var(--ivory-dim);
     line-height: 1.6;
   }
 
@@ -824,7 +824,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: end;
+    align-items: center;
   }
 
   .proof-grid {
@@ -864,7 +864,7 @@
 
   .proof-copy {
     font-size: 0.8rem;
-    color: var(--ivory-muted);
+    color: var(--ivory-dim);
     line-height: 1.6;
   }
 
@@ -881,7 +881,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
-    align-items: end;
+    align-items: center;
   }
 
   .testimonials-grid {
@@ -1002,7 +1002,7 @@
 
   .step-desc {
     font-size: 0.73rem;
-    color: var(--ivory-muted);
+    color: var(--ivory-dim);
     line-height: 1.5;
   }
 
@@ -1019,7 +1019,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: end;
+    align-items: center;
   }
 
   .tools-grid {
@@ -1074,6 +1074,10 @@
     max-width: 1200px;
     margin: 0 auto 3.5rem;
     padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 3rem;
+    align-items: center;
   }
 
   .pricing-grid {
@@ -1093,6 +1097,8 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
   }
 
   .pricing-card:hover { border-color: var(--border-strong); }
@@ -1137,13 +1143,44 @@
 
   .plan-price {
     font-family: var(--font-mono);
-    font-size: 1.1rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
   }
 
   .plan-price.free { color: var(--jade-light); }
   .plan-price.custom { color: var(--gold); }
   .plan-price.monthly { color: var(--copper-light); }
+
+  .price-was {
+    color: var(--ivory-muted);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    margin-right: 0.45rem;
+  }
+
+  .offer-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    background: rgba(181,98,42,0.14);
+    border: 1px solid rgba(181,98,42,0.28);
+    color: var(--copper-light);
+    border-radius: 2px;
+    padding: 0.25rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.65rem;
+  }
+
+  .plan-meta {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ivory-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
 
   .plan-divider {
     height: 1px;
@@ -1155,7 +1192,44 @@
     font-size: 0.85rem;
     color: var(--ivory-dim);
     line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  .plan-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
     margin-bottom: 1.75rem;
+    flex: 1;
+  }
+
+  .plan-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    color: var(--ivory-dim);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .plan-list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  .pricing-note {
+    max-width: 1200px;
+    margin: 1.25rem auto 0;
+    padding: 0 5%;
+    color: var(--ivory-dim);
+    font-size: 0.78rem;
+    line-height: 1.6;
   }
 
   /* ---- FAQ ---- */
@@ -1195,7 +1269,7 @@
 
   .faq-item p {
     font-size: 0.84rem;
-    color: var(--ivory-muted);
+    color: var(--ivory-dim);
     line-height: 1.65;
   }
 
@@ -1463,6 +1537,7 @@
     .process-steps { grid-template-columns: 1fr 1fr; }
     .process-steps::before { display: none; }
     .tools-header { grid-template-columns: 1fr; }
+    .pricing-header { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
     .faq-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; }
@@ -1929,37 +2004,64 @@
 <!-- PRICING -->
 <section id="pricing">
   <div class="pricing-header">
-    <div class="section-eyebrow">Engagement</div>
-    <h2 class="section-title">Simple ways to start.</h2>
-    <p class="section-copy">The first step should feel low-risk for clients while still making the value obvious from day one.</p>
+    <div>
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="section-title">Founder-friendly QA packages for early clients.</h2>
+    </div>
+    <p class="section-copy">Start with a free audit, then upgrade only if the findings are useful. Early-client pricing is intentionally simple so startups and agencies can test the value without a large commitment.</p>
   </div>
 
   <div class="pricing-grid">
     <div class="pricing-card fade-in">
-      <span class="plan-label">Entry Point</span>
-      <div class="plan-name">Remote QA Audit</div>
-      <div class="plan-price free">Free first look</div>
+      <span class="plan-label">Start Here</span>
+      <div class="plan-name">Free QA Audit</div>
+      <div class="plan-price free">Free</div>
+      <div class="plan-meta">First look at one priority flow</div>
       <div class="plan-divider"></div>
-      <p class="plan-desc">Review one important flow and receive top risks, visible defects, and recommended next scope. Good for clients who want to validate fit before a paid sprint.</p>
-      <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Request Audit &#8599;</a>
+      <p class="plan-desc">A no-pressure review for one important product flow so you can see how BugAura Labs reports issues before starting paid work.</p>
+      <ul class="plan-list">
+        <li>Review of one checkout, signup, contact, or dashboard flow</li>
+        <li>Top visible bugs, risks, and usability friction</li>
+        <li>Short summary with recommended next QA scope</li>
+        <li>Best for founders who want to validate fit first</li>
+      </ul>
+      <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Request Free Audit &#8599;</a>
     </div>
     <div class="pricing-card featured fade-in fade-in-delay-1">
-      <span class="plan-label">Project-Based</span>
-      <div class="plan-name">Global QA Sprint</div>
-      <div class="plan-price custom">USD 200-500</div>
+      <span class="plan-label">First-Client Offer</span>
+      <div class="plan-name">QA Sprint</div>
+      <div class="plan-price custom"><span class="price-was">USD 250</span>USD 199</div>
+      <div class="plan-meta">Limited launch price</div>
+      <div class="offer-badge">Save USD 51</div>
       <div class="plan-divider"></div>
-      <p class="plan-desc">Best for ecommerce flows, SaaS releases, admin panels, validation coverage, API checks, and regression passes before launch.</p>
-      <a href="#contact" class="btn-primary" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Discuss Project &#8599;</a>
+      <p class="plan-desc">A focused paid QA sprint for small launches, ecommerce flows, SaaS screens, admin panels, and MVPs that need practical release confidence.</p>
+      <ul class="plan-list">
+        <li>Requirement review and test plan</li>
+        <li>Functional, negative, responsive, and regression checks</li>
+        <li>Bug report with severity, impact, steps, and screenshots</li>
+        <li>One retest pass after fixes are shared</li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Claim Sprint Offer &#8599;</a>
     </div>
     <div class="pricing-card fade-in fade-in-delay-2">
-      <span class="plan-label">Ongoing</span>
+      <span class="plan-label">First-Client Offer</span>
       <div class="plan-name">Remote QA Partner</div>
-      <div class="plan-price monthly">From USD 750/mo</div>
+      <div class="plan-price monthly"><span class="price-was">USD 500</span>USD 450/mo</div>
+      <div class="plan-meta">Intro monthly rate</div>
+      <div class="offer-badge">Save USD 50/mo</div>
       <div class="plan-divider"></div>
-      <p class="plan-desc">Recurring support for agencies, startups, and teams shipping frequent updates who need predictable remote QA coverage.</p>
-      <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Plan Support &#8599;</a>
+      <p class="plan-desc">A light monthly QA partnership for agencies, startups, and founders who ship often and want predictable testing support.</p>
+      <ul class="plan-list">
+        <li>Recurring QA support for priority releases</li>
+        <li>Regression checks before each release</li>
+        <li>Bug triage in Jira, GitHub, Sheets, or your preferred tool</li>
+        <li>Monthly summary of risks, fixes, and release readiness</li>
+      </ul>
+      <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Start Monthly QA &#8599;</a>
     </div>
   </div>
+
+  <p class="pricing-note">Intro pricing is for early BugAura Labs clients and may change as capacity fills. If the free audit does not reveal useful findings, there is no pressure to continue.</p>
 </section>
 
 <div class="section-divider"></div>
@@ -2110,9 +2212,8 @@
         Budget Range
         <select name="budget_range">
           <option value="Free first look">Free first look</option>
-          <option value="USD 200-500 sprint">USD 200-500 sprint</option>
-          <option value="USD 500-1500 sprint">USD 500-1500 sprint</option>
-          <option value="Monthly support">Monthly remote QA support</option>
+          <option value="USD 199 QA sprint offer">USD 199 QA sprint offer</option>
+          <option value="USD 450 monthly QA partner offer">USD 450 monthly QA partner offer</option>
           <option value="Not sure">Not sure yet</option>
         </select>
       </label>
