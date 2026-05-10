@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://formsubmit.co mailto:; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://formsubmit.co mailto:; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>BugAura Labs — Remote QA Testing Studio for Global Teams</title>
 <meta name="description" content="BugAura Labs is a remote QA testing studio for global startups, SaaS teams, ecommerce brands, and agencies. Manual QA, API checks, regression testing, and release-readiness reports for international clients.">
@@ -39,6 +39,15 @@
   "areaServed": ["United States", "United Kingdom", "European Union", "United Arab Emirates", "Australia", "Canada", "Worldwide"],
   "serviceType": ["Manual QA Testing", "API Testing", "Regression Testing", "Ecommerce QA", "SaaS QA"]
 }
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DGR1PM1XRW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DGR1PM1XRW');
 </script>
 <style>
   :root {
@@ -147,6 +156,46 @@
     display: flex;
     gap: 2rem;
     list-style: none;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+
+  .nav-menu-icon,
+  .nav-menu-icon::before,
+  .nav-menu-icon::after {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-menu-icon::before {
+    position: absolute;
+    top: -6px;
+  }
+
+  .nav-menu-icon::after {
+    position: absolute;
+    top: 6px;
   }
 
   .nav-links a {
@@ -1417,10 +1466,54 @@
     .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
     .faq-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
+    nav {
+      height: auto;
+      min-height: 64px;
+      align-items: flex-start;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .nav-menu-btn { display: flex; }
+    .nav-links {
+      order: 3;
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 0.75rem;
+      padding: 0.5rem 0;
+      border-top: 1px solid var(--border);
+      background: rgba(10,10,11,0.96);
+    }
+    .nav-links li { width: 100%; }
+    .nav-links a {
+      display: block;
+      padding: 0.75rem 0;
+      font-size: 0.9rem;
+    }
+    .nav-cta {
+      display: inline-block !important;
+      width: auto;
+      margin-top: 0.35rem;
+      padding: 0.65rem 1rem;
+      text-align: center;
+    }
+    .nav-toggle:checked ~ .nav-links { display: flex; }
+    .nav-toggle:checked + .nav-menu-btn .nav-menu-icon { transform: rotate(45deg); }
+    .nav-toggle:checked + .nav-menu-btn .nav-menu-icon::before {
+      transform: rotate(90deg);
+      top: 0;
+    }
+    .nav-toggle:checked + .nav-menu-btn .nav-menu-icon::after {
+      opacity: 0;
+    }
   }
 
   @media (max-width: 600px) {
+    .nav-brand { font-size: 1rem; }
+    .nav-brand-text span { font-size: 0.62rem; letter-spacing: 0.1em; }
+    .nav-logo { width: 30px; height: 30px; }
     .services-grid { grid-template-columns: 1fr; }
     .artifacts-grid { grid-template-columns: 1fr 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
@@ -1450,6 +1543,10 @@
       <span>Remote QA Studio</span>
     </span>
   </a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+  <label for="nav-toggle" class="nav-menu-btn" aria-label="Open navigation menu">
+    <span class="nav-menu-icon"></span>
+  </label>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#casestudies">Work</a></li>
@@ -1704,7 +1801,7 @@
       <div class="section-eyebrow">Proof of Work</div>
       <h2 class="section-title">Evidence clients can review before they commit.</h2>
     </div>
-    <p class="section-copy">The portfolio shows concrete QA proof points instead of empty claims: tested flows, documented defects, repeatable report formats, and viewable sample reports.</p>
+    <p class="section-copy">BugAura Labs shows concrete QA proof points instead of empty claims: tested flows, documented defects, repeatable report formats, and viewable sample reports.</p>
   </div>
 
   <div class="proof-grid">
@@ -1740,7 +1837,7 @@
       <div class="section-eyebrow">Client Confidence</div>
       <h2 class="section-title">Trust signals while verified reviews are collected.</h2>
     </div>
-    <p class="section-copy">Named reviews and company logos will be added only after client approval. Until then, clients can review public presence, sample reports, and anonymized QA evidence.</p>
+    <p class="section-copy">Named reviews and company logos will be added only after client approval. Until then, clients can review the studio presence, sample reports, and anonymized QA evidence.</p>
   </div>
 
   <div class="testimonials-grid">
@@ -1918,10 +2015,10 @@
   <div class="about-grid">
     <div>
       <div class="section-eyebrow">About</div>
-      <h2 class="section-title">A QA studio built around evidence, not assumptions.</h2>
-      <p class="section-copy" style="margin-bottom: 0;">BugAura Labs is led by Jaswanth M K, a QA tester focused on practical product quality for remote-first teams. The work combines manual exploratory testing, structured test case design, API validation thinking, regression checks, and clear English bug reporting — so international clients know exactly what is broken, why it matters, and what to fix first.</p>
+      <h2 class="section-title">A QA studio built for focused release confidence.</h2>
+      <p class="section-copy" style="margin-bottom: 0;">BugAura Labs is a remote QA testing studio built for startups, SaaS teams, ecommerce brands, and agencies that need practical release confidence. The studio is led by Jaswanth M K and combines manual exploratory testing, structured test case design, API validation thinking, regression checks, and clear defect reporting.</p>
       <ul class="about-bullets">
-        <li>I test like a user, report like a QA engineer, and prioritize like a product team.</li>
+        <li>Testing is planned around customer journeys, revenue-critical flows, admin workflows, and release risk.</li>
         <li>Every defect is written with reproduction steps, business impact, severity, and retest scope documented.</li>
         <li>Strong fit for ecommerce, SaaS, web apps, admin panels, MVPs, and agency handoffs.</li>
         <li>Remote-friendly delivery with NDA readiness, async updates, and timezone-aware communication.</li>
@@ -2068,6 +2165,14 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Close mobile nav after selecting a link
+  const navToggle = document.getElementById('nav-toggle');
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navToggle) navToggle.checked = false;
+    });
+  });
 
   // Smooth active nav state
   const sections = document.querySelectorAll('section[id]');
