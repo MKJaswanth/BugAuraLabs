@@ -1,2299 +1,1759 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://formsubmit.co mailto:; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; upgrade-insecure-requests">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<title>BugAura Labs — Remote QA Testing Studio for Global Teams</title>
-<meta name="description" content="BugAura Labs is a remote QA testing studio for global startups, SaaS teams, ecommerce brands, and agencies. Manual QA, API checks, regression testing, and release-readiness reports for international clients.">
-<link rel="canonical" href="https://bugauralabs.studio/">
-<meta property="og:title" content="BugAura Labs — Remote QA Testing Studio">
-<meta property="og:description" content="Remote QA testing for global teams shipping web apps, ecommerce flows, admin panels, and APIs.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://bugauralabs.studio/">
-<meta property="og:image" content="https://bugauralabs.studio/bugaura-labs-logo.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BugAura Labs — Remote QA Testing Studio">
-<meta name="twitter:description" content="Manual QA, API validation, regression testing, and release-readiness reports for global product teams.">
-<meta name="twitter:image" content="https://bugauralabs.studio/bugaura-labs-logo.png">
-<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
-<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
-<link rel="manifest" href="site.webmanifest">
-<link rel="image_src" href="https://bugauralabs.studio/bugaura-labs-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "BugAura Labs",
-  "url": "https://bugauralabs.studio/",
-  "logo": "https://bugauralabs.studio/bugaura-labs-logo.png",
-  "image": "https://bugauralabs.studio/bugaura-labs-logo.png",
-  "description": "Remote QA testing studio for global SaaS teams, ecommerce brands, agencies, and startups.",
-  "sameAs": ["https://www.linkedin.com/company/bugauralabs"],
-  "areaServed": ["United States", "United Kingdom", "European Union", "United Arab Emirates", "Australia", "Canada", "Worldwide"],
-  "serviceType": ["Manual QA Testing", "API Testing", "Regression Testing", "Ecommerce QA", "SaaS QA"]
-}
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DGR1PM1XRW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DGR1PM1XRW');
-</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BugAura Labs | Remote QA Testing Studio</title>
+<meta name="description" content="Remote QA testing for global SaaS, ecommerce, and agency teams. Checkout failures, broken flows, API mismatches. Found and documented before they reach your users."/>
+<link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="./favicon-192.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="./favicon-512.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png"/>
+<link rel="manifest" href="./site.webmanifest"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --obsidian: #0a0a0b;
-    --obsidian-2: #111113;
-    --obsidian-3: #18181c;
-    --obsidian-4: #1f1f25;
-    --obsidian-5: #26262e;
-    --gold: #c9a84c;
-    --gold-light: #e8cc7a;
-    --gold-dim: #8a6d2f;
-    --jade: #2a7a5a;
-    --jade-light: #3da876;
-    --jade-dim: #1a4d38;
-    --jade-pale: #0f2d22;
-    --copper: #b5622a;
-    --copper-light: #d4804a;
-    --copper-dim: #7a3e18;
-    --ivory: #f2edd8;
-    --ivory-dim: #eee7cf;
-    --ivory-muted: #d4ccb3;
-    --border: rgba(201,168,76,0.15);
-    --border-strong: rgba(201,168,76,0.3);
-    --font-serif: 'Playfair Display', Georgia, serif;
-    --font-sans: 'DM Sans', sans-serif;
-    --font-mono: 'DM Mono', monospace;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--obsidian);
-    color: var(--ivory);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ---- Noise texture overlay ---- */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.5;
-  }
-
-  /* ---- NAV ---- */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 0 5%;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(10,10,11,0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-brand {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    color: var(--gold);
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-  }
-
-  .nav-brand-text span {
-    color: var(--ivory-dim);
-    font-size: 0.75rem;
-    font-family: var(--font-sans);
-    font-weight: 300;
-    display: block;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    line-height: 1;
-  }
-
-  .nav-logo {
-    width: 34px;
-    height: 34px;
-    border-radius: 6px;
-    object-fit: cover;
-    background: var(--ivory);
-  }
-
-  .nav-brand-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    color: var(--gold);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-toggle {
-    display: none;
-  }
-
-  .nav-menu-btn {
-    display: none;
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--border-strong);
-    border-radius: 3px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--gold);
-    background: rgba(201,168,76,0.06);
-  }
-
-  .nav-menu-icon,
-  .nav-menu-icon::before,
-  .nav-menu-icon::after {
-    content: '';
-    display: block;
-    width: 18px;
-    height: 2px;
-    background: currentColor;
-    border-radius: 2px;
-    position: relative;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .nav-menu-icon::before {
-    position: absolute;
-    top: -6px;
-  }
-
-  .nav-menu-icon::after {
-    position: absolute;
-    top: 6px;
-  }
-
-  .nav-links a {
-    color: var(--ivory-dim);
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--gold); }
-
-  .nav-cta {
-    background: var(--gold);
-    color: var(--obsidian) !important;
-    padding: 0.45rem 1.1rem;
-    border-radius: 2px;
-    font-weight: 500 !important;
-    font-size: 0.8rem !important;
-    letter-spacing: 0.08em !important;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--obsidian) !important; }
-
-  /* ---- SECTIONS ---- */
-  section { position: relative; z-index: 1; }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-  }
-
-  /* ---- SECTION LABELS ---- */
-  .section-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .section-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--ivory);
-    margin-bottom: 1.25rem;
-  }
-
-  .section-copy {
-    color: #e8e0c8;
-    font-size: 1.05rem;
-    max-width: 600px;
-    line-height: 1.75;
-  }
-
-  /* ---- HERO ---- */
-  #hero {
-    min-height: 100vh;
-    padding: 120px 5% 80px;
-    display: flex;
-    align-items: center;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(42,122,90,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(201,168,76,0.05) 0%, transparent 50%),
-      var(--obsidian);
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid var(--border-strong);
-    border-radius: 2px;
-    padding: 0.3rem 0.9rem;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.75rem;
-  }
-
-  .hero-tag::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--jade-light);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  .hero-headline {
-    font-family: var(--font-serif);
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 600;
-    line-height: 1.1;
-    color: var(--ivory);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-headline em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-sub {
-    font-size: 1.05rem;
-    color: var(--ivory-dim);
-    max-width: 560px;
-    line-height: 1.75;
-    margin-bottom: 2.25rem;
-  }
-
-  .hero-sub strong {
-    color: var(--jade-light);
-    font-weight: 500;
-  }
-
-  .btn-group {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--gold);
-    color: var(--obsidian);
-    padding: 0.8rem 1.8rem;
-    border-radius: 2px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-1px);
-  }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    color: var(--ivory);
-    padding: 0.8rem 1.8rem;
-    border-radius: 2px;
-    font-weight: 400;
-    font-size: 0.9rem;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: all 0.2s;
-    border: 1px solid rgba(242,237,216,0.25);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-
-  .hero-trust {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .trust-item {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .trust-num {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    color: var(--gold);
-    font-weight: 600;
-    line-height: 1;
-  }
-
-  .trust-label {
-    font-size: 0.72rem;
-    color: var(--ivory-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 0.25rem;
-  }
-
-  /* ---- HERO CARD ---- */
-  .hero-card {
-    background: var(--obsidian-3);
-    border: 1px solid var(--border-strong);
-    border-radius: 4px;
-    padding: 1.75rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--jade), var(--gold), var(--copper));
-  }
-
-  .hero-card::after {
-    content: '';
-    position: absolute;
-    bottom: -40px; right: -40px;
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.06), transparent);
-  }
-
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-  }
-
-  .card-title {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: var(--ivory);
-    font-weight: 500;
-  }
-
-  .card-badge {
-    background: rgba(42,122,90,0.2);
-    border: 1px solid rgba(42,122,90,0.4);
-    color: var(--jade-light);
-    font-size: 0.65rem;
-    font-family: var(--font-mono);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .card-badge::before {
-    content: '';
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--jade-light);
-    animation: pulse 2s infinite;
-  }
-
-  .card-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .stat-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding-bottom: 0.9rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
-
-  .stat-num {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    color: var(--gold);
-    font-weight: 500;
-    min-width: 52px;
-    padding-top: 0.05rem;
-  }
-
-  .stat-info {
-    flex: 1;
-  }
-
-  .stat-label {
-    font-size: 0.8rem;
-    color: var(--ivory);
-    font-weight: 500;
-    line-height: 1.3;
-  }
-
-  .stat-desc {
-    font-size: 0.72rem;
-    color: var(--ivory-dim);
-    line-height: 1.4;
-    margin-top: 0.15rem;
-  }
-
-  .card-footer {
-    background: rgba(201,168,76,0.05);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 0.9rem 1rem;
-  }
-
-  .card-footer-label {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--gold-dim);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-
-  .card-footer p {
-    font-size: 0.78rem;
-    color: var(--ivory-dim);
-    line-height: 1.5;
-  }
-
-  /* ---- DIVIDER ---- */
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
-    margin: 0;
-  }
-
-  /* ---- SERVICES ---- */
-  #services {
-    padding: 100px 0;
-    background: var(--obsidian-2);
-  }
-
-  .services-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .services-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  .service-card {
-    background: var(--obsidian-4);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 1.75rem;
-    position: relative;
-    transition: all 0.3s;
-    cursor: default;
-  }
-
-  .service-card:hover {
-    border-color: var(--border-strong);
-    background: var(--obsidian-5);
-    transform: translateY(-2px);
-  }
-
-  .service-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.25rem;
-    font-size: 16px;
-  }
-
-  .icon-gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); }
-  .icon-jade { background: rgba(42,122,90,0.15); border: 1px solid rgba(42,122,90,0.25); }
-  .icon-copper { background: rgba(181,98,42,0.12); border: 1px solid rgba(181,98,42,0.22); }
-
-  .service-num {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--ivory-muted);
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-
-  .service-name {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    color: var(--ivory);
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
-
-  .service-desc {
-    font-size: 0.85rem;
-    color: var(--ivory-dim);
-    line-height: 1.65;
-  }
-
-  .service-card:nth-child(1) .service-icon { color: var(--gold); }
-  .service-card:nth-child(2) .service-icon { color: var(--jade-light); }
-  .service-card:nth-child(3) .service-icon { color: var(--copper-light); }
-  .service-card:nth-child(4) .service-icon { color: var(--gold); }
-  .service-card:nth-child(5) .service-icon { color: var(--jade-light); }
-  .service-card:nth-child(6) .service-icon { color: var(--copper-light); }
-
-  /* ---- CASE STUDIES ---- */
-  #casestudies {
-    padding: 100px 0;
-    background: var(--obsidian);
-  }
-
-  .casestudies-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-  }
-
-  .casestudies-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .case-card {
-    background: var(--obsidian-3);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 2.25rem;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s;
-  }
-
-  .case-card:hover { border-color: var(--border-strong); }
-
-  .case-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px; height: 100%;
-  }
-
-  .case-card:nth-child(1)::before { background: linear-gradient(180deg, var(--gold), var(--jade)); }
-  .case-card:nth-child(2)::before { background: linear-gradient(180deg, var(--jade), var(--copper)); }
-  .case-card:nth-child(3)::before { background: linear-gradient(180deg, var(--copper), var(--gold)); }
-
-  .case-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--jade-light);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-    background: rgba(42,122,90,0.1);
-    border: 1px solid rgba(42,122,90,0.2);
-    padding: 0.25rem 0.65rem;
-    border-radius: 2px;
-  }
-
-  .case-title {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--ivory);
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
-  .case-desc {
-    font-size: 0.9rem;
-    color: var(--ivory-dim);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .case-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-
-  .case-bullets li {
-    font-size: 0.82rem;
-    color: var(--ivory-dim);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.65rem;
-    line-height: 1.5;
-  }
-
-  .case-bullets li::before {
-    content: '';
-    display: inline-block;
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
-    margin-top: 0.5rem;
-    flex-shrink: 0;
-  }
-
-  /* ---- ARTIFACTS ---- */
-  #artifacts {
-    padding: 100px 0;
-    background: var(--obsidian-2);
-  }
-
-  .artifacts-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-  }
-
-  .artifacts-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-  }
-
-  .artifact-card {
-    background: var(--obsidian-4);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 1.5rem;
-    transition: all 0.3s;
-  }
-
-  .artifact-card:hover {
-    border-color: var(--border-strong);
-    background: var(--obsidian-5);
-  }
-
-  .artifact-icon-wrap {
-    width: 36px; height: 36px;
-    background: rgba(201,168,76,0.07);
-    border: 1px solid rgba(201,168,76,0.15);
-    border-radius: 2px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .artifact-icon {
-    font-size: 14px;
-    color: var(--gold);
-  }
-
-  .artifact-name {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    color: var(--ivory);
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-  }
-
-  .artifact-desc {
-    font-size: 0.78rem;
-    color: var(--ivory-dim);
-    line-height: 1.6;
-  }
-
-  /* ---- PROOF ---- */
-  #proof {
-    padding: 100px 0;
-    background: var(--obsidian);
-  }
-
-  .proof-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .proof-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-  }
-
-  .proof-card {
-    background: var(--obsidian-3);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 1.5rem;
-    min-height: 210px;
-  }
-
-  .proof-label {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--gold);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  .proof-title {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: var(--ivory);
-    line-height: 1.25;
-    margin-bottom: 0.75rem;
-  }
-
-  .proof-copy {
-    font-size: 0.8rem;
-    color: var(--ivory-dim);
-    line-height: 1.6;
-  }
-
-  /* ---- TESTIMONIALS ---- */
-  #testimonials {
-    padding: 100px 0;
-    background: var(--obsidian-2);
-  }
-
-  .testimonials-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .testimonials-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  .testimonial-card {
-    background: var(--obsidian-4);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 1.75rem;
-    position: relative;
-  }
-
-  .testimonial-card::before {
-    content: '"';
-    position: absolute;
-    top: 0.4rem;
-    right: 1rem;
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    color: rgba(201,168,76,0.2);
-    line-height: 1;
-  }
-
-  .testimonial-quote {
-    color: var(--ivory-dim);
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .testimonial-source {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--gold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  /* ---- PROCESS ---- */
-  #process {
-    padding: 100px 0;
-    background: var(--obsidian);
-    overflow: hidden;
-  }
-
-  .process-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-  }
-
-  .process-steps {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0;
-    position: relative;
-  }
-
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    top: 28px; left: calc(5% + 28px);
-    right: calc(5% + 28px);
-    height: 1px;
-    background: linear-gradient(90deg, var(--jade-dim), var(--gold-dim), var(--copper-dim), var(--gold-dim), var(--jade-dim));
-    z-index: 0;
-  }
-
-  .process-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 0.5rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-num {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    border: 1px solid var(--border-strong);
-    background: var(--obsidian-3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1.25rem;
-    transition: all 0.3s;
-  }
-
-  .process-step:hover .step-num {
-    background: rgba(201,168,76,0.1);
-    border-color: var(--gold);
-  }
-
-  .step-title {
-    font-family: var(--font-serif);
-    font-size: 0.9rem;
-    color: var(--ivory);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .step-desc {
-    font-size: 0.73rem;
-    color: var(--ivory-dim);
-    line-height: 1.5;
-  }
-
-  /* ---- TOOLS ---- */
-  #tools {
-    padding: 100px 0;
-    background: var(--obsidian-2);
-  }
-
-  .tools-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .tools-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .tool-pill {
-    background: var(--obsidian-4);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 0.6rem 1.2rem;
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--ivory-dim);
-    letter-spacing: 0.05em;
-    transition: all 0.25s;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .tool-pill::before {
-    content: '';
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .tool-pill:nth-child(1)::before, .tool-pill:nth-child(4)::before, .tool-pill:nth-child(7)::before { background: var(--jade-light); }
-  .tool-pill:nth-child(2)::before, .tool-pill:nth-child(5)::before, .tool-pill:nth-child(8)::before { background: var(--gold); }
-  .tool-pill:nth-child(3)::before, .tool-pill:nth-child(6)::before, .tool-pill:nth-child(9)::before { background: var(--copper-light); }
-  .tool-pill:nth-child(10)::before { background: var(--jade-light); }
-
-  .tool-pill:hover {
-    border-color: var(--border-strong);
-    color: var(--ivory);
-    background: var(--obsidian-5);
-  }
-
-  /* ---- PRICING ---- */
-  #pricing {
-    padding: 100px 0;
-    background: var(--obsidian);
-  }
-
-  .pricing-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 0.85fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .pricing-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  .pricing-card {
-    background: var(--obsidian-3);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pricing-card:hover { border-color: var(--border-strong); }
-
-  .pricing-card.featured {
-    border-color: rgba(201,168,76,0.4);
-    background: var(--obsidian-4);
-  }
-
-  .pricing-card.featured::before {
-    content: 'Most Popular';
-    position: absolute;
-    top: 0; right: 0;
-    background: var(--gold);
-    color: var(--obsidian);
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.8rem;
-    border-radius: 0 3px 0 2px;
-  }
-
-  .plan-label {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--ivory-muted);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-
-  .plan-name {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    color: var(--ivory);
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-
-  .plan-price {
-    font-family: var(--font-mono);
-    font-size: 1.25rem;
-    margin-bottom: 0.35rem;
-  }
-
-  .plan-price.free { color: var(--jade-light); }
-  .plan-price.custom { color: var(--gold); }
-  .plan-price.monthly { color: var(--copper-light); }
-
-  .price-was {
-    color: var(--ivory-muted);
-    text-decoration: line-through;
-    text-decoration-thickness: 1px;
-    margin-right: 0.45rem;
-  }
-
-  .offer-badge {
-    display: inline-flex;
-    align-items: center;
-    width: fit-content;
-    background: rgba(181,98,42,0.14);
-    border: 1px solid rgba(181,98,42,0.28);
-    color: var(--copper-light);
-    border-radius: 2px;
-    padding: 0.25rem 0.6rem;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 0.65rem;
-  }
-
-  .plan-meta {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--ivory-muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .plan-divider {
-    height: 1px;
-    background: var(--border);
-    margin: 1.25rem 0;
-  }
-
-  .plan-desc {
-    font-size: 0.85rem;
-    color: var(--ivory-dim);
-    line-height: 1.65;
-    margin-bottom: 1.25rem;
-  }
-
-  .plan-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    margin-bottom: 1.75rem;
-    flex: 1;
-  }
-
-  .plan-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.65rem;
-    color: var(--ivory-dim);
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }
-
-  .plan-list li::before {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--gold);
-    margin-top: 0.55rem;
-    flex-shrink: 0;
-  }
-
-  .pricing-note {
-    max-width: 1200px;
-    margin: 1.25rem auto 0;
-    padding: 0 5%;
-    color: var(--ivory-dim);
-    font-size: 0.78rem;
-    line-height: 1.6;
-  }
-
-  /* ---- FAQ ---- */
-  #faq {
-    padding: 100px 0;
-    background: var(--obsidian-2);
-  }
-
-  .faq-header {
-    max-width: 1200px;
-    margin: 0 auto 3.5rem;
-    padding: 0 5%;
-  }
-
-  .faq-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-
-  .faq-item {
-    background: var(--obsidian-4);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 1.5rem;
-  }
-
-  .faq-item h3 {
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    color: var(--ivory);
-    margin-bottom: 0.65rem;
-  }
-
-  .faq-item p {
-    font-size: 0.84rem;
-    color: var(--ivory-dim);
-    line-height: 1.65;
-  }
-
-  /* ---- ABOUT ---- */
-  #about {
-    padding: 100px 0;
-    background: var(--obsidian-2);
-  }
-
-  .about-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .about-bullets li {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    font-size: 0.9rem;
-    color: var(--ivory-dim);
-    line-height: 1.6;
-  }
-
-  .about-bullets li::before {
-    content: '';
-    display: inline-block;
-    width: 20px; height: 1px;
-    background: var(--gold);
-    margin-top: 0.75rem;
-    flex-shrink: 0;
-  }
-
-  .about-visual {
-    background: var(--obsidian-4);
-    border: 1px solid var(--border-strong);
-    border-radius: 3px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .about-visual::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--jade));
-  }
-
-  .qa-terminal {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    line-height: 2;
-  }
-
-  .terminal-line { display: flex; gap: 0.75rem; }
-  .terminal-key { color: var(--jade-light); min-width: 100px; }
-  .terminal-val { color: var(--ivory-dim); }
-  .terminal-val.gold { color: var(--gold); }
-  .terminal-val.copper { color: var(--copper-light); }
-  .terminal-val.jade { color: var(--jade-light); }
-
-  .terminal-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .t-dot { width: 8px; height: 8px; border-radius: 50%; }
-
-  /* ---- CONTACT ---- */
-  #contact {
-    padding: 100px 0;
-    background: var(--obsidian);
-    text-align: center;
-  }
-
-  .contact-inner {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 5%;
-  }
-
-  .contact-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--ivory);
-    margin-bottom: 1.25rem;
-  }
-
-  .contact-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .contact-copy {
-    color: var(--ivory-dim);
-    font-size: 1rem;
-    line-height: 1.75;
-    margin-bottom: 2.25rem;
-  }
-
-  .contact-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.9rem;
-    margin: 2rem auto 0;
-    text-align: left;
-  }
-
-  .contact-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--gold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .contact-form input,
-  .contact-form select,
-  .contact-form textarea {
-    width: 100%;
-    background: var(--obsidian-3);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    color: var(--ivory);
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    padding: 0.8rem 0.9rem;
-    outline: none;
-  }
-
-  .contact-form input:focus,
-  .contact-form select:focus,
-  .contact-form textarea:focus {
-    border-color: var(--gold);
-  }
-
-  .contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-
-  .form-full {
-    grid-column: 1 / -1;
-  }
-
-  .form-actions {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-  }
-
-  .contact-details {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .contact-detail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .contact-detail-label {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--ivory-muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .contact-detail a, .contact-detail span {
-    font-size: 0.88rem;
-    color: var(--ivory-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .contact-detail a:hover { color: var(--gold); }
-
-  /* ---- FOOTER ---- */
-  footer {
-    padding: 1.75rem 5%;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-brand {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    color: var(--gold);
-    font-weight: 500;
-  }
-
-  .footer-copy {
-    font-size: 0.78rem;
-    color: var(--ivory-muted);
-  }
-
-  /* ---- SCROLL ANIMATIONS ---- */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .fade-in-delay-1 { transition-delay: 0.1s; }
-  .fade-in-delay-2 { transition-delay: 0.2s; }
-  .fade-in-delay-3 { transition-delay: 0.3s; }
-  .fade-in-delay-4 { transition-delay: 0.4s; }
-  .fade-in-delay-5 { transition-delay: 0.5s; }
-
-  /* ---- RESPONSIVE ---- */
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-card { display: none; }
-    .services-header { grid-template-columns: 1fr; }
-    .services-grid { grid-template-columns: 1fr 1fr; }
-    .casestudies-grid { grid-template-columns: 1fr; }
-    .artifacts-grid { grid-template-columns: 1fr 1fr; }
-    .proof-header { grid-template-columns: 1fr; }
-    .proof-grid { grid-template-columns: 1fr 1fr; }
-    .testimonials-header { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; }
-    .process-steps::before { display: none; }
-    .tools-header { grid-template-columns: 1fr; }
-    .pricing-header { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
-    .faq-grid { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; }
-    nav {
-      height: auto;
-      min-height: 64px;
-      align-items: flex-start;
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .nav-menu-btn { display: flex; }
-    .nav-links {
-      order: 3;
-      width: 100%;
-      display: none;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 0.75rem;
-      padding: 0.5rem 0;
-      border-top: 1px solid var(--border);
-      background: rgba(10,10,11,0.96);
-    }
-    .nav-links li { width: 100%; }
-    .nav-links a {
-      display: block;
-      padding: 0.75rem 0;
-      font-size: 0.9rem;
-    }
-    .nav-cta {
-      display: inline-block !important;
-      width: auto;
-      margin-top: 0.35rem;
-      padding: 0.65rem 1rem;
-      text-align: center;
-    }
-    .nav-toggle:checked ~ .nav-links { display: flex; }
-    .nav-toggle:checked + .nav-menu-btn .nav-menu-icon { transform: rotate(45deg); }
-    .nav-toggle:checked + .nav-menu-btn .nav-menu-icon::before {
-      transform: rotate(90deg);
-      top: 0;
-    }
-    .nav-toggle:checked + .nav-menu-btn .nav-menu-icon::after {
-      opacity: 0;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .nav-brand { font-size: 1rem; }
-    .nav-brand-text span { font-size: 0.62rem; letter-spacing: 0.1em; }
-    .nav-logo { width: 30px; height: 30px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .artifacts-grid { grid-template-columns: 1fr 1fr; }
-    .proof-grid { grid-template-columns: 1fr; }
-    .contact-form { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr; }
-  }
-
-  /* Horizontal rule accent */
-  .accent-line {
-    display: inline-block;
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    vertical-align: middle;
-    margin-right: 0.75rem;
-  }
+/* ═══ RESET ══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+/* ═══ TOKENS ═════════════════════════════════════════════ */
+:root{
+  --black:#000;
+  --surface:#080808;
+
+  /* Glass fills — translucent so backdrop-filter blurs the orbs behind */
+  --glass:rgba(255,255,255,.06);
+  --glass-h:rgba(255,255,255,.11);
+  --glass-border:rgba(255,255,255,.13);
+  --glass-border-h:rgba(255,255,255,.24);
+  --glass-shadow:inset 1px 1px 0 rgba(255,255,255,.12);
+  --glass-shadow-h:inset 1px 1px 0 rgba(255,255,255,.22);
+
+  /* Text */
+  --white:#fff;
+  --g1:#efefef;
+  --g2:#c4c4c4;   /* body text */
+  --g3:#aaa;      /* secondary */
+  --g4:#888;      /* small labels — bright enough at ≤.7rem */
+  --g5:#4a4a4a;   /* decorative only */
+
+  /* Dividers — NOT text */
+  --div:#1e1e1e;
+
+  /* Accent */
+  --green:#22c55e;
+  --green-bg:rgba(34,197,94,.12);
+  --red:#ef4444;
+  --red-bg:rgba(239,68,68,.12);
+  --yellow:#eab308;
+  --yellow-bg:rgba(234,179,8,.12);
+
+  /* Blur */
+  --blur:16px;
+  --blur-h:26px;
+
+  /* Radii */
+  --r:6px;--r2:10px;--r3:16px;
+
+  /* Motion */
+  --spring:cubic-bezier(0.34,1.4,0.64,1);
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ═══ BASE ═══════════════════════════════════════════════ */
+body{
+  background:var(--black);color:var(--white);
+  font-family:'DM Sans',system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+/* Headings use Space Grotesk — distinctive, precise, human */
+h1,h2,h3,h4,h5{font-family:'Space Grotesk',system-ui,sans-serif}
+/* Grain texture over everything — gives glass a visible surface */
+body::after{
+  content:'';
+  position:fixed;inset:0;z-index:400;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+  mix-blend-mode:overlay;
+  opacity:1;
+}
+::selection{background:var(--white);color:var(--black)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--white);outline-offset:3px;border-radius:2px}
+p{color:var(--g2)}
+strong{color:var(--white);font-weight:500}
+
+/* ═══ SKIP ═══════════════════════════════════════════════ */
+.skip{position:absolute;top:-4rem;left:1.25rem;background:var(--white);color:var(--black);padding:.5rem 1rem;font-size:.8rem;font-family:'JetBrains Mono',monospace;z-index:9999;border-radius:4px}
+.skip:focus{top:1rem}
+
+/* ═══ LAYOUT ══════════════════════════════════════════════ */
+.w{max-width:1120px;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+hr.rule{border:none;border-top:1px solid var(--div)}
+
+/* ═══ PROGRESS BAR ════════════════════════════════════════ */
+.prog{position:fixed;top:0;left:0;height:2px;z-index:999;background:var(--white);width:0%;pointer-events:none;transition:width .06s linear}
+
+/* ═══════════════════════════════════════════════════════════
+   BACKGROUND GLOW ORBS
+   Clearly visible — this is what the glass blurs.
+   Fixed so they persist as depth across every section.
+══════════════════════════════════════════════════════════ */
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;will-change:transform}
+
+/* Bottom-left green anchor — primary depth, clearly visible */
+.orb-1{
+  width:820px;height:820px;
+  background:radial-gradient(circle at 40% 40%,rgba(34,197,94,.28) 0%,rgba(34,197,94,.10) 45%,transparent 72%);
+  filter:blur(72px);
+  bottom:-15%;left:-10%;
+  animation:drift1 20s ease-in-out infinite alternate;
+}
+/* Top-right green */
+.orb-2{
+  width:660px;height:660px;
+  background:radial-gradient(circle at 50% 50%,rgba(34,197,94,.20) 0%,rgba(34,197,94,.06) 50%,transparent 72%);
+  filter:blur(80px);
+  top:5%;right:-12%;
+  animation:drift2 26s ease-in-out infinite alternate;
+}
+/* Mid-page cool blue-indigo — depth differentiation */
+.orb-3{
+  width:900px;height:900px;
+  background:radial-gradient(circle at 50% 50%,rgba(90,110,220,.13) 0%,rgba(60,80,180,.05) 50%,transparent 72%);
+  filter:blur(100px);
+  top:30%;left:20%;
+  animation:drift3 32s ease-in-out infinite alternate;
+}
+/* Bottom-right secondary green */
+.orb-4{
+  width:560px;height:560px;
+  background:radial-gradient(circle at 50% 50%,rgba(34,197,94,.16) 0%,rgba(34,197,94,.04) 50%,transparent 72%);
+  filter:blur(90px);
+  bottom:5%;right:5%;
+  animation:drift4 24s ease-in-out infinite alternate;
+}
+
+@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-90px) scale(1.05)}}
+@keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-60px,80px)}}
+@keyframes drift3{from{transform:translate(0,0) scale(1)}to{transform:translate(50px,60px) scale(1.03)}}
+@keyframes drift4{from{transform:translate(0,0)}to{transform:translate(-40px,-50px)}}
+
+/* ═══════════════════════════════════════════════════════════
+   GLASS SYSTEM
+   Semi-translucent fill + backdrop-blur + inset highlight.
+   Every glass element uses these custom properties.
+══════════════════════════════════════════════════════════ */
+.glass{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--glass-shadow),0 8px 32px rgba(0,0,0,.4);
+  backdrop-filter:blur(var(--blur));
+  -webkit-backdrop-filter:blur(var(--blur));
+  transition:
+    background .3s var(--ease),
+    border-color .3s var(--ease),
+    box-shadow .3s var(--ease),
+    backdrop-filter .3s var(--ease),
+    transform .3s var(--spring);
+}
+.glass:hover{
+  background:var(--glass-h);
+  border-color:var(--glass-border-h);
+  box-shadow:var(--glass-shadow-h),0 20px 56px rgba(0,0,0,.55);
+  backdrop-filter:blur(var(--blur-h));
+  -webkit-backdrop-filter:blur(var(--blur-h));
+}
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter:blur(1px)){
+  .glass{background:rgba(18,18,18,.95)}
+  .glass:hover{background:rgba(25,25,25,.98)}
+}
+
+/* ═══ LOGO ════════════════════════════════════════════════ */
+.logo-mark{display:flex;align-items:center;gap:.6rem;text-decoration:none;transition:opacity .15s}
+.logo-mark:hover{opacity:.78}
+.logo-img{display:block;height:clamp(44px,6vw,60px);width:auto;max-width:90px;object-fit:contain;flex-shrink:0}
+.logo-mark svg,.logo-mark .logo-text{display:none}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:-.01em;color:var(--white)}
+.logo-text span{color:var(--green)}
+
+/* ═══ NAV ═════════════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:56px;display:flex;align-items:center;justify-content:space-between;
+  padding-inline:clamp(1.25rem,5vw,3rem);
+  border-bottom:1px solid transparent;
+  transition:background .3s,border-color .3s,backdrop-filter .3s;
+}
+/* Glass nav on scroll */
+.nav.stuck{
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom-color:var(--glass-border);
+}
+.nav-mid{display:flex;gap:2rem;list-style:none}
+.nav-mid a{font-size:.8rem;color:var(--g3);transition:color .15s;position:relative;padding-bottom:2px}
+.nav-mid a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--white);transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+.nav-mid a:hover{color:var(--white)}
+.nav-mid a:hover::after{transform:scaleX(1)}
+.nav-mid a:focus-visible{outline:2px solid var(--white);outline-offset:3px;border-radius:2px}
+.nav-cta{font-size:.78rem;font-weight:600;background:var(--white);color:var(--black);padding:.45rem 1.15rem;border-radius:var(--r);border:none;cursor:pointer;transition:opacity .15s,transform .15s;font-family:'DM Sans',sans-serif;text-decoration:none}
+.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+.nav-cta:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+@media(max-width:768px){.nav-mid{display:none}}
+
+/* ═══ BUTTONS ═════════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.875rem;font-weight:600;font-family:'DM Sans',sans-serif;padding:.72rem 1.4rem;border-radius:var(--r);cursor:pointer;border:none;text-decoration:none;transition:opacity .15s,transform .2s var(--spring),box-shadow .2s}
+.btn:hover{opacity:.88;transform:translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+.btn-w{background:var(--white);color:var(--black)}
+.btn-w:hover{box-shadow:0 8px 28px rgba(255,255,255,.16)}
+.btn-o{background:rgba(255,255,255,.06);color:var(--white);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-o:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
+
+/* ═══ SECTION ═════════════════════════════════════════════ */
+/* Transparent so fixed orbs bleed through every section */
+section{position:relative;z-index:1;padding-block:clamp(4rem,8vw,7rem);background:transparent}
+.sec-label{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--g4);font-family:'JetBrains Mono',monospace;display:block;margin-bottom:.75rem}
+.sec-h{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.65rem,3.5vw,2.45rem);font-weight:700;letter-spacing:-.03em;line-height:1.1;color:var(--white);margin-bottom:1rem}
+.sec-sub{font-size:.95rem;color:var(--g2);line-height:1.75;max-width:50ch}
+
+/* ═══ HERO ═════════════════════════════════════════════════ */
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:5rem 4rem;position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:3rem 5rem;align-items:center}
+
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.06);border:1px solid var(--glass-border);border-radius:100px;padding:.3rem .8rem .3rem .55rem;margin-bottom:1.75rem;animation:fade-up .6s var(--ease) both .1s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:badge-pulse 2.5s ease-in-out infinite}
+@keyframes badge-pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{opacity:.5;box-shadow:0 0 10px 4px rgba(34,197,94,.12)}}
+.hero-badge span{font-size:.73rem;color:var(--g2);font-weight:500}
+
+.hero-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5.2vw,4rem);font-weight:700;letter-spacing:-.04em;line-height:1.03;color:var(--white);margin-bottom:1.4rem;animation:fade-up .65s var(--ease) both .2s}
+.hero-h1 .dim{color:var(--g3)}
+.hero-desc{font-size:1rem;color:var(--g2);line-height:1.8;max-width:44ch;margin-bottom:2rem;animation:fade-up .65s var(--ease) both .3s}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.25rem;animation:fade-up .65s var(--ease) both .4s}
+.hero-checks{display:flex;gap:1.5rem;flex-wrap:wrap;animation:fade-up .65s var(--ease) both .5s}
+.hero-check{font-size:.8rem;color:var(--g3);display:flex;align-items:center;gap:.35rem}
+.hero-check::before{content:'✓';color:var(--green);font-size:.68rem;font-weight:700}
+
+/* Hero report window */
+.hero-visual{animation:fade-up .75s var(--ease) both .35s;will-change:transform}
+.report-win{border-radius:var(--r2);overflow:hidden;font-family:'JetBrains Mono',monospace;position:relative}
+/* glass applied via .glass class */
+.win-bar{background:rgba(0,0,0,.3);border-bottom:1px solid var(--glass-border);padding:.6rem .9rem;display:flex;align-items:center;gap:.45rem;position:relative;z-index:2}
+.win-dot{width:10px;height:10px;border-radius:50%}
+.win-title{font-size:.7rem;color:var(--g3);margin-left:.35rem;letter-spacing:.03em}
+.scan-line{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(34,197,94,.4),transparent);top:0;z-index:3;pointer-events:none;animation:scan 5s ease-in-out infinite 2.5s}
+@keyframes scan{0%{top:0;opacity:0}6%{opacity:.9}90%{top:100%;opacity:.3}100%{top:100%;opacity:0}}
+.report-body{padding:1.2rem 1.35rem;display:flex;flex-direction:column;position:relative;z-index:2}
+.rr{display:flex;gap:.75rem;align-items:baseline;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.7rem}
+.rr:last-child{border-bottom:none}
+.rk{color:var(--g3);min-width:90px;flex-shrink:0;line-height:1.5}
+.rv{color:var(--g1);line-height:1.5;word-break:break-word}
+.cursor{display:inline-block;width:6px;height:.85em;background:var(--green);vertical-align:middle;margin-left:2px;animation:cur-blink 1.1s step-end infinite}
+@keyframes cur-blink{0%,100%{opacity:1}50%{opacity:0}}
+.bd{display:inline-block;font-size:.62rem;font-weight:600;letter-spacing:.04em;padding:.18em .55em;border-radius:3px;font-family:'JetBrains Mono',monospace;vertical-align:middle}
+.bd-red{background:var(--red-bg);color:var(--red)}
+.bd-yellow{background:var(--yellow-bg);color:var(--yellow)}
+.bd-green{background:var(--green-bg);color:var(--green)}
+.bd-gray{background:rgba(255,255,255,.08);color:var(--g2)}
+.steps-block,.diff-block{margin-top:.5rem;padding:.65rem .8rem;background:rgba(0,0,0,.3);border-radius:var(--r);font-size:.67rem;border:1px solid rgba(255,255,255,.06)}
+.steps-block{line-height:2}.diff-block{line-height:1.9}
+.sln{color:var(--g3);display:inline-block;min-width:18px;user-select:none}
+.d-e{color:var(--green)}.d-a{color:var(--red)}
+.rfoot{margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;font-size:.65rem;color:var(--g3)}
+.sev-bar{display:flex;gap:3px}
+.sb{width:4px;height:13px;border-radius:2px;animation:sev-pulse 2.8s ease-in-out infinite}
+.sb:nth-child(2){animation-delay:.15s}.sb:nth-child(3){animation-delay:.3s}.sb:nth-child(4){animation-delay:.45s}
+@keyframes sev-pulse{0%,100%{opacity:1}50%{opacity:.4;filter:brightness(1.6)}}
+
+/* Mobile: show condensed card */
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{display:block}
+  [data-hide-m]{display:none}
+}
+@media(max-width:480px){.hero-h1{font-size:2.2rem}}
+
+/* ═══ NUMBERS ═════════════════════════════════════════════ */
+.numbers{
+  border-block:1px solid var(--div);
+  position:relative;z-index:1;background:transparent;
+}
+.num-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+
+.num-item{
+  padding:clamp(2rem,4vw,3rem) clamp(1.5rem,3vw,2.5rem) clamp(1.75rem,3.5vw,2.5rem);
+  border-right:1px solid var(--div);
+  position:relative;overflow:hidden;
+  transition:background .3s var(--ease);
+}
+.num-item:last-child{border-right:none}
+
+/* top green sweep on hover */
+.num-item::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--green) 0%,rgba(34,197,94,.3) 60%,transparent 100%);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.num-item:hover{background:rgba(255,255,255,.035)}
+.num-item:hover::before{transform:scaleX(1)}
+
+/* ambient glow on hover */
+.num-item::after{
+  content:'';
+  position:absolute;
+  width:200px;height:200px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(34,197,94,.1) 0%,transparent 70%);
+  bottom:-80px;left:-40px;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .4s var(--ease);
+}
+.num-item:hover::after{opacity:1}
+
+/* category tag */
+.num-tag{
+  display:block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:1rem;
+}
+
+/* THE NUMBER — big and loud */
+.num-val{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(3rem,5.5vw,5.5rem);
+  font-weight:700;
+  letter-spacing:-.045em;
+  color:var(--white);
+  line-height:1;
+  margin-bottom:.75rem;
+  text-shadow:0 0 60px rgba(255,255,255,.06);
+}
+.num-val .suf{
+  color:var(--green);
+  font-size:.55em;
+  letter-spacing:-.01em;
+  text-shadow:0 0 30px rgba(34,197,94,.3);
+  vertical-align:super;
+}
+
+/* description */
+.num-lbl{
+  font-size:.8rem;
+  color:var(--g3);
+  line-height:1.55;
+  max-width:20ch;
+  margin-top:.1rem;
+}
+
+@media(max-width:860px){
+  .num-val{font-size:clamp(2.8rem,7vw,4.2rem)}
+}
+@media(max-width:640px){
+  .num-grid{grid-template-columns:repeat(2,1fr)}
+  .num-item:nth-child(2){border-right:none}
+  .num-item:nth-child(3){border-top:1px solid var(--div)}
+  .num-val{font-size:clamp(2.8rem,9vw,3.8rem)}
+  .num-lbl{max-width:100%}
+}
+@media(max-width:380px){
+  .num-grid{grid-template-columns:1fr}
+  .num-item{border-right:none;border-bottom:1px solid var(--div)}
+  .num-item:last-child{border-bottom:none}
+}
+
+/* ═══ SERVICES ════════════════════════════════════════════ */
+.svc-wrap{display:grid;grid-template-columns:1fr 2fr;gap:4rem 5rem;align-items:start}
+.svc-left{position:sticky;top:5.5rem}
+.svc-list{display:flex;flex-direction:column}
+.svc-row{
+  display:flex;gap:1.4rem;align-items:start;
+  padding-block:1.5rem;border-bottom:1px solid var(--div);
+  transition:background .3s var(--ease),padding-left .3s var(--spring),
+    backdrop-filter .3s var(--ease),border-color .3s var(--ease),
+    box-shadow .3s var(--ease);
+  cursor:default;position:relative;
+}
+.svc-row:first-child{border-top:1px solid var(--div)}
+/* Glass hover: translucent fill + blur + inset highlight + gentle lift */
+.svc-row:hover{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom-color:rgba(255,255,255,.12);
+  box-shadow:inset 1px 0 0 rgba(255,255,255,.09);
+  padding-left:.5rem;
+}
+@supports not (backdrop-filter:blur(1px)){
+  .svc-row:hover{background:rgba(28,28,28,.98)}
+}
+.svc-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--g4);min-width:1.8rem;padding-top:.22rem;flex-shrink:0}
+.svc-name{font-size:.92rem;font-weight:600;color:var(--g1);margin-bottom:.3rem;transition:color .15s}
+.svc-row:hover .svc-name{color:var(--white)}
+.svc-row p{font-size:.84rem;color:var(--g3);line-height:1.65;transition:color .15s}
+.svc-row:hover p{color:var(--g2)}
+@media(max-width:760px){.svc-wrap{grid-template-columns:1fr;gap:2rem}.svc-left{position:static}}
+
+/* ═══════════════════════════════════════════════════════════
+   CASE STUDIES — STICKY STACKING CARDS
+   Each card is sticky; as you scroll, later cards slide
+   over earlier ones. JS dims/scales buried cards.
+══════════════════════════════════════════════════════════ */
+#work .w{position:relative;z-index:1}
+
+.cases-stack{
+  display:flex;
+  flex-direction:column;
+  gap:0; /* no gap — cards will touch/overlap at sticky point */
+}
+
+.case{
+  /* sticky stacking */
+  position:sticky;
+  top:5.5rem;   /* where cards pile up — must match JS constant */
+  /* glass card */
+  border-radius:var(--r3);
+  margin-bottom:1.5rem; /* scroll space between cards before they stack */
+  /* glass */
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--glass-shadow),0 16px 48px rgba(0,0,0,.45);
+  backdrop-filter:blur(var(--blur));
+  -webkit-backdrop-filter:blur(var(--blur));
+  /* layout */
+  padding:2.5rem clamp(1.25rem,5vw,3rem);
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem 4rem;
+  /* stacking transition */
+  transition:transform .35s var(--ease),filter .35s var(--ease),opacity .35s var(--ease);
+  transform-origin:top center;
+  overflow:hidden;
+  cursor:default;
+}
+.case:last-child{margin-bottom:0}
+/* z-index increments so later cards appear on top */
+.case:nth-child(1){z-index:1}
+.case:nth-child(2){z-index:2}
+.case:nth-child(3){z-index:3}
+
+/* left glow line on hover */
+.case::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent 70%);transform:scaleY(0);transform-origin:top;transition:transform .35s var(--ease);border-radius:2px 0 0 2px}
+.case:hover::before{transform:scaleY(1)}
+
+.tag-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem}
+.tag{font-size:.65rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:.2em .65em;border-radius:3px;border:1px solid rgba(255,255,255,.14);color:var(--g3);font-family:'JetBrains Mono',monospace;transition:border-color .15s,color .15s}
+.case:hover .tag{border-color:rgba(255,255,255,.24);color:var(--g2)}
+.case-title{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;letter-spacing:-.02em;color:var(--white);margin-bottom:.7rem;line-height:1.25}
+.case p{font-size:.86rem;color:var(--g2);line-height:1.65}
+.findings-lbl{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--g4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;display:block}
+.finding{display:flex;gap:.7rem;align-items:start;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.84rem;color:var(--g2);line-height:1.55;transition:color .15s,transform .2s var(--spring)}
+.finding:last-child{border-bottom:none}
+.finding:hover{color:var(--g1);transform:translateX(4px)}
+.fa{color:var(--g4);flex-shrink:0;font-size:.7rem;margin-top:.2rem;transition:color .15s}
+.finding:hover .fa{color:var(--g3)}
+
+/* Mobile: disable sticky stack, fall back to static cards */
+@media(max-width:700px){
+  .case{position:static;top:auto;grid-template-columns:1fr;gap:1.5rem;padding-block:2rem;margin-bottom:1rem;border-radius:var(--r2)}
+}
+
+/* ═══ PROCESS ═════════════════════════════════════════════ */
+.proc-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:2.5rem;
+  /* border forms the outer frame */
+  border:1px solid var(--div);
+  border-radius:var(--r3);
+  overflow:hidden;
+}
+
+.proc-card{
+  background:transparent;
+  padding:2rem 1.75rem 1.75rem;
+  position:relative;overflow:hidden;
+  cursor:default;
+  /* right + bottom borders create the cell grid */
+  border-right:1px solid var(--div);
+  border-bottom:1px solid var(--div);
+  transition:background .28s var(--ease);
+}
+/* remove right border from last column */
+.proc-card:nth-child(3n){border-right:none}
+/* remove bottom border from last row */
+.proc-card:nth-last-child(-n+3){border-bottom:none}
+/* ghost watermark number */
+.proc-card::after{
+  content:attr(data-step);
+  position:absolute;bottom:-.5rem;right:.75rem;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:5.5rem;font-weight:700;
+  line-height:1;letter-spacing:-.04em;
+  color:rgba(255,255,255,.035);
+  pointer-events:none;
+  transition:color .3s;
+  user-select:none;
+}
+/* green top sweep on hover */
+.proc-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--green),rgba(34,197,94,.2) 70%,transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .38s var(--ease);
+}
+.proc-card:hover{background:rgba(255,255,255,.035)}
+.proc-card:hover::before{transform:scaleX(1)}
+.proc-card:hover::after{color:rgba(34,197,94,.07)}
+
+/* step badge */
+.proc-step-badge{
+  display:inline-flex;align-items:center;gap:.45rem;
+  margin-bottom:1.1rem;
+}
+.proc-step-dot{
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(34,197,94,.12);
+  border:1px solid rgba(34,197,94,.3);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.58rem;font-weight:500;
+  color:var(--green);
+  transition:background .2s,border-color .2s;
+}
+.proc-card:hover .proc-step-dot{
+  background:rgba(34,197,94,.2);
+  border-color:rgba(34,197,94,.5);
+}
+
+/* icon */
+.proc-icon{
+  width:36px;height:36px;
+  border-radius:var(--r);
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--g3);
+  margin-bottom:1rem;
+  transition:background .2s,color .2s,border-color .2s;
+}
+.proc-card:hover .proc-icon{
+  background:rgba(34,197,94,.1);
+  border-color:rgba(34,197,94,.2);
+  color:var(--green);
+}
+
+.proc-name{
+  font-family:'DM Sans',sans-serif;
+  font-size:.92rem;font-weight:600;
+  color:var(--g1);line-height:1.35;
+  margin-bottom:.5rem;
+  transition:color .15s;
+  letter-spacing:-.01em;
+}
+.proc-card:hover .proc-name{color:var(--white)}
+.proc-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.83rem;color:var(--g3);line-height:1.65;
+  transition:color .15s;
+}
+.proc-card:hover .proc-desc{color:var(--g2)}
+
+
+@media(max-width:860px){
+  .proc-grid{grid-template-columns:repeat(2,1fr)}
+  .proc-card::after{font-size:4rem}
+  /* reset 3-col rules, apply 2-col rules */
+  .proc-card:nth-child(3n){border-right:1px solid var(--div)}
+  .proc-card:nth-last-child(-n+3){border-bottom:1px solid var(--div)}
+  .proc-card:nth-child(2n){border-right:none}
+  .proc-card:nth-last-child(-n+2){border-bottom:none}
+  .proc-card:last-child{border-bottom:none;border-right:none}
+}
+@media(max-width:480px){
+  .proc-grid{grid-template-columns:1fr}
+  .proc-card:nth-child(2n){border-right:none}
+  .proc-card{border-right:none}
+  .proc-card:last-child{border-bottom:none}
+  .proc-card:nth-last-child(-n+2){border-bottom:1px solid var(--div)}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PRICING — Glass cards with cursor spotlight
+   White featured card stays solid.
+══════════════════════════════════════════════════════════ */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;position:relative;z-index:1}
+
+.plan{
+  /* glass base */
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--glass-shadow),0 8px 32px rgba(0,0,0,.35);
+  backdrop-filter:blur(var(--blur));
+  -webkit-backdrop-filter:blur(var(--blur));
+  border-radius:var(--r3);
+  padding:2rem 1.75rem;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;cursor:default;
+  transition:transform .28s var(--spring),border-color .28s var(--ease),box-shadow .28s var(--ease),background .28s var(--ease);
+}
+/* cursor spotlight radial */
+.plan::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);top:var(--my,-160px);left:var(--mx,-160px);transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity .3s;z-index:0}
+.plan:hover::after{opacity:1}
+.plan:hover{
+  background:var(--glass-h);
+  border-color:var(--glass-border-h);
+  box-shadow:var(--glass-shadow-h),0 24px 64px rgba(0,0,0,.55);
+  transform:translateY(-7px);
+}
+/* Featured — darker glass, green top border = recommended signal */
+.plan--hl{
+  background:rgba(255,255,255,.09)!important;
+  border-color:rgba(255,255,255,.18)!important;
+  border-top:2px solid var(--green)!important;
+  backdrop-filter:blur(var(--blur))!important;
+  -webkit-backdrop-filter:blur(var(--blur))!important;
+  box-shadow:
+    inset 1px 0 0 rgba(255,255,255,.1),
+    0 0 0 0 transparent,
+    0 8px 40px rgba(0,0,0,.45),
+    0 0 80px rgba(34,197,94,.06)!important;
+}
+.plan--hl:hover{
+  transform:translateY(-9px)!important;
+  background:rgba(255,255,255,.13)!important;
+  border-color:rgba(255,255,255,.26)!important;
+  box-shadow:
+    inset 1px 0 0 rgba(255,255,255,.16),
+    0 24px 64px rgba(0,0,0,.55),
+    0 0 100px rgba(34,197,94,.1)!important;
+}
+.plan--hl::after{
+  background:radial-gradient(circle,rgba(34,197,94,.08) 0%,transparent 70%)!important;
+}
+
+@supports not (backdrop-filter:blur(1px)){
+  .plan{background:rgba(18,18,18,.96)}
+  .plan:hover{background:rgba(24,24,24,.98)}
+  .plan--hl{background:rgba(28,28,28,.98)!important}
+}
+
+.plan-chip{font-size:.67rem;font-family:'JetBrains Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--g4);margin-bottom:.9rem;display:block;position:relative;z-index:1}
+.plan--hl .plan-chip{color:var(--green)}
+
+.plan-popular{
+  position:absolute;top:1.1rem;right:1.1rem;
+  font-size:.62rem;font-family:'JetBrains Mono',monospace;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:var(--green);color:#000;
+  padding:.25em .65em;border-radius:20px;font-weight:600;z-index:2;
+}
+
+.plan h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.1rem;letter-spacing:-.01em;position:relative;z-index:1}
+.plan-price{font-family:'Space Grotesk',sans-serif;font-size:2.6rem;font-weight:700;letter-spacing:-.04em;color:var(--white);line-height:1;position:relative;z-index:1}
+.plan-price sub{font-size:1rem;font-weight:500;vertical-align:baseline}
+.plan-was{font-size:.78rem;color:var(--g4);text-decoration:line-through;margin-top:.2rem;position:relative;z-index:1}
+.plan-period{font-size:.78rem;color:var(--g3);margin-top:.15rem;margin-bottom:1.5rem;position:relative;z-index:1}
+.plan-desc{font-size:.84rem;color:var(--g2);line-height:1.65;margin-bottom:1.5rem;flex:1;position:relative;z-index:1}
+.plan-ul{list-style:none;margin-bottom:2rem;display:flex;flex-direction:column;gap:.5rem;position:relative;z-index:1}
+.plan-ul li{font-size:.84rem;color:var(--g2);display:flex;gap:.5rem;align-items:baseline;line-height:1.5;transition:color .15s}
+.plan:hover .plan-ul li{color:var(--g1)}
+.plan-ul li::before{content:'›';color:var(--green);font-size:.8rem;flex-shrink:0;font-weight:600}
+
+.plan-btn{
+  display:block;text-align:center;font-size:.82rem;font-weight:600;
+  font-family:'DM Sans',sans-serif;padding:.7rem;border-radius:var(--r);
+  border:1px solid rgba(255,255,255,.2);color:var(--white);background:transparent;
+  cursor:pointer;text-decoration:none;position:relative;z-index:1;
+  transition:background .18s,border-color .18s,transform .2s var(--spring),box-shadow .18s;
+}
+.plan-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);transform:translateY(-1px)}
+.plan-btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+/* Featured CTA — solid green */
+.plan--hl .plan-btn{
+  background:var(--green);
+  border-color:var(--green);
+  color:#000;font-weight:700;
+}
+.plan--hl .plan-btn:hover{
+  background:#28d966;border-color:#28d966;
+  box-shadow:0 6px 24px rgba(34,197,94,.35);
+  transform:translateY(-2px);
+}
+
+@media(max-width:860px){
+  .plans{grid-template-columns:1fr;gap:.75rem}
+  .plan{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(20,20,20,.96);border-color:rgba(255,255,255,.1)}
+  .plan--hl{background:rgba(255,255,255,.09)!important;border-top:2px solid var(--green)!important}
+}
+
+/* ═══ FAQ ══════════════════════════════════════════════════ */
+.faq{max-width:700px}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.15rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;border-bottom:1px solid var(--div);color:var(--white);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;transition:color .15s}
+.faq-q:hover{color:var(--g2)}
+.faq-q:focus-visible{outline:2px solid var(--white);outline-offset:2px;border-radius:2px}
+.faq-icon{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s var(--spring),background .2s;font-size:.8rem;color:var(--g3)}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--white);color:var(--black);border-color:var(--white)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq-a-in{padding:.1rem 0 1.1rem;font-size:.88rem;color:var(--g2);line-height:1.75}
+.faq-item.open .faq-a{max-height:260px}
+.faq-item.open .faq-q{border-bottom-color:transparent}
+
+/* ═══ CONTACT ══════════════════════════════════════════════ */
+#contact{background:transparent;position:relative;z-index:1}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem 6rem;align-items:start}
+.c-left .sec-label{color:var(--green)}
+.c-left h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-block:.6rem 1rem;color:var(--white)}
+.c-left>p{font-size:.92rem;color:var(--g2);line-height:1.75;max-width:36ch}
+.c-badges{display:flex;flex-direction:column;gap:.55rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--div)}
+.c-badge{display:flex;align-items:center;gap:.55rem;font-size:.86rem;color:var(--g2);transition:color .15s}
+.c-badge:hover{color:var(--white)}
+.c-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0}
+.c-badge a{color:inherit}
+
+/* Dark glass form card — matches site theme */
+.form-card{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--glass-shadow),0 24px 64px rgba(0,0,0,.5);
+  backdrop-filter:blur(var(--blur));
+  -webkit-backdrop-filter:blur(var(--blur));
+  border-radius:var(--r3);
+  padding:2.25rem 2rem;
+}
+@supports not (backdrop-filter:blur(1px)){
+  .form-card{background:rgba(18,18,18,.97)}
+}
+.form-card-head{
+  display:flex;align-items:center;gap:.6rem;
+  margin-bottom:1.5rem;padding-bottom:1.25rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.form-card-title{font-size:.875rem;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.form-card-sub{font-size:.76rem;color:var(--g4);margin-top:.1rem}
+.form-badge{
+  width:28px;height:28px;
+  background:var(--green-bg);
+  border:1px solid rgba(34,197,94,.25);
+  border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.form{display:flex;flex-direction:column;gap:.85rem}
+.fl{
+  font-size:.67rem;font-family:'JetBrains Mono',monospace;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--g4);margin-bottom:.3rem;display:block;font-weight:500;
+}
+.fi,.fsel,.ft{
+  width:100%;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;font-size:.875rem;
+  padding:.68rem .9rem;border-radius:var(--r);
+  transition:border-color .2s,background .2s;
+  -webkit-appearance:none;
+}
+.fi::placeholder,.ft::placeholder{color:var(--g4)}
+.fi:focus,.fsel:focus,.ft:focus{
+  outline:none;
+  border-color:rgba(255,255,255,.28);
+  background:rgba(255,255,255,.08);
+}
+.fi:focus-visible,.fsel:focus-visible,.ft:focus-visible{
+  outline:2px solid var(--white);outline-offset:2px;
+}
+.ft{resize:vertical;min-height:88px}
+.fsel{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23aaa' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .9rem center;
+  padding-right:2.3rem;cursor:pointer;
+  background-color:rgba(255,255,255,.05);
+}
+.fsel option{background:#1a1a1a;color:var(--white)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.f-submit{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
+.f-btn{
+  background:var(--white);color:var(--black);
+  font-size:.85rem;font-weight:700;font-family:'DM Sans',sans-serif;
+  padding:.75rem 1.6rem;border-radius:var(--r);border:none;cursor:pointer;
+  transition:opacity .15s,transform .2s var(--spring),box-shadow .15s;
+  letter-spacing:.01em;display:inline-flex;align-items:center;gap:.4rem;
+}
+.f-btn:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,255,255,.14)}
+.f-btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+.f-note{font-size:.7rem;color:var(--g4);font-family:'JetBrains Mono',monospace}
+.form-ok{
+  display:none;padding:.85rem 1rem;
+  background:rgba(34,197,94,.09);
+  border:1px solid rgba(34,197,94,.3);
+  border-radius:var(--r);color:var(--green);font-size:.85rem;margin-top:.5rem;
+}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:3rem}.form-row{grid-template-columns:1fr}}
+
+/* ═══ FOOTER ══════════════════════════════════════════════ */
+footer.footer{border-top:1px solid var(--div);padding:2rem clamp(1.25rem,5vw,3rem);max-width:1120px;margin-inline:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;position:relative;z-index:1;background:transparent}
+@media(max-width:600px){
+  footer.footer{flex-direction:column;align-items:center;text-align:center;gap:.75rem}
+  .footer-links{justify-content:center}
+}
+.footer-brand{display:flex;align-items:center;gap:.5rem}
+.footer-logo{display:block;height:52px;width:auto;max-width:80px;object-fit:contain}
+.footer-brand svg,.footer-brand span{display:none}
+.footer-copy{font-size:.75rem;color:var(--g3)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.75rem;color:var(--g3);font-family:'JetBrains Mono',monospace;transition:color .15s}
+.footer-links a:hover{color:var(--g1)}
+
+/* ═══ KEYFRAMES ═══════════════════════════════════════════ */
+@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ SCROLL REVEALS ══════════════════════════════════════ */
+@media(prefers-reduced-motion:no-preference){
+  .rv-up{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--spring)}
+  .rv-right{opacity:0;transform:translateX(-14px);transition:opacity .6s var(--ease),transform .6s var(--spring)}
+  .rv-left{opacity:0;transform:translateX(14px);transition:opacity .6s var(--ease),transform .6s var(--spring)}
+  .rv-up.in,.rv-right.in,.rv-left.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s!important}.d2{transition-delay:.16s!important}
+  .d3{transition-delay:.25s!important}.d4{transition-delay:.36s!important}
+
+  .proc-card{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--spring),background .28s}
+  .proc-card.in{opacity:1;transform:translateY(0)}
+
+  .plan{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .28s var(--spring),border-color .28s,box-shadow .28s,background .28s}
+  .plan.in{opacity:1;transform:translateY(0)}
+  .plan.in:hover{transform:translateY(-7px)}
+  .plan--hl.in:hover{transform:translateY(-9px)}
+}
+
+/* ═══ CUSTOM SELECT ═══════════════════════════════════════ */
+.csel{
+  position:relative;
+  width:100%;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r);
+  padding:.68rem .9rem;
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+  cursor:pointer;
+  transition:border-color .2s,background .2s,box-shadow .2s;
+  user-select:none;
+}
+.csel:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.07)}
+.csel:focus,.csel.open{
+  outline:none;
+  border-color:rgba(255,255,255,.28);
+  background:rgba(255,255,255,.08);
+  box-shadow:0 0 0 2px rgba(255,255,255,.06);
+}
+.csel-val{
+  font-family:'DM Sans',sans-serif;
+  font-size:.875rem;
+  color:var(--g4);
+  flex:1;
+  transition:color .15s;
+}
+.csel.selected .csel-val{color:var(--white)}
+.csel-arrow{
+  color:var(--g4);
+  flex-shrink:0;
+  transition:transform .25s var(--spring),color .15s;
+}
+.csel.open .csel-arrow{transform:rotate(180deg);color:var(--g2)}
+
+/* dropdown panel */
+.csel-list{
+  position:absolute;
+  top:calc(100% + 6px);
+  left:0;right:0;
+  list-style:none;
+  background:rgba(18,18,18,.96);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r2);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 16px 48px rgba(0,0,0,.7),
+    0 4px 16px rgba(0,0,0,.4);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  z-index:500;
+  overflow:hidden;
+  /* hidden state */
+  opacity:0;
+  transform:translateY(-6px) scale(.98);
+  pointer-events:none;
+  transition:
+    opacity .22s var(--ease),
+    transform .22s var(--spring);
+}
+.csel.open .csel-list{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+
+/* option rows */
+.csel-opt{
+  padding:.75rem 1rem;
+  cursor:pointer;
+  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:background .15s;
+  position:relative;
+}
+.csel-opt:last-child{border-bottom:none}
+.csel-opt::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:var(--green);
+  transform:scaleY(0);
+  transition:transform .2s var(--ease);
+  border-radius:0 2px 2px 0;
+}
+.csel-opt:hover{background:rgba(255,255,255,.06)}
+.csel-opt:hover::before{transform:scaleY(1)}
+.csel-opt[aria-selected="true"]{background:rgba(34,197,94,.07)}
+.csel-opt[aria-selected="true"]::before{transform:scaleY(1)}
+
+.csel-opt-name{
+  font-family:'DM Sans',sans-serif;
+  font-size:.875rem;
+  font-weight:500;
+  color:var(--g1);
+  line-height:1.3;
+}
+.csel-opt-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;
+  color:var(--g4);
+  letter-spacing:.03em;
+  white-space:nowrap;
+}
+
+@supports not (backdrop-filter:blur(1px)){
+  .csel-list{background:rgba(20,20,20,.99)}
+}
+
+/* ═══ REDUCED MOTION — full kill switch ═══════════════════ */
+@media(prefers-reduced-motion:reduce){
+  .scan-line,.cursor,.badge-dot{animation:none!important}
+  .sb{animation:none!important}
+  .orb{animation:none!important}
+  .rv-up,.rv-right,.rv-left,.proc-card,.plan{opacity:1!important;transform:none!important;transition:none!important}
+  /* disable sticky stack */
+  .case{position:static!important;top:auto!important;transform:none!important;filter:none!important;opacity:1!important}
+  /* disable service row glass transition */
+  .svc-row{transition:none!important;backdrop-filter:none!important}
+  /* stop grain overlay from animating (it has no animation, but guard anyway) */
+  body::after{display:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="prog" id="pb" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-brand">
-    <img src="favicon-48.png" alt="" class="nav-logo" width="34" height="34">
-    <span class="nav-brand-text">
-      BugAura Labs
-      <span>Remote QA Studio</span>
-    </span>
+<!-- ── GLOW ORBS — depth source for glass ──────────────── -->
+<div class="orbs" aria-hidden="true">
+  <div class="orb orb-1" id="orb1"></div>
+  <div class="orb orb-2" id="orb2"></div>
+  <div class="orb orb-3" id="orb3"></div>
+  <div class="orb orb-4" id="orb4"></div>
+</div>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav class="nav" id="nav" aria-label="Primary navigation">
+  <a href="#hero" class="logo-mark" aria-label="BugAura Labs home">
+    <img class="logo-img" src="./bugaura-logo-full.png" alt="BugAura Labs" width="898" height="670" decoding="async"/>
+    <svg width="30" height="30" viewBox="0 0 60 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0">
+      <!-- Shield outline -->
+      <path d="M30 2L20 5L10 12L5 24L4 40L10 54L22 63L30 66L38 63L50 54L56 40L55 24L50 12L40 5Z"
+            stroke="white" stroke-width="2.8" stroke-linejoin="round"/>
+      <!-- Center hub -->
+      <circle cx="30" cy="38" r="4" fill="white"/>
+      <!-- Upper-left antenna with branches -->
+      <path d="M30 38L22 20" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M22 20L16 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M22 20L26 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Upper-right antenna with branches -->
+      <path d="M30 38L38 20" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M38 20L34 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M38 20L44 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Side lines -->
+      <path d="M30 38L8 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30 38L52 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <!-- Lower lines -->
+      <path d="M30 38L18 56" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30 38L42 56" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <!-- End dots — green accent on sides -->
+      <circle cx="16" cy="11" r="2.2" fill="white"/>
+      <circle cx="26" cy="11" r="2.2" fill="white"/>
+      <circle cx="34" cy="11" r="2.2" fill="white"/>
+      <circle cx="44" cy="11" r="2.2" fill="white"/>
+      <circle cx="8" cy="32" r="2.5" fill="#22c55e"/>
+      <circle cx="52" cy="32" r="2.5" fill="#22c55e"/>
+    </svg>
+    <span class="logo-text">Bug<span>Aura</span> Labs</span>
   </a>
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
-  <label for="nav-toggle" class="nav-menu-btn" aria-label="Open navigation menu">
-    <span class="nav-menu-icon"></span>
-  </label>
-  <ul class="nav-links">
+  <ul class="nav-mid" role="list">
     <li><a href="#services">Services</a></li>
-    <li><a href="#casestudies">Work</a></li>
-    <li><a href="#proof">Proof</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#tools">Tools</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="https://www.linkedin.com/company/bugauralabs" target="_blank" rel="noopener">LinkedIn</a></li>
-    <li><a href="#contact" class="nav-cta">Get Audit</a></li>
   </ul>
+  <a href="#contact" class="nav-cta">Get free audit</a>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-grid">
-    <div class="hero-left">
-      <div class="hero-tag fade-in">Remote QA Studio &mdash; Built for Global Product Teams</div>
-      <h1 class="hero-headline fade-in fade-in-delay-1">
-        QA testing for international teams that need releases to feel <em>stable,</em> trusted, and client-ready.
+<main id="main">
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section id="hero" aria-labelledby="h1">
+  <div class="w hero-grid">
+
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span>Available for new projects</span>
+      </div>
+      <h1 id="h1" class="hero-h1">
+        We find bugs before your <span class="dim">users do.</span>
       </h1>
-      <p class="hero-sub fade-in fade-in-delay-2">
-        BugAura Labs helps SaaS founders, ecommerce brands, agencies, and remote product teams catch the bugs that hurt revenue and trust — <strong>checkout failures, weak validation, broken admin flows, API mismatches, mobile layout issues,</strong> and regression risks.
+      <p class="hero-desc">
+        Remote QA for global SaaS, ecommerce, and agency teams.
+        Checkout failures, broken admin flows, API mismatches, weak auth.
+        Found and filed before they ship.
       </p>
-      <div class="btn-group fade-in fade-in-delay-3">
-        <a href="#contact" class="btn-primary">Request a Remote QA Audit &#8599;</a>
-        <a href="#casestudies" class="btn-outline">See the Work</a>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-w">Get a free audit</a>
+        <a href="#work" class="btn btn-o">See the work</a>
       </div>
-      <div class="hero-trust fade-in fade-in-delay-4">
-        <div class="trust-item">
-          <span class="trust-num">95+</span>
-          <span class="trust-label">Cases in one workflow audit</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-num">NDA</span>
-          <span class="trust-label">Ready for client work</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-num">Async</span>
-          <span class="trust-label">Slack, Jira, email</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-num">Global</span>
-          <span class="trust-label">Remote delivery</span>
-        </div>
+      <div class="hero-checks">
+        <span class="hero-check">NDA before anything</span>
+        <span class="hero-check">First findings in 48h</span>
+        <span class="hero-check">Async-friendly</span>
       </div>
     </div>
 
-    <!-- HERO CARD -->
-    <div class="hero-card fade-in fade-in-delay-2">
-      <div class="card-header">
-        <div class="card-title">Global QA Delivery Snapshot</div>
-        <div class="card-badge">Remote Ready</div>
-      </div>
-      <div class="card-stats">
-        <div class="stat-row">
-          <span class="stat-num">95+</span>
-          <div class="stat-info">
-            <div class="stat-label">Scrum Platform Test Cases</div>
-            <div class="stat-desc">Structured coverage for a workflow-heavy product audit</div>
-          </div>
+    <div class="hero-visual" id="hero-card" aria-label="Live defect report from BugAura Labs">
+      <div class="report-win glass" role="img" aria-label="Bug report BAL-2024-07-012, zero-price checkout defect, severity Critical">
+        <div class="scan-line" aria-hidden="true"></div>
+        <div class="win-bar" aria-hidden="true">
+          <div class="win-dot" style="background:#ff5f57"></div>
+          <div class="win-dot" style="background:#febc2e"></div>
+          <div class="win-dot" style="background:#28c840"></div>
+          <span class="win-title">BugAura Labs · Defect Record</span>
         </div>
-        <div class="stat-row">
-          <span class="stat-num">NDA</span>
-          <div class="stat-info">
-            <div class="stat-label">Confidential Client Testing</div>
-            <div class="stat-desc">Comfortable with staging links, admin access, and private flows</div>
+        <div class="report-body">
+          <div class="rr"><span class="rk">ID</span><span class="rv">BAL-2024-07-012</span></div>
+          <div class="rr"><span class="rk">Title</span><span class="rv">Zero-price order completes</span></div>
+          <div class="rr"><span class="rk">Severity</span><span class="rv"><span class="bd bd-red">Critical</span>&nbsp;<span class="bd bd-gray">P1</span></span></div>
+          <div class="rr"><span class="rk">Category</span><span class="rv">Checkout · Revenue Leakage</span></div>
+          <div class="rr" data-hide-m><span class="rk">Environment</span><span class="rv" style="color:var(--g3)">Staging · Chrome 124 · EU</span></div>
+          <div class="rr" style="flex-direction:column;gap:.4rem" data-hide-m>
+            <span class="rk">Steps</span>
+            <div class="steps-block">
+              <div><span class="sln">1.</span> Add item with 30% promo to cart</div>
+              <div><span class="sln">2.</span> Apply "EXTRA20" coupon</div>
+              <div><span class="sln">3.</span> Total shows <span style="color:var(--red)">£0.00</span></div>
+              <div><span class="sln">4.</span> Order completes, no payment taken</div>
+            </div>
           </div>
-        </div>
-        <div class="stat-row">
-          <span class="stat-num">Async</span>
-          <div class="stat-info">
-            <div class="stat-label">Remote Team Communication</div>
-            <div class="stat-desc">Clear updates for Slack, Jira, GitHub, email, and shared docs</div>
+          <div class="rr" style="flex-direction:column;gap:.4rem" data-hide-m>
+            <span class="rk">Result</span>
+            <div class="diff-block">
+              <div class="d-e">+ Expected: price floor £0.01</div>
+              <div class="d-a">- Actual: £0.00, no error raised</div>
+            </div>
           </div>
-        </div>
-        <div class="stat-row">
-          <span class="stat-num">48h</span>
-          <div class="stat-info">
-            <div class="stat-label">Fast First Findings</div>
-            <div class="stat-desc">Priority risks surfaced quickly so teams know what to fix first</div>
+          <div class="rr"><span class="rk">Impact</span><span class="rv">Est. £4-11k/hr undetected<span class="cursor" aria-hidden="true"></span></span></div>
+          <div class="rfoot" aria-hidden="true">
+            <span>Reviewed · Jaswanth M K · 2024-07-14</span>
+            <div class="sev-bar" title="Severity: Critical">
+              <div class="sb" style="background:var(--red)"></div>
+              <div class="sb" style="background:var(--red)"></div>
+              <div class="sb" style="background:var(--red)"></div>
+              <div class="sb" style="background:var(--red)"></div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-footer">
-        <div class="card-footer-label">Signature Strength</div>
-        <p>Not just "bug found." Every defect includes severity, business impact, steps, actual vs expected result, evidence, and retest scope.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- stats -->
+<div class="numbers" aria-label="Studio statistics">
+  <div class="w">
+    <div class="num-grid">
+
+      <div class="num-item rv-up">
+        <span class="num-tag">Test Coverage</span>
+        <div class="num-val" data-count="500" data-suffix="+">0+</div>
+        <div class="num-lbl">Test cases written and executed across all client engagements</div>
+      </div>
+
+      <div class="num-item rv-up d1">
+        <span class="num-tag">Turnaround</span>
+        <div class="num-val" data-count="48" data-suffix="h">48h</div>
+        <div class="num-lbl">First real defect records in your hands after access is granted</div>
+      </div>
+
+      <div class="num-item rv-up d2">
+        <span class="num-tag">Sectors Served</span>
+        <div class="num-val" data-count="3" data-suffix="+">3+</div>
+        <div class="num-lbl">Client sectors: SaaS platforms, ecommerce, and B2B workflow tools</div>
+      </div>
+
+      <div class="num-item rv-up d3">
+        <span class="num-tag">Quality Standard</span>
+        <div class="num-val" data-count="100" data-suffix="%">100%</div>
+        <div class="num-lbl">Every report personally reviewed by a senior before it reaches you</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="rule"/>
+
+<!-- ── SERVICES ──────────────────────────────────────────── -->
+<section id="services" aria-labelledby="svc-h">
+  <div class="w">
+    <div class="svc-wrap">
+      <div class="svc-left rv-right">
+        <span class="sec-label">Services</span>
+        <h2 class="sec-h" id="svc-h">Coverage built around where failures cost the most.</h2>
+        <p class="sec-sub">Not random testing. Every engagement is prioritised by business risk: payments, auth, admin, APIs, and regression.</p>
+      </div>
+      <div class="svc-list">
+        <div class="svc-row rv-right"><span class="svc-num">01</span><div><div class="svc-name">Manual Testing</div><p>Functional, exploratory, UI/UX, and regression testing across web apps, dashboards, and responsive surfaces. The happy path is the last thing we check.</p></div></div>
+        <div class="svc-row rv-right d1"><span class="svc-num">02</span><div><div class="svc-name">API Testing</div><p>Request and response validation, status codes, data integrity, schema drift, error handling, and UI-to-API behaviour mismatch using Postman and manual interception.</p></div></div>
+        <div class="svc-row rv-right d2"><span class="svc-num">03</span><div><div class="svc-name">Security Testing</div><p>Auth flows, role-based access, IDOR awareness, input validation, OWASP ZAP support. The class of defect that becomes a data breach notice when found externally.</p></div></div>
+        <div class="svc-row rv-right d2"><span class="svc-num">04</span><div><div class="svc-name">Automation Testing</div><p>Playwright-based smoke flows and repeatable release checks. Built for the regression problem that compounds with every sprint.</p></div></div>
+        <div class="svc-row rv-right d3"><span class="svc-num">05</span><div><div class="svc-name">Performance Testing</div><p>Response time, stability under load, and practical performance checks with k6 and JMeter before traffic spikes hit production.</p></div></div>
+        <div class="svc-row rv-right d3"><span class="svc-num">06</span><div><div class="svc-name">Regression Testing</div><p>Fix verification and adjacent-flow checks before sign-off. A change that fixes one defect should not introduce three others before release.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<hr class="rule"/>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-header">
-    <div>
-      <div class="section-eyebrow">Services</div>
-      <h2 class="section-title">QA coverage designed for remote teams and business risk.</h2>
-    </div>
-    <p class="section-copy">The goal is not to test randomly. It is to protect the flows where international users lose trust, payments fail, data breaks, or releases feel unfinished.</p>
+<!-- ── CASE STUDIES (sticky stacking) ───────────────────── -->
+<section id="work" aria-labelledby="work-h">
+  <div class="w" style="margin-bottom:2.5rem">
+    <span class="sec-label rv-up">Case Studies</span>
+    <h2 class="sec-h rv-up d1" id="work-h">QA substance you can read before you hire.</h2>
+    <p class="sec-sub rv-up d2">Real engagements, real defects. Client names redacted per NDA. Report formats match exactly what paid clients receive.</p>
   </div>
 
-  <div class="services-grid">
-    <div class="service-card fade-in">
-      <div class="service-icon icon-gold">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+  <div class="cases-stack w" role="list">
+
+    <article class="case" role="listitem" aria-labelledby="c1h">
+      <div>
+        <div class="tag-row"><span class="tag">Ecommerce</span><span class="tag">Web + Admin</span><span class="bd bd-red">2 critical</span></div>
+        <h3 class="case-title" id="c1h">E-Commerce Website Testing</h3>
+        <p>End-to-end testing of a retail checkout flow, pricing logic, form validation, admin CRUD, and responsive layouts. Two revenue-leaking defects found in the first session.</p>
       </div>
-      <span class="service-num">01</span>
-      <h3 class="service-name">Manual Testing</h3>
-      <p class="service-desc">Functional, UI/UX, exploratory, regression, and real-world user flow testing for websites, apps, and dashboards.</p>
-    </div>
-    <div class="service-card fade-in fade-in-delay-1">
-      <div class="service-icon icon-jade">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+      <div>
+        <span class="findings-lbl">Key findings</span>
+        <div class="finding"><span class="fa">›</span>Out-of-stock items reached the payment step with no inventory block, causing direct revenue leakage at any order volume.</div>
+        <div class="finding"><span class="fa">›</span>Stacked promotional rule reduced order total to £0.00 at the payment processor. No error surfaced at any layer.</div>
+        <div class="finding"><span class="fa">›</span>Admin product edits confirmed in UI; underlying record unchanged under concurrent session load.</div>
+        <div class="finding"><span class="fa">›</span>Form validation gaps: real data submitted to server without format checks on three checkout fields.</div>
       </div>
-      <span class="service-num">02</span>
-      <h3 class="service-name">Automation Testing</h3>
-      <p class="service-desc">Automation-ready QA using Playwright thinking, scalable test scenarios, smoke flows, and repeatable release checks.</p>
-    </div>
-    <div class="service-card fade-in fade-in-delay-2">
-      <div class="service-icon icon-copper">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+    </article>
+
+    <article class="case" role="listitem" aria-labelledby="c2h">
+      <div>
+        <div class="tag-row"><span class="tag">B2B SaaS</span><span class="tag">Kanban + Workflow</span><span class="bd bd-yellow">95+ cases</span></div>
+        <h3 class="case-title" id="c2h">Scrum Platform: 95 Test Cases</h3>
+        <p>Full coverage of a workflow-heavy project management tool: Kanban board states, task creation, swim lanes, role permissions, approval flows, and sprint sign-off across all workflow paths.</p>
       </div>
-      <span class="service-num">03</span>
-      <h3 class="service-name">API Testing</h3>
-      <p class="service-desc">Request and response validation, status codes, data integrity, error handling, and UI-to-API behavior checks.</p>
-    </div>
-    <div class="service-card fade-in fade-in-delay-1">
-      <div class="service-icon icon-gold">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      <div>
+        <span class="findings-lbl">Key findings</span>
+        <div class="finding"><span class="fa">›</span>Task status transitions succeeded in UI while server record stayed in prior state. Phantom "Done" cards reappeared on next load.</div>
+        <div class="finding"><span class="fa">›</span>Sprint sign-off approval bypassed by Scrum Member role under a specific sequence, compromising the audit trail.</div>
+        <div class="finding"><span class="fa">›</span>Four distinct flows with critical system errors blocking board progression; each reproducible within three steps.</div>
+        <div class="finding"><span class="fa">›</span>All 95+ cases filed with steps, severity, expected vs actual, and Jira-ready retest scope.</div>
       </div>
-      <span class="service-num">04</span>
-      <h3 class="service-name">Performance Testing</h3>
-      <p class="service-desc">Response time, stability, load awareness, and practical performance testing support with tools like k6.</p>
-    </div>
-    <div class="service-card fade-in fade-in-delay-2">
-      <div class="service-icon icon-jade">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+    </article>
+
+    <article class="case" role="listitem" aria-labelledby="c3h">
+      <div>
+        <div class="tag-row"><span class="tag">SaaS API</span><span class="tag">Auth + Multi-tenant</span><span class="bd bd-red">GDPR risk</span></div>
+        <h3 class="case-title" id="c3h">API and Auth Scope Testing</h3>
+        <p>Multi-tenant SaaS review: token scope management, role-based access, cross-tenant data isolation, API response validation, and dashboard data consistency against live API responses.</p>
       </div>
-      <span class="service-num">05</span>
-      <h3 class="service-name">Security Testing</h3>
-      <p class="service-desc">Input validation, basic vulnerability checks, SQL injection awareness, auth behavior, and OWASP ZAP scan support.</p>
-    </div>
-    <div class="service-card fade-in fade-in-delay-3">
-      <div class="service-icon icon-copper">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      <div>
+        <span class="findings-lbl">Key findings</span>
+        <div class="finding"><span class="fa">›</span>Viewer-role token retained write scope on two endpoints added in the previous sprint. The scope matrix was not updated post-deployment.</div>
+        <div class="finding"><span class="fa">›</span>Predictable resource IDs allowed authenticated Viewer tokens to enumerate other-tenant metadata. No auth failure was raised.</div>
+        <div class="finding"><span class="fa">›</span>UI dashboard showed stale API cache data after route change. The discrepancy was only visible on hard reload.</div>
+        <div class="finding"><span class="fa">›</span>GDPR Article 33 reportable risk noted in the defect record with OpenAPI spec reference.</div>
       </div>
-      <span class="service-num">06</span>
-      <h3 class="service-name">Regression Testing</h3>
-      <p class="service-desc">Retesting fixed bugs and checking that new changes do not quietly break existing customer or admin workflows.</p>
-    </div>
+    </article>
+
   </div>
 </section>
 
-<div class="section-divider"></div>
+<hr class="rule"/>
 
-<!-- CASE STUDIES -->
-<section id="casestudies">
-  <div class="casestudies-header">
-    <div class="section-eyebrow">Case Studies</div>
-    <h2 class="section-title">QA substance you can actually read.</h2>
-    <p class="section-copy">What was tested, what failed, and why the work mattered for release quality.</p>
-  </div>
+<!-- ── PROCESS ────────────────────────────────────────────── -->
+<section id="process" aria-labelledby="proc-h">
+  <div class="w">
+    <div style="margin-bottom:2rem">
+      <span class="sec-label rv-left">Process</span>
+      <h2 class="sec-h rv-left d1" id="proc-h">From requirement to regression.</h2>
+    </div>
+    <div class="proc-grid" role="list">
 
-  <div class="casestudies-grid">
-    <div class="case-card fade-in">
-      <div class="case-tag">Ecommerce &bull; Web + Admin Panel &bull; Redacted Client</div>
-      <h3 class="case-title">E-Commerce Website Testing</h3>
-      <p class="case-desc">End-to-end testing for a retail-style ecommerce flow, covering checkout behavior, product data, pricing, validation, and responsive experience across devices.</p>
-      <ul class="case-bullets">
-        <li>Identified checkout issue with out-of-stock products reaching payment step</li>
-        <li>Reported zero-price catalogue bug that could create revenue leakage</li>
-        <li>Found form validation gaps and mobile responsiveness breakpoints</li>
-        <li>Validated admin CRUD flows and product management behavior end-to-end</li>
-      </ul>
-    </div>
-    <div class="case-card fade-in fade-in-delay-1">
-      <div class="case-tag">B2B SaaS &bull; Kanban + Workflow &bull; Sample Report Available</div>
-      <h3 class="case-title">Scrum Platform Testing</h3>
-      <p class="case-desc">Tested a workflow-heavy Scrum platform, including Kanban board behavior, task creation, workflow navigation, swim lanes, UI feedback, and system-level usability.</p>
-      <ul class="case-bullets">
-        <li>Designed 95+ structured test cases covering all platform modules</li>
-        <li>Found critical system errors blocking task progression and board state</li>
-        <li>Validated task creation and board navigation across all workflow states</li>
-        <li>Prepared reproducible bug reports with clear steps and severity context</li>
-      </ul>
-    </div>
-    <div class="case-card fade-in fade-in-delay-2">
-      <div class="case-tag">SaaS API &bull; Auth + Data Integrity &bull; Sample Scope</div>
-      <h3 class="case-title">API & SaaS Workflow Testing</h3>
-      <p class="case-desc">A focused SaaS-style QA scope for login, role access, API response validation, error handling, dashboard data consistency, and regression risk.</p>
-      <ul class="case-bullets">
-        <li>Validated expected response structures, status codes, and error messages</li>
-        <li>Checked role-based access behavior across user and admin flows</li>
-        <li>Compared UI data against API behavior to catch mismatch risks</li>
-        <li>Prepared QA notes suitable for Jira, GitHub Issues, or shared client docs</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ARTIFACTS -->
-<section id="artifacts">
-  <div class="artifacts-header">
-    <div class="section-eyebrow">Deliverables</div>
-    <h2 class="section-title">QA output clients can actually use.</h2>
-    <p class="section-copy">Every engagement produces structured, evidence-backed documentation — not a list of vague observations.</p>
-  </div>
-
-  <div class="artifacts-grid">
-    <div class="artifact-card fade-in">
-      <div class="artifact-icon-wrap">
-        <svg class="artifact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
-      </div>
-      <h4 class="artifact-name">Test Cases</h4>
-      <p class="artifact-desc">Scenario, precondition, test data, steps, expected result, actual result, pass/fail, severity, and retest notes.</p>
-    </div>
-    <div class="artifact-card fade-in fade-in-delay-1">
-      <div class="artifact-icon-wrap">
-        <svg class="artifact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-      </div>
-      <h4 class="artifact-name">Bug Reports</h4>
-      <p class="artifact-desc">Clear title, environment, exact steps, screenshot note, severity, priority, business impact, and fix verification scope.</p>
-    </div>
-    <div class="artifact-card fade-in fade-in-delay-2">
-      <div class="artifact-icon-wrap">
-        <svg class="artifact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      </div>
-      <h4 class="artifact-name">QA Dashboards</h4>
-      <p class="artifact-desc">Pass, fail, blocked, retest, critical issues, and release readiness tracked in one clean, shareable view.</p>
-    </div>
-    <div class="artifact-card fade-in fade-in-delay-3">
-      <div class="artifact-icon-wrap">
-        <svg class="artifact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-      </div>
-      <h4 class="artifact-name">Regression Notes</h4>
-      <p class="artifact-desc">Fix verification and nearby-flow checks completed before final release confidence is confirmed.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- PROOF OF WORK -->
-<section id="proof">
-  <div class="proof-header">
-    <div>
-      <div class="section-eyebrow">Proof of Work</div>
-      <h2 class="section-title">Evidence clients can review before they commit.</h2>
-    </div>
-    <p class="section-copy">BugAura Labs shows concrete QA proof points instead of empty claims: tested flows, documented defects, repeatable report formats, and viewable sample reports.</p>
-  </div>
-
-  <div class="proof-grid">
-    <div class="proof-card fade-in">
-      <span class="proof-label">Ecommerce</span>
-      <h3 class="proof-title">Checkout and catalogue defects found</h3>
-      <p class="proof-copy">Proof includes out-of-stock checkout behavior, zero-price catalogue risks, validation gaps, mobile layout issues, and admin product-management coverage.</p>
-    </div>
-    <div class="proof-card fade-in fade-in-delay-1">
-      <span class="proof-label">Scrum Platform</span>
-      <h3 class="proof-title">95+ workflow test cases designed</h3>
-      <p class="proof-copy">Coverage includes task creation, Kanban board states, swim lanes, navigation, UI feedback, and workflow progression risks.</p>
-    </div>
-    <div class="proof-card fade-in fade-in-delay-2">
-      <span class="proof-label">Bug Evidence</span>
-      <h3 class="proof-title">Developer-ready defect format</h3>
-      <p class="proof-copy">Each bug can be shown with severity, priority, environment, exact steps, actual result, expected result, business impact, and retest scope.</p>
-    </div>
-    <div class="proof-card fade-in fade-in-delay-3">
-      <span class="proof-label">Sample Report</span>
-      <h3 class="proof-title">PDF proof clients can view fast</h3>
-      <p class="proof-copy">A sanitized QA sample report is available as a quick PDF, so clients can judge report quality without opening a slide deck. <a href="output/C2C_Agri_Sanitized_QA_Document.pdf" target="_blank" style="color:var(--gold);text-decoration:none;">View PDF &#8599;</a></p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- CLIENT CONFIDENCE -->
-<section id="testimonials">
-  <div class="testimonials-header">
-    <div>
-      <div class="section-eyebrow">Client Confidence</div>
-      <h2 class="section-title">Trust signals while verified reviews are collected.</h2>
-    </div>
-    <p class="section-copy">Named reviews and company logos will be added only after client approval. Until then, clients can review the studio presence, sample reports, and anonymized QA evidence.</p>
-  </div>
-
-  <div class="testimonials-grid">
-    <div class="testimonial-card fade-in">
-      <p class="testimonial-quote">Public company presence is available through the BugAura Labs LinkedIn page, so overseas clients can verify the studio before starting a conversation.</p>
-      <div class="testimonial-source">LinkedIn company page &bull; Public profile</div>
-    </div>
-    <div class="testimonial-card fade-in fade-in-delay-1">
-      <p class="testimonial-quote">Sample QA documentation is available for review, including the structure used for severity, expected result, actual result, impact, and retest notes.</p>
-      <div class="testimonial-source">Sample report &bull; Review before hiring</div>
-    </div>
-    <div class="testimonial-card fade-in fade-in-delay-2">
-      <p class="testimonial-quote">Client names, references, or call notes can be shared when available and approved. The site does not use invented reviews or unverified client logos.</p>
-      <div class="testimonial-source">References &bull; Available when approved</div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="process-header">
-    <div class="section-eyebrow">Process</div>
-    <h2 class="section-title">A disciplined process from requirement to regression.</h2>
-  </div>
-
-  <div class="process-steps">
-    <div class="process-step fade-in">
-      <div class="step-num">01</div>
-      <div class="step-title">Requirement Analysis</div>
-      <p class="step-desc">Understand business rules, flows, roles, and risks.</p>
-    </div>
-    <div class="process-step fade-in fade-in-delay-1">
-      <div class="step-num">02</div>
-      <div class="step-title">Test Planning</div>
-      <p class="step-desc">Define scope, devices, browsers, test data, and priority areas.</p>
-    </div>
-    <div class="process-step fade-in fade-in-delay-2">
-      <div class="step-num">03</div>
-      <div class="step-title">Test Case Design</div>
-      <p class="step-desc">Create positive, negative, boundary, and edge-case scenarios.</p>
-    </div>
-    <div class="process-step fade-in fade-in-delay-3">
-      <div class="step-num">04</div>
-      <div class="step-title">Test Execution</div>
-      <p class="step-desc">Validate UI, API behavior, admin actions, forms, and responsiveness.</p>
-    </div>
-    <div class="process-step fade-in fade-in-delay-4">
-      <div class="step-num">05</div>
-      <div class="step-title">Bug Reporting</div>
-      <p class="step-desc">Document severity, priority, steps, expected vs actual, and evidence.</p>
-    </div>
-    <div class="process-step fade-in fade-in-delay-5">
-      <div class="step-num">06</div>
-      <div class="step-title">Retest &amp; Regression</div>
-      <p class="step-desc">Confirm fixes and verify nearby flows before release.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- TOOLS -->
-<section id="tools">
-  <div class="tools-header">
-    <div>
-      <div class="section-eyebrow">Tools</div>
-      <h2 class="section-title">Chosen for practical QA, not decoration.</h2>
-    </div>
-    <p class="section-copy">A lean QA stack for testing, reporting, debugging, automation planning, performance checks, and team collaboration.</p>
-  </div>
-  <div class="tools-grid">
-    <div class="tool-pill">Playwright</div>
-    <div class="tool-pill">Postman</div>
-    <div class="tool-pill">k6</div>
-    <div class="tool-pill">OWASP ZAP</div>
-    <div class="tool-pill">Google Sheets</div>
-    <div class="tool-pill">Chrome DevTools</div>
-    <div class="tool-pill">Jira</div>
-    <div class="tool-pill">GitHub</div>
-    <div class="tool-pill">Selenium</div>
-    <div class="tool-pill">JMeter</div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- PRICING -->
-<section id="pricing">
-  <div class="pricing-header">
-    <div>
-      <div class="section-eyebrow">Pricing</div>
-      <h2 class="section-title">Founder-friendly QA packages for early clients.</h2>
-    </div>
-    <p class="section-copy">Start with a free audit, then upgrade only if the findings are useful. Early-client pricing is intentionally simple so startups and agencies can test the value without a large commitment.</p>
-  </div>
-
-  <div class="pricing-grid">
-    <div class="pricing-card fade-in">
-      <span class="plan-label">Start Here</span>
-      <div class="plan-name">Free QA Audit</div>
-      <div class="plan-price free">Free</div>
-      <div class="plan-meta">First look at one priority flow</div>
-      <div class="plan-divider"></div>
-      <p class="plan-desc">A no-pressure review for one important product flow so you can see how BugAura Labs reports issues before starting paid work.</p>
-      <ul class="plan-list">
-        <li>Review of one checkout, signup, contact, or dashboard flow</li>
-        <li>Top visible bugs, risks, and usability friction</li>
-        <li>Short summary with recommended next QA scope</li>
-        <li>Best for founders who want to validate fit first</li>
-      </ul>
-      <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Request Free Audit &#8599;</a>
-    </div>
-    <div class="pricing-card featured fade-in fade-in-delay-1">
-      <span class="plan-label">First-Client Offer</span>
-      <div class="plan-name">QA Sprint</div>
-      <div class="plan-price custom"><span class="price-was">USD 250</span>USD 199</div>
-      <div class="plan-meta">Limited launch price</div>
-      <div class="offer-badge">Save USD 51</div>
-      <div class="plan-divider"></div>
-      <p class="plan-desc">A focused paid QA sprint for small launches, ecommerce flows, SaaS screens, admin panels, and MVPs that need practical release confidence.</p>
-      <ul class="plan-list">
-        <li>Requirement review and test plan</li>
-        <li>Functional, negative, responsive, and regression checks</li>
-        <li>Bug report with severity, impact, steps, and screenshots</li>
-        <li>One retest pass after fixes are shared</li>
-      </ul>
-      <a href="#contact" class="btn-primary" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Claim Sprint Offer &#8599;</a>
-    </div>
-    <div class="pricing-card fade-in fade-in-delay-2">
-      <span class="plan-label">First-Client Offer</span>
-      <div class="plan-name">Remote QA Partner</div>
-      <div class="plan-price monthly"><span class="price-was">USD 500</span>USD 450/mo</div>
-      <div class="plan-meta">Intro monthly rate</div>
-      <div class="offer-badge">Save USD 50/mo</div>
-      <div class="plan-divider"></div>
-      <p class="plan-desc">A light monthly QA partnership for agencies, startups, and founders who ship often and want predictable testing support.</p>
-      <ul class="plan-list">
-        <li>Recurring QA support for priority releases</li>
-        <li>Regression checks before each release</li>
-        <li>Bug triage in Jira, GitHub, Sheets, or your preferred tool</li>
-        <li>Monthly summary of risks, fixes, and release readiness</li>
-      </ul>
-      <a href="#contact" class="btn-outline" style="display:inline-flex;font-size:0.85rem;padding:0.65rem 1.4rem;">Start Monthly QA &#8599;</a>
-    </div>
-  </div>
-
-  <p class="pricing-note">Intro pricing is for early BugAura Labs clients and may change as capacity fills. If the free audit does not reveal useful findings, there is no pressure to continue.</p>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="faq-header">
-    <div class="section-eyebrow">FAQ</div>
-    <h2 class="section-title">Questions clients usually ask before a QA sprint.</h2>
-    <p class="section-copy">Clear answers remove friction before the first call.</p>
-  </div>
-
-  <div class="faq-grid">
-    <div class="faq-item fade-in">
-      <h3>Do you sign an NDA?</h3>
-      <p>Yes. I can sign an NDA before reviewing staging links, admin panels, test data, internal docs, or unreleased product flows.</p>
-    </div>
-    <div class="faq-item fade-in fade-in-delay-1">
-      <h3>How long does a QA sprint take?</h3>
-      <p>A focused audit can usually start with 1 to 3 priority flows. Full web app or ecommerce QA depends on scope, devices, browsers, and access.</p>
-    </div>
-    <div class="faq-item fade-in fade-in-delay-2">
-      <h3>Do you work with international teams?</h3>
-      <p>Yes. BugAura Labs works remotely with founders, agencies, SaaS teams, and ecommerce brands across the US, UK, EU, UAE, Australia, Canada, and other remote-first markets.</p>
-    </div>
-    <div class="faq-item fade-in fade-in-delay-3">
-      <h3>What happens after bugs are fixed?</h3>
-      <p>I retest fixed issues, check nearby flows for regressions, and update the report with pass, fail, blocked, or retest notes.</p>
-    </div>
-    <div class="faq-item fade-in">
-      <h3>What access do you need?</h3>
-      <p>Usually a staging URL, test account, admin access when needed, test payment mode, expected rules, and any known risk areas.</p>
-    </div>
-    <div class="faq-item fade-in fade-in-delay-1">
-      <h3>What if I only need a quick review?</h3>
-      <p>The free QA audit is built for that. Send one important flow and I will return the top visible risks and the recommended next scope.</p>
-    </div>
-    <div class="faq-item fade-in fade-in-delay-2">
-      <h3>Can you support agencies or larger teams?</h3>
-      <p>Yes. BugAura Labs works well as a focused QA owner for agencies and lean product teams that need clear reports, async updates, and repeatable release checks.</p>
-    </div>
-    <div class="faq-item fade-in fade-in-delay-3">
-      <h3>What proof can I review before hiring?</h3>
-      <p>You can review the sample QA report, case study summaries, LinkedIn company page, and the exact defect-reporting format used during paid QA sprints.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div>
-      <div class="section-eyebrow">About</div>
-      <h2 class="section-title">A QA studio built for focused release confidence.</h2>
-      <p class="section-copy" style="margin-bottom: 0;">BugAura Labs is a remote QA testing studio built for startups, SaaS teams, ecommerce brands, and agencies that need practical release confidence. The studio is led by Jaswanth M K and combines manual exploratory testing, structured test case design, API validation thinking, regression checks, and clear defect reporting.</p>
-      <ul class="about-bullets">
-        <li>Testing is planned around customer journeys, revenue-critical flows, admin workflows, and release risk.</li>
-        <li>Every defect is written with reproduction steps, business impact, severity, and retest scope documented.</li>
-        <li>Strong fit for ecommerce, SaaS, web apps, admin panels, MVPs, and agency handoffs.</li>
-        <li>Remote-friendly delivery with NDA readiness, async updates, and timezone-aware communication.</li>
-        <li><a href="https://www.linkedin.com/company/bugauralabs" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">View BugAura Labs on LinkedIn &#8599;</a></li>
-      </ul>
-    </div>
-    <div class="about-visual fade-in">
-      <div class="terminal-header">
-        <div class="t-dot" style="background:#c9a84c;"></div>
-        <div class="t-dot" style="background:#2a7a5a;"></div>
-        <div class="t-dot" style="background:#b5622a;"></div>
-        <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--ivory-muted);margin-left:0.5rem;">jaswanth.mk / profile</span>
-      </div>
-      <div class="qa-terminal">
-        <div class="terminal-line">
-          <span class="terminal-key">name</span>
-          <span class="terminal-val ivory">Jaswanth M K</span>
+      <div class="proc-card" data-step="01" role="listitem">
+        <div class="proc-step-badge">
+          <span class="proc-step-dot">01</span>
         </div>
-        <div class="terminal-line">
-          <span class="terminal-key">role</span>
-          <span class="terminal-val gold">QA Engineer</span>
+        <div class="proc-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 5h4M5 7.5h4M5 10h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M11 6l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="terminal-line">
-          <span class="terminal-key">studio</span>
-          <span class="terminal-val jade">BugAura Labs</span>
+        <div class="proc-name">Requirement Review</div>
+        <p class="proc-desc">Read your spec, PRD, and acceptance criteria to understand where the product should work and where the failure cost is highest.</p>
+      </div>
+
+      <div class="proc-card" data-step="02" role="listitem">
+        <div class="proc-step-badge">
+          <span class="proc-step-dot">02</span>
         </div>
-        <div class="terminal-line">
-          <span class="terminal-key">focus</span>
-          <span class="terminal-val">SaaS, Ecommerce, Web, API</span>
+        <div class="proc-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="1" fill="currentColor"/></svg>
         </div>
-        <div class="terminal-line">
-          <span class="terminal-key">style</span>
-          <span class="terminal-val">Remote manual QA + automation mindset</span>
+        <div class="proc-name">Test Planning</div>
+        <p class="proc-desc">Define scope, devices, browsers, test data, and priority areas by risk, not alphabetically. High-stakes flows get disproportionate time.</p>
+      </div>
+
+      <div class="proc-card" data-step="03" role="listitem">
+        <div class="proc-step-badge">
+          <span class="proc-step-dot">03</span>
         </div>
-        <div class="terminal-line">
-          <span class="terminal-key">test_cases</span>
-          <span class="terminal-val gold">95+ in one workflow audit</span>
+        <div class="proc-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3" width="13" height="2" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="1.5" y="7" width="13" height="2" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="1.5" y="11" width="8" height="2" rx="1" stroke="currentColor" stroke-width="1.4"/><path d="M12 11.5l1.5 1.5L16 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="terminal-line">
-          <span class="terminal-key">risk_focus</span>
-          <span class="terminal-val copper">checkout + admin + API</span>
+        <div class="proc-name">Case Design</div>
+        <p class="proc-desc">Structured cases written before execution: positive, negative, boundary, and adversarial. Not improvised notes after the fact.</p>
+      </div>
+
+      <div class="proc-card" data-step="04" role="listitem">
+        <div class="proc-step-badge">
+          <span class="proc-step-dot">04</span>
         </div>
-        <div class="terminal-line">
-          <span class="terminal-key">reporting</span>
-          <span class="terminal-val jade">severity + impact + steps</span>
+        <div class="proc-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3l7 5-7 5V3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
         </div>
-        <div class="terminal-line">
-          <span class="terminal-key">status</span>
-          <span class="terminal-val gold">available &mdash; global remote projects</span>
+        <div class="proc-name">Execution</div>
+        <p class="proc-desc">Test as the user, the attacker, and the admin simultaneously. The happy path is the last thing we verify, not the first.</p>
+      </div>
+
+      <div class="proc-card" data-step="05" role="listitem">
+        <div class="proc-step-badge">
+          <span class="proc-step-dot">05</span>
+        </div>
+        <div class="proc-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="1" fill="currentColor"/><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4"/></svg>
+        </div>
+        <div class="proc-name">Bug Reporting</div>
+        <p class="proc-desc">Severity, priority, exact steps, expected vs actual, business impact, evidence, and retest scope. Nothing filed without all fields complete.</p>
+      </div>
+
+      <div class="proc-card" data-step="06" role="listitem">
+        <div class="proc-step-badge">
+          <span class="proc-step-dot">06</span>
+        </div>
+        <div class="proc-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 8a5.5 5.5 0 1 0 1.2-3.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M2.5 3.5V8H7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="proc-name">Retest and Regression</div>
+        <p class="proc-desc">Verify every fix. Check adjacent flows. The engagement closes only when critical and major defects are confirmed clean.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── PRICING ────────────────────────────────────────────── -->
+<section id="pricing" aria-labelledby="price-h">
+  <div class="w">
+    <div style="margin-bottom:2.5rem">
+      <span class="sec-label rv-up">Pricing</span>
+      <h2 class="sec-h rv-up d1" id="price-h">Start free. Upgrade only if<br>the findings are useful.</h2>
+      <p class="sec-sub rv-up d2">Intro pricing for early clients. No commitment until you have seen real value from the free audit.</p>
+    </div>
+    <div class="plans" role="list">
+
+      <div class="plan" role="listitem">
+        <span class="plan-chip">Free tier</span>
+        <h3>Free Audit</h3>
+        <div class="plan-price">Free</div>
+        <div class="plan-period">One priority flow, no commitment</div>
+        <p class="plan-desc">See exactly how BugAura Labs reports issues before committing to anything paid.</p>
+        <ul class="plan-ul" aria-label="Free audit features">
+          <li>One checkout, signup, or dashboard flow</li>
+          <li>Top visible bugs and friction points</li>
+          <li>Recommended next-scope summary</li>
+          <li>Best for founders validating fit first</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Request free audit</a>
+      </div>
+
+      <div class="plan plan--hl" role="listitem">
+        <span class="plan-popular" aria-label="Most popular plan">Most Popular</span>
+        <span class="plan-chip">QA Sprint</span>
+        <h3>Sprint Package</h3>
+        <div class="plan-price">$199</div>
+        <div class="plan-was">Was $250</div>
+        <div class="plan-period">Launch price, save $51</div>
+        <p class="plan-desc">A focused sprint for launches, ecommerce flows, SaaS screens, and MVPs that need real release confidence.</p>
+        <ul class="plan-ul" aria-label="QA Sprint features">
+          <li>Requirement review and test plan</li>
+          <li>Functional, negative, responsive, regression</li>
+          <li>Bug report with severity, impact, steps, screenshots</li>
+          <li>One retest pass after your fixes</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Claim sprint offer</a>
+      </div>
+
+      <div class="plan" role="listitem">
+        <span class="plan-chip">Monthly partner</span>
+        <h3>QA Partner</h3>
+        <div class="plan-price">$450<sub>/mo</sub></div>
+        <div class="plan-was">Was $500/mo</div>
+        <div class="plan-period">Intro rate, save $50/mo</div>
+        <p class="plan-desc">Ongoing QA partnership for teams that ship frequently and need predictable, senior-reviewed coverage.</p>
+        <ul class="plan-ul" aria-label="Monthly partner features">
+          <li>Recurring QA for priority releases</li>
+          <li>Regression checks before each deploy</li>
+          <li>Bug triage in Jira, GitHub, or Sheets</li>
+          <li>Monthly risk and readiness summary</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Start monthly QA</a>
+      </div>
+
+    </div>
+    <p class="rv-up" style="margin-top:1.25rem;font-size:.72rem;color:var(--g4);font-family:'JetBrains Mono',monospace">Intro pricing for early clients. May change as capacity fills.</p>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── FAQ ────────────────────────────────────────────────── -->
+<section id="faq" aria-labelledby="faq-h">
+  <div class="w">
+    <div style="margin-bottom:2rem">
+      <span class="sec-label rv-up">FAQ</span>
+      <h2 class="sec-h rv-up d1" id="faq-h">Common questions.</h2>
+    </div>
+    <div class="faq rv-up" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="a1">Do you sign an NDA?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="a1" role="region"><div class="faq-a-in">Yes, always, before you share a staging link, admin access, or any internal document. You can use our template or send your own. No exceptions.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="a2">How quickly do findings come back?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="a2" role="region"><div class="faq-a-in">First filed defect records within 48 hours of access being granted. Not a scoping call, not a kickoff document. Actual bugs you can act on immediately.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="a3">What access do you need?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="a3" role="region"><div class="faq-a-in">A staging or production URL, test accounts per role, admin access when relevant, test payment mode if testing checkout, and any known risk areas or recent changes. More context means a sharper survey.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="a4">What happens after bugs are fixed?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="a4" role="region"><div class="faq-a-in">We retest every fix, verify it no longer reproduces, check adjacent flows for regression, and update the report. The engagement closes only when all critical and major defects are verified clean.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="a5">Do you work with international teams?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="a5" role="region"><div class="faq-a-in">Yes. Fully remote with teams in the US, UK, EU, UAE, Australia, Canada, and APAC. Async-first. Time zones are not a constraint. We work inside your existing tools.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="a6">What proof can I see before hiring?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="a6" role="region"><div class="faq-a-in">The case studies above are based on real engagements. A sanitised sample QA report (PDF) is available on request. It shows the exact defect format, severity classification, and retest scope used on every paid engagement.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="a7">Can you work with agencies or larger teams?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="a7" role="region"><div class="faq-a-in">Yes. BugAura Labs works well embedded in agency handoff pipelines and lean product teams. No new tools, no onboarding overhead. We plug into your Jira, GitHub, or Slack and get started.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── CONTACT ─────────────────────────────────────────────── -->
+<section id="contact" aria-labelledby="contact-h">
+  <div class="w">
+    <div class="contact-grid">
+      <div class="c-left">
+        <span class="sec-label rv-right">Get in touch</span>
+        <h2 class="rv-right d1" id="contact-h">Ship with confidence.</h2>
+        <p class="rv-right d2">Share your product URL and the one flow you are most worried about. We will sign an NDA, survey it, and return first findings within 48 hours. No commitment until you see results.</p>
+        <div class="c-badges rv-right d3" aria-label="Contact details">
+          <div class="c-badge"><span class="c-badge-dot" aria-hidden="true"></span><a href="mailto:jaswanth.mk63@gmail.com">jaswanth.mk63@gmail.com</a></div>
+          <div class="c-badge"><span class="c-badge-dot" aria-hidden="true"></span><a href="tel:+916374376247">+91 63743 76247</a></div>
+          <div class="c-badge"><span class="c-badge-dot" aria-hidden="true"></span><a href="https://www.linkedin.com/company/bugauralabs" target="_blank" rel="noopener noreferrer">LinkedIn: BugAura Labs</a></div>
+          <div class="c-badge"><span class="c-badge-dot" aria-hidden="true"></span><a href="https://bugauralabs.studio/output/C2C_Agri_Sanitized_QA_Document.pdf" target="_blank" rel="noopener noreferrer">Sample QA report (PDF)</a></div>
+        </div>
+      </div>
+      <div class="rv-left d1">
+        <div class="form-card">
+          <div class="form-card-head">
+            <div class="form-badge" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 60 68" fill="none">
+                <path d="M30 2L20 5L10 12L5 24L4 40L10 54L22 63L30 66L38 63L50 54L56 40L55 24L50 12L40 5Z" stroke="#22c55e" stroke-width="4" stroke-linejoin="round"/>
+                <circle cx="30" cy="38" r="5" fill="#22c55e"/>
+                <path d="M30 38L22 20M22 20L16 11M22 20L26 11M30 38L38 20M38 20L34 11M38 20L44 11M30 38L8 32M30 38L52 32M30 38L18 56M30 38L42 56" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="form-card-title">Request a QA Audit</div>
+              <div class="form-card-sub">NDA sent within 2 hours · First findings in 48h</div>
+            </div>
+          </div>
+          <form class="form" id="form" method="POST" action="https://formspree.io/f/xpwrpwkn" novalidate aria-label="Request a QA audit">
+            <div class="form-row">
+              <div><label class="fl" for="fn">Your Name</label><input class="fi" type="text" id="fn" name="name" autocomplete="name" required aria-required="true" placeholder="Jane Smith"/></div>
+              <div><label class="fl" for="fe">Email</label><input class="fi" type="email" id="fe" name="email" autocomplete="email" required aria-required="true" placeholder="you@company.com"/></div>
+            </div>
+            <div><label class="fl" for="fu">Product URL</label><input class="fi" type="url" id="fu" name="url" autocomplete="url" placeholder="https://app.yourproduct.com"/></div>
+            <div class="form-row">
+              <div>
+                <label class="fl" id="budget-label">Budget</label>
+                <!-- Custom dropdown — hidden native input carries value for Formspree -->
+                <input type="hidden" name="budget" id="fb" value=""/>
+                <div class="csel" role="combobox" aria-labelledby="budget-label"
+                     aria-haspopup="listbox" aria-expanded="false" tabindex="0"
+                     id="budget-picker">
+                  <span class="csel-val">Select...</span>
+                  <svg class="csel-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                    <path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <ul class="csel-list" role="listbox" aria-labelledby="budget-label">
+                    <li class="csel-opt" role="option" data-value="Free audit">
+                      <span class="csel-opt-name">Free audit</span>
+                      <span class="csel-opt-sub">One priority flow, no commitment</span>
+                    </li>
+                    <li class="csel-opt" role="option" data-value="$199 QA Sprint">
+                      <span class="csel-opt-name">$199 QA Sprint</span>
+                      <span class="csel-opt-sub">Full sprint, one retest pass</span>
+                    </li>
+                    <li class="csel-opt" role="option" data-value="$450/mo Partner">
+                      <span class="csel-opt-name">$450 / mo Partner</span>
+                      <span class="csel-opt-sub">Ongoing coverage, monthly</span>
+                    </li>
+                    <li class="csel-opt" role="option" data-value="Not sure yet">
+                      <span class="csel-opt-name">Not sure yet</span>
+                      <span class="csel-opt-sub">We can figure it out together</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div><label class="fl" for="ftz">Timezone</label><input class="fi" type="text" id="ftz" name="timezone" placeholder="e.g. GMT+5:30"/></div>
+            </div>
+            <div><label class="fl" for="fsc">What should be tested?</label><textarea class="ft" id="fsc" name="scope" rows="3" placeholder="The flow you are most worried about, recent changes, launch date..."></textarea></div>
+            <div class="f-submit">
+              <button type="submit" class="f-btn">Send brief</button>
+              <span class="f-note">No spam · NDA first</span>
+            </div>
+            <div class="form-ok" id="form-ok" role="alert" aria-live="polite">Brief received. Expect an NDA within 2 hours and first findings shortly after.</div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+</main>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-eyebrow" style="justify-content:center;">Contact</div>
-    <h2 class="contact-title">Ready to make your product feel <em>release-ready?</em></h2>
-    <p class="contact-copy">Share your URL, launch timeline, budget range, timezone, and the flow you care about most. The brief goes straight to email without asking you to open an email client.</p>
-    <form class="contact-form" action="https://formsubmit.co/jaswanth.mk63@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New BugAura Labs QA brief">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none">
-      <label>
-        Name
-        <input type="text" name="name" autocomplete="name" required>
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" autocomplete="email" required>
-      </label>
-      <label class="form-full">
-        Product URL
-        <input type="url" name="product_url" placeholder="https://your-product.com">
-      </label>
-      <label>
-        Deadline
-        <input type="text" name="deadline" placeholder="Launch date or sprint week">
-      </label>
-      <label>
-        Timezone
-        <input type="text" name="timezone" placeholder="EST, GMT, CET, GST, AEST...">
-      </label>
-      <label>
-        Budget Range
-        <select name="budget_range">
-          <option value="Free first look">Free first look</option>
-          <option value="USD 199 QA sprint offer">USD 199 QA sprint offer</option>
-          <option value="USD 450 monthly QA partner offer">USD 450 monthly QA partner offer</option>
-          <option value="Not sure">Not sure yet</option>
-        </select>
-      </label>
-      <label class="form-full">
-        What should be tested?
-        <textarea name="qa_scope" placeholder="Checkout, admin panel, API, mobile layout, regression, or one risky flow..." required></textarea>
-      </label>
-      <div class="form-actions">
-        <button type="submit" class="btn-primary">Send QA Brief &#8599;</button>
-        <a href="output/C2C_Agri_Sanitized_QA_Document.pdf" class="btn-outline" target="_blank">View Sample Report</a>
-        <a href="https://www.linkedin.com/company/bugauralabs" class="btn-outline" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </form>
-    <div class="contact-details">
-      <div class="contact-detail">
-        <span class="contact-detail-label">Email</span>
-        <a href="mailto:jaswanth.mk63@gmail.com">jaswanth.mk63@gmail.com</a>
-      </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Phone</span>
-        <a href="tel:+916374376247">+91 63743 76247</a>
-      </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Location</span>
-        <span>Global remote delivery</span>
-      </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Response</span>
-        <span>Within 24 hours, async-friendly</span>
-      </div>
-    </div>
+<footer class="footer" aria-label="Site footer">
+  <div class="footer-brand">
+    <img class="footer-logo" src="./bugaura-logo-full.png" alt="BugAura Labs" width="898" height="670" decoding="async"/>
+    <svg width="22" height="22" viewBox="0 0 60 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 2L20 5L10 12L5 24L4 40L10 54L22 63L30 66L38 63L50 54L56 40L55 24L50 12L40 5Z"
+            stroke="white" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="30" cy="38" r="4" fill="white"/>
+      <path d="M30 38L22 20M22 20L16 11M22 20L26 11" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30 38L38 20M38 20L34 11M38 20L44 11" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30 38L8 32M30 38L52 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30 38L18 56M30 38L42 56" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="16" cy="11" r="2" fill="white"/>
+      <circle cx="26" cy="11" r="2" fill="white"/>
+      <circle cx="34" cy="11" r="2" fill="white"/>
+      <circle cx="44" cy="11" r="2" fill="white"/>
+      <circle cx="8" cy="32" r="2.2" fill="#22c55e"/>
+      <circle cx="52" cy="32" r="2.2" fill="#22c55e"/>
+    </svg>
+    <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem;color:var(--g2);margin-left:.4rem">BugAura Labs</span>
   </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">BugAura Labs</div>
-  <p class="footer-copy">Quality testing for products that need trust.</p>
-  <p class="footer-copy">&copy; 2026 Jaswanth M K</p>
+  <p class="footer-copy">© 2026 Jaswanth M K · Remote QA Studio</p>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="https://www.linkedin.com/company/bugauralabs" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://bugauralabs.studio/output/C2C_Agri_Sanitized_QA_Document.pdf" target="_blank" rel="noopener noreferrer">Sample Report</a>
+    <a href="mailto:jaswanth.mk63@gmail.com">Email</a>
+  </nav>
 </footer>
 
 <script>
-  // Intersection Observer for fade-in animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+(function(){
+'use strict';
+
+/* ── constants ──────────────────────────────────────────── */
+const STACK_TOP_PX = 88; // matches CSS top:5.5rem (5.5*16=88)
+const reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ── rAF throttle ───────────────────────────────────────── */
+let rafPending = false;
+const tasks = [];
+function scheduleRaf(fn){
+  tasks.push(fn);
+  if(!rafPending){
+    rafPending = true;
+    requestAnimationFrame(()=>{
+      rafPending = false;
+      const batch = tasks.splice(0);
+      batch.forEach(f=>f());
+    });
+  }
+}
+
+/* ── progress bar ───────────────────────────────────────── */
+const pb = document.getElementById('pb');
+window.addEventListener('scroll', ()=>scheduleRaf(()=>{
+  const s = document.documentElement;
+  const h = s.scrollHeight - s.clientHeight;
+  pb.style.width = (h>0?(s.scrollTop||document.body.scrollTop)/h*100:0)+'%';
+}), {passive:true});
+
+/* ── nav glass on scroll ────────────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', ()=>scheduleRaf(()=>{
+  nav.classList.toggle('stuck', window.scrollY > 40);
+}), {passive:true});
+
+/* ══════════════════════════════════════════════════════════
+   STICKY CARD STACK — case studies only
+   Dims and scales buried cards as later ones slide over them.
+══════════════════════════════════════════════════════════ */
+if(!reduced){
+  const stackCards = [...document.querySelectorAll('.cases-stack .case')];
+  // disable on mobile (CSS sets position:static, but we guard JS too)
+  const mobileQuery = matchMedia('(max-width:700px)');
+
+  function updateStack(){
+    if(mobileQuery.matches) return;
+    stackCards.forEach((card, i)=>{
+      const rect = card.getBoundingClientRect();
+      let coverCount = 0;
+      // Count how many later cards are visually on top of this one
+      for(let j = i+1; j < stackCards.length; j++){
+        const jr = stackCards[j].getBoundingClientRect();
+        // Later card is covering this if its top is close to or above this card's top
+        if(jr.top < rect.top + 40) coverCount++;
+      }
+      if(coverCount > 0){
+        const scale = Math.max(0.93, 1 - coverCount * 0.025);
+        const opacity = Math.max(0.45, 1 - coverCount * 0.22);
+        card.style.transform = `scale(${scale})`;
+        card.style.opacity = `${opacity}`;
+      } else {
+        card.style.transform = '';
+        card.style.opacity = '';
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  window.addEventListener('scroll', ()=>scheduleRaf(updateStack), {passive:true});
+  updateStack(); // initial call
+}
 
-  // Close mobile nav after selecting a link
-  const navToggle = document.getElementById('nav-toggle');
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (navToggle) navToggle.checked = false;
+/* ══════════════════════════════════════════════════════════
+   PARALLAX — hero card + orbs drift at different speeds
+══════════════════════════════════════════════════════════ */
+if(!reduced){
+  const heroCard = document.getElementById('hero-card');
+  const orb1 = document.getElementById('orb1');
+  const orb2 = document.getElementById('orb2');
+  const orb3 = document.getElementById('orb3');
+  const orb4 = document.getElementById('orb4');
+  window.addEventListener('scroll', ()=>scheduleRaf(()=>{
+    const sy = window.scrollY;
+    if(heroCard) heroCard.style.transform = `translateY(${sy*0.12}px)`;
+    if(orb1) orb1.style.transform = `translate(${sy*0.03}px,${-sy*0.07}px)`;
+    if(orb2) orb2.style.transform = `translate(${-sy*0.025}px,${sy*0.05}px)`;
+    if(orb3) orb3.style.transform = `translateY(${sy*0.04}px)`;
+    if(orb4) orb4.style.transform = `translate(${-sy*0.02}px,${-sy*0.04}px)`;
+  }), {passive:true});
+}
+
+/* ══════════════════════════════════════════════════════════
+   SCROLL REVEALS via IntersectionObserver
+══════════════════════════════════════════════════════════ */
+if(!reduced){
+  const revealIo = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); revealIo.unobserve(e.target); }
     });
+  },{threshold:0.08, rootMargin:'0px 0px -28px 0px'});
+  document.querySelectorAll('.rv-up,.rv-right,.rv-left,.proc-card,.plan')
+    .forEach(el=>revealIo.observe(el));
+} else {
+  document.querySelectorAll('.rv-up,.rv-right,.rv-left,.proc-card,.plan')
+    .forEach(el=>el.classList.add('in'));
+}
+
+/* Process stagger */
+if(!reduced){
+  new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.proc-card').forEach((r,i)=>{r.style.transitionDelay=(i*.07)+'s';r.classList.add('in')});
+    }
+  }),{threshold:0.08}).observe(document.querySelector('.proc-grid')||document.body);
+}
+
+/* Pricing stagger */
+if(!reduced){
+  new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.plan').forEach((p,i)=>{p.style.transitionDelay=(i*.09)+'s';p.classList.add('in')});
+    }
+  }),{threshold:0.08}).observe(document.querySelector('.plans')||document.body);
+}
+
+/* ── Pricing cursor spotlight ───────────────────────────── */
+document.querySelectorAll('.plan').forEach(card=>{
+  card.addEventListener('mousemove', e=>{
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    card.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+});
+
+/* ── Number count-up ────────────────────────────────────── */
+function animCount(el){
+  const target = parseInt(el.dataset.count)||0;
+  const suffix = el.dataset.suffix||'';
+  // render: number in white, suffix in green
+  function render(n){
+    el.innerHTML = n + (suffix ? '<span class="suf">'+suffix+'</span>' : '');
+  }
+  if(target===0){render(0);return}
+  const start = performance.now(), dur = 1100;
+  function step(now){
+    const p = Math.min((now-start)/dur,1);
+    const ease = 1-Math.pow(1-p,3);
+    render(Math.floor(ease*target));
+    if(p<1) requestAnimationFrame(step);
+    else render(target); // ensure exact final value
+  }
+  requestAnimationFrame(step);
+}
+new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    e.target.querySelectorAll('[data-count]').forEach(el=>{
+      if(!el.dataset.counted){el.dataset.counted='1';animCount(el)}
+    });
+  }
+}),{threshold:0.25}).observe(document.querySelector('.numbers')||document.body);
+
+/* ── FAQ accordion ──────────────────────────────────────── */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const item = btn.closest('.faq-item'), open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+    if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true')}
+  });
+});
+
+/* ── Custom select ──────────────────────────────────────── */
+(function(){
+  const picker = document.getElementById('budget-picker');
+  const hidden  = document.getElementById('fb');
+  if(!picker) return;
+
+  const val   = picker.querySelector('.csel-val');
+  const opts  = picker.querySelectorAll('.csel-opt');
+
+  function open(){
+    picker.classList.add('open');
+    picker.setAttribute('aria-expanded','true');
+  }
+  function close(){
+    picker.classList.remove('open');
+    picker.setAttribute('aria-expanded','false');
+  }
+  function toggle(){ picker.classList.contains('open') ? close() : open(); }
+
+  function choose(opt){
+    opts.forEach(o=>o.removeAttribute('aria-selected'));
+    opt.setAttribute('aria-selected','true');
+    val.textContent = opt.dataset.value;
+    hidden.value    = opt.dataset.value;
+    picker.classList.add('selected');
+    close();
+  }
+
+  picker.addEventListener('click', e=>{
+    const opt = e.target.closest('.csel-opt');
+    if(opt){ choose(opt); return; }
+    toggle();
   });
 
-  // Smooth active nav state
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.style.color = '';
-      if (link.getAttribute('href') === '#' + current) {
-        link.style.color = 'var(--gold)';
-      }
-    });
+  // keyboard nav
+  picker.addEventListener('keydown', e=>{
+    const isOpen = picker.classList.contains('open');
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); return; }
+    if(e.key==='Escape'){ close(); return; }
+    if(!isOpen) return;
+    const current = [...opts].findIndex(o=>o.getAttribute('aria-selected')==='true');
+    if(e.key==='ArrowDown'){ e.preventDefault(); choose(opts[Math.min(current+1,opts.length-1)]); }
+    if(e.key==='ArrowUp'){   e.preventDefault(); choose(opts[Math.max(current-1,0)]); }
   });
+
+  // close on outside click
+  document.addEventListener('click', e=>{
+    if(!picker.contains(e.target)) close();
+  });
+})();
+
+/* ── Contact form ───────────────────────────────────────── */
+const form = document.getElementById('form');
+const ok = document.getElementById('form-ok');
+if(form){
+  form.addEventListener('submit', async e=>{
+    e.preventDefault();
+    const btn = form.querySelector('.f-btn');
+    btn.disabled=true; btn.textContent='Sending...';
+    try{
+      const r = await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      if(r.ok){form.reset();ok.style.display='block';btn.style.display='none';ok.focus()}
+      else{btn.disabled=false;btn.textContent='Send brief';alert('Something went wrong. Email jaswanth.mk63@gmail.com directly.')}
+    }catch{btn.disabled=false;btn.textContent='Send brief';alert('Network error. Email jaswanth.mk63@gmail.com directly.')}
+  });
+}
+
+})();
 </script>
 </body>
 </html>
+                                      
