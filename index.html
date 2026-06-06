@@ -702,7 +702,7 @@ section{position:relative;z-index:1;padding-block:clamp(4rem,8vw,7rem);backgroun
 
 /* ═══ FAQ ══════════════════════════════════════════════════ */
 .faq{max-width:700px}
-.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.15rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;border-bottom:1px solid var(--div);color:var(--white);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;transition:color .15s}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.15rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;border-bottom:1px solid var(--div);color:var(--white);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;transition:color .15s;-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent}
 .faq-q:hover{color:var(--g2)}
 .faq-q:focus-visible{outline:2px solid var(--white);outline-offset:2px;border-radius:2px}
 .faq-icon{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s var(--spring),background .2s;font-size:.8rem;color:var(--g3)}
@@ -1435,7 +1435,7 @@ footer.footer{border-top:1px solid var(--div);padding:2rem clamp(1.25rem,5vw,3re
               <div><label class="fl" for="fn">Your Name</label><input class="fi" type="text" id="fn" name="name" autocomplete="name" required aria-required="true" placeholder="Jane Smith"/></div>
               <div><label class="fl" for="fe">Email</label><input class="fi" type="email" id="fe" name="email" autocomplete="email" required aria-required="true" placeholder="you@company.com"/></div>
             </div>
-            <div><label class="fl" for="fu">Product URL</label><input class="fi" type="url" id="fu" name="url" autocomplete="url" placeholder="https://app.yourproduct.com"/></div>
+            <div><label class="fl" for="fu">Product URL</label><input class="fi" type="text" id="fu" name="url" autocomplete="url" placeholder="https://app.yourproduct.com"/></div>
             <div class="form-row">
               <div>
                 <label class="fl" id="budget-label">Budget</label>
@@ -1750,11 +1750,4 @@ if(form){
       const r = await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
       if(r.ok){form.reset();ok.style.display='block';btn.style.display='none';ok.focus()}
       else{btn.disabled=false;btn.textContent='Send brief';alert('Something went wrong. Email jaswanth.mk63@gmail.com directly.')}
-    }catch{btn.disabled=false;btn.textContent='Send brief';alert('Network error. Email jaswanth.mk63@gmail.com directly.')}
-  });
-}
-
-})();
-</script>
-</body>
-</html>
+    }catch{btn.disabled=false;btn.textContent='Send brief';alert('Network error. Email jaswa
