@@ -1750,4 +1750,11 @@ if(form){
       const r = await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
       if(r.ok){form.reset();ok.style.display='block';btn.style.display='none';ok.focus()}
       else{btn.disabled=false;btn.textContent='Send brief';alert('Something went wrong. Email jaswanth.mk63@gmail.com directly.')}
-    }catch{btn.disabled=false;btn.textContent='Send 
+    }catch{btn.disabled=false;btn.textContent='Send brief';alert('Network error. Email jaswanth.mk63@gmail.com directly.')}
+  });
+}
+
+})();
+</script>
+</body>
+</html>
