@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 370" role="img" aria-label="BugAura Labs">
+  <title>BugAura Labs</title>
+  <circle cx="400" cy="128" r="102" fill="#FF3B5C"/>
+  <text x="25" y="210"
+        font-family="'Space Grotesk','Arial Black','Helvetica Neue',sans-serif"
+        font-weight="700" font-size="118" fill="#FFFFFF">BugAura</text>
+  <text x="25" y="348"
+        font-family="'Space Grotesk','Arial Black','Helvetica Neue',sans-serif"
+        font-weight="700" font-size="118" fill="#FFFFFF">Labs</text>
+</svg>

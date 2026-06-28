@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 510" role="img" aria-label="BugAura Labs — India, Estd 2026, Software Testing Agency">
+  <title>BugAura Labs</title>
+  <rect width="600" height="510" fill="#FFFFFF"/>
+  <circle cx="400" cy="128" r="102" fill="#FF3B5C"/>
+  <text x="25" y="210"
+        font-family="'Space Grotesk','Arial Black','Helvetica Neue',sans-serif"
+        font-weight="700" font-size="118" fill="#0d0d0d">BugAura</text>
+  <text x="25" y="348"
+        font-family="'Space Grotesk','Arial Black','Helvetica Neue',sans-serif"
+        font-weight="700" font-size="118" fill="#0d0d0d">Labs</text>
+  <line x1="268" y1="373" x2="558" y2="373" stroke="#0d0d0d" stroke-width="1.4"/>
+  <text x="558" y="399" text-anchor="end"
+        font-family="'Space Grotesk','Arial Black','Helvetica Neue',sans-serif"
+        font-weight="600" font-size="17" fill="#0d0d0d" letter-spacing="2">INDIA</text>
+  <text x="558" y="425" text-anchor="end"
+        font-family="'Space Grotesk','Arial Black','Helvetica Neue',sans-serif"
+        font-weight="600" font-size="17" fill="#0d0d0d" letter-spacing="2">ESTD - 2026</text>
+  <text x="558" y="451" text-anchor="end"
+        font-family="'Space Grotesk','Arial Black','Helvetica Neue',sans-serif"
+        font-weight="600" font-size="17" fill="#0d0d0d" letter-spacing="2">SOFTWARE TESTING AGENCY</text>
+</svg>
