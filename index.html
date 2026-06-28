@@ -390,7 +390,7 @@ hr.rule{border:none;border-top:1px solid var(--div)}
 /* ═══ NAV ═════════════════════════════════════════════════ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:300;
-  height:68px;display:flex;align-items:center;justify-content:space-between;
+  height:68px;display:flex;align-items:center;justify-content:flex-start;
   padding-inline:clamp(1.25rem,5vw,3rem);
   border-bottom:1px solid transparent;
   transition:background .3s,border-color .3s,backdrop-filter .3s;
@@ -401,7 +401,7 @@ hr.rule{border:none;border-top:1px solid var(--div)}
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   border-bottom-color:var(--glass-border);
 }
-.nav-mid{display:flex;gap:2rem;list-style:none}
+.nav-mid{display:flex;gap:2rem;list-style:none;margin-inline:auto}
 .nav-mid a{font-size:.8rem;color:var(--g3);transition:color .15s;position:relative;padding-bottom:2px}
 .nav-mid a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--white);transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
 .nav-mid a:hover{color:var(--white)}
@@ -412,7 +412,7 @@ hr.rule{border:none;border-top:1px solid var(--div)}
 .nav-cta:focus-visible{outline:2px solid var(--white);outline-offset:3px}
 @media(max-width:768px){.nav-mid{display:none}.nav-cta{display:none}}
 /* ── Hamburger button ──────────────────────────────────── */
-.mob-menu-btn{display:none;background:none;border:none;padding:.2rem .25rem;cursor:pointer;color:var(--g3);transition:color .15s;flex-direction:column;gap:3px;align-items:flex-end;justify-content:center}
+.mob-menu-btn{display:none;background:none;border:none;padding:.2rem .25rem;cursor:pointer;color:var(--g3);transition:color .15s;flex-direction:column;gap:3px;align-items:flex-end;justify-content:center;margin-left:auto}
 .mob-menu-btn:hover{color:var(--white)}
 @media(max-width:768px){.mob-menu-btn{display:flex}}
 /* ── Mobile drawer ─────────────────────────────────────── */
