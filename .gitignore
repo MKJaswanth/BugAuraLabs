@@ -1,0 +1,8 @@
+scratch/
+src/
+*.log
+*.pma
+chrome-profile/
+node_modules/
+.DS_Store
+Thumbs.db
