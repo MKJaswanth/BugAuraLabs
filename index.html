@@ -27,6 +27,8 @@ body{background:#FFFFFF;color:#161618;font-family:'Hanken Grotesk',system-ui,san
 @keyframes bal-bar{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1)}}
 @keyframes bal-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes bal-wa{0%{box-shadow:0 10px 28px rgba(22,22,24,.22),0 0 0 0 rgba(255,57,98,.45)}70%{box-shadow:0 10px 28px rgba(22,22,24,.22),0 0 0 13px rgba(255,57,98,0)}100%{box-shadow:0 10px 28px rgba(22,22,24,.22),0 0 0 0 rgba(255,57,98,0)}}
+@keyframes bal-shine{0%,100%{text-shadow:none}50%{text-shadow:0 0 28px rgba(255,57,98,.5)}}
+@keyframes bal-hero-in{from{opacity:0;transform:translateY(60px) scale(0.94)}to{opacity:1;transform:none}}
 </style>
 </helmet>
 
@@ -80,7 +82,7 @@ body{background:#FFFFFF;color:#161618;font-family:'Hanken Grotesk',system-ui,san
         <span style="width:7px;height:7px;border-radius:50%;background:#FF3962;animation:bal-pulse 2.4s ease-in-out infinite"></span>
         <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:#44444A">Available for new projects</span>
       </div>
-      <h1 data-reveal data-delay="80" style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(2.6rem,5.6vw,4.4rem);letter-spacing:-.04em;line-height:1.0;color:#161618;margin-bottom:1.5rem">We find bugs before your <span style="color:#FF3962">users do.</span></h1>
+      <h1 data-reveal data-delay="80" style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(2.6rem,5.6vw,4.4rem);letter-spacing:-.04em;line-height:1.0;color:#161618;margin-bottom:1.5rem">We find bugs before your <span style="color:#FF3962;animation:bal-shine 3.5s ease-in-out infinite">users do.</span></h1>
       <p data-reveal data-delay="160" style="font-size:1.06rem;line-height:1.75;color:#52525A;max-width:46ch;margin-bottom:2.2rem">Remote QA for global SaaS, ecommerce, and agency teams. Checkout failures, broken admin flows, API mismatches, weak auth: all found and filed before they ship.</p>
       <div data-reveal data-delay="240" style="display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.4rem">
         <a href="#contact" style="display:inline-flex;align-items:center;gap:.5rem;background:#FF3962;color:#fff;font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,57,98,.32)">Get a free audit</a>
@@ -485,26 +487,18 @@ body{background:#FFFFFF;color:#161618;font-family:'Hanken Grotesk',system-ui,san
 
     <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#FF3962;margin-bottom:1rem">How we compare</div>
     <div style="overflow-x:auto;border:1px solid #ECEAE4;border-radius:14px;margin-bottom:2.2rem">
-      <table style="width:100%;border-collapse:collapse;font-size:.84rem;min-width:520px">
-        <thead>
-          <tr>
-            <th style="text-align:left;padding:.85rem 1rem;background:#F8F6F2;border-bottom:1px solid #ECEAE4"></th>
-            <sc-for list="{{ modal.cols }}" as="col" hint-placeholder-count="4">
-              <th style="{{ col.style }}">{{ col.label }}</th>
-            </sc-for>
-          </tr>
-        </thead>
-        <tbody>
-          <sc-for list="{{ modal.rows }}" as="row" hint-placeholder-count="7">
-            <tr>
-              <td style="padding:.7rem 1rem;color:#52525A;border-bottom:1px solid #F1EFEA;border-right:1px solid #F1EFEA;white-space:nowrap">{{ row.label }}</td>
-              <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="4">
-                <td style="{{ cell.style }}">{{ cell.text }}</td>
-              </sc-for>
-            </tr>
+      <div style="display:grid;grid-template-columns:1.4fr repeat(4,1fr);min-width:520px;font-size:.84rem">
+        <div style="text-align:left;padding:.85rem 1rem;background:#F8F6F2;border-bottom:1px solid #ECEAE4"></div>
+        <sc-for list="{{ modal.cols }}" as="col" hint-placeholder-count="4">
+          <div style="{{ col.style }}">{{ col.label }}</div>
+        </sc-for>
+        <sc-for list="{{ modal.rows }}" as="row" hint-placeholder-count="7">
+          <div style="padding:.7rem 1rem;color:#52525A;border-bottom:1px solid #F1EFEA;border-right:1px solid #F1EFEA;white-space:nowrap;display:flex;align-items:center">{{ row.label }}</div>
+          <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="4">
+            <div style="{{ cell.style }}">{{ cell.text }}</div>
           </sc-for>
-        </tbody>
-      </table>
+        </sc-for>
+      </div>
     </div>
 
     <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#FF3962;margin-bottom:1.1rem">Three reasons we're different</div>
@@ -552,33 +546,33 @@ class Component extends DCLogic {
     if(!reduce && ('IntersectionObserver' in window)){
       const revs = Array.from(document.querySelectorAll('[data-reveal]'));
       const vh = ()=> Math.max(window.innerHeight||0, document.documentElement.clientHeight||0, 700);
-      const reveal = (el)=>{ const d=parseFloat(el.getAttribute('data-delay')||'0'); el.style.transition='opacity .7s cubic-bezier(.16,1,.3,1) '+d+'ms, transform .7s cubic-bezier(.16,1,.3,1) '+d+'ms'; el.style.opacity='1'; el.style.transform='none'; };
+      const ease = 'cubic-bezier(.22,1,.36,1)';
+      const reveal = (el)=>{
+        const d=parseFloat(el.getAttribute('data-delay')||'0');
+        el.style.transition=`opacity .95s ${ease} ${d}ms, transform .95s ${ease} ${d}ms`;
+        el.style.opacity='1'; el.style.transform='none';
+      };
       const io = new IntersectionObserver((ents)=>{
         ents.forEach(en=>{ if(en.isIntersecting){ reveal(en.target); io.unobserve(en.target); } });
-      },{ threshold:0.08, rootMargin:'0px 0px -6% 0px' });
+      },{ threshold:0.05, rootMargin:'0px 0px -4% 0px' });
       revs.forEach(e=>{
         const r = e.getBoundingClientRect();
         const d = parseFloat(e.getAttribute('data-delay')||'0');
         e.style.willChange = 'opacity, transform';
         if(r.top < vh()*0.98){
-          // above the fold on load: transition-based entrance that ENDS at
-          // opacity:1 synchronously this tick (a forced reflow kicks off the
-          // animation). Final inline state is always visible, never stuck.
-          e.style.transition = 'opacity .8s cubic-bezier(.16,1,.3,1) '+d+'ms, transform .8s cubic-bezier(.16,1,.3,1) '+d+'ms';
+          e.style.transition = `opacity .95s ${ease} ${d}ms, transform .95s ${ease} ${d}ms`;
           e.style.opacity = '0';
-          e.style.transform = 'translateY(22px)';
-          void e.offsetWidth; // force reflow so the transition runs
+          e.style.transform = 'translateY(52px) scale(0.96)';
+          void e.offsetWidth;
           e.style.opacity = '1';
           e.style.transform = 'none';
         } else {
-          // below the fold: hide now, reveal when scrolled into view
           e.style.opacity = '0';
-          e.style.transform = 'translateY(24px)';
+          e.style.transform = 'translateY(52px) scale(0.96)';
           io.observe(e);
         }
       });
-      // safety net: guarantee everything ends visible
-      this._revealTimer = setTimeout(()=>revs.forEach(e=>{ e.style.opacity='1'; e.style.transform='none'; }), 2400);
+      this._revealTimer = setTimeout(()=>revs.forEach(e=>{ e.style.opacity='1'; e.style.transform='none'; }), 2800);
     }
 
     // count-up, numbers show their final value by default; animate as enhancement
@@ -594,6 +588,7 @@ class Component extends DCLogic {
     const nav = document.getElementById('bnav');
     const pb = document.getElementById('bprog');
     const cta = document.querySelector('[data-nav-cta]');
+    const heroGrid = document.querySelector('[data-hero-grid]');
     const onScroll = ()=>{
       const y = window.scrollY || 0;
       if(nav){
@@ -601,6 +596,7 @@ class Component extends DCLogic {
         else { nav.style.background='transparent'; nav.style.borderBottomColor='transparent'; nav.style.backdropFilter='none'; nav.style.webkitBackdropFilter='none'; }
       }
       if(pb){ const h = document.documentElement.scrollHeight - window.innerHeight; pb.style.width = (h>0 ? (y/h*100) : 0) + '%'; }
+      if(heroGrid && y < window.innerHeight * 1.1){ heroGrid.style.transform = `translateY(${y * 0.14}px)`; }
     };
     window.addEventListener('scroll', onScroll, { passive:true });
     onScroll();
