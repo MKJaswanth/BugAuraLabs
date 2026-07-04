@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog — BugAura Labs | QA Field Notes</title>
 <meta name="description" content="QA war stories, testing breakdowns, and lessons learned from real engagements. By BugAura Labs."/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self' https://formsubmit.co mailto:; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; upgrade-insecure-requests"/>
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png"/>
 <link rel="apple-touch-icon" href="assets/favicon.png"/>
@@ -93,6 +95,21 @@ a{color:inherit;text-decoration:none}
     <p class="page-sub">QA war stories, testing breakdowns, and lessons learned from real engagements. No fluff, just what actually happened.</p>
 
     <div class="posts">
+      <button class="card" onclick="openPost('db-map-error')">
+        <div class="card-meta">
+          <span class="card-date">2026</span>
+          <span class="card-tag">Security · QA · Testing</span>
+        </div>
+        <div class="card-title">The Error Message That Hands Attackers a Map of Your Database</div>
+        <p class="card-excerpt">Type an unusually long number into a form field and sometimes the screen hands back a raw database error: table names, column names, engine type, all of it. It looks like a rendering glitch. It's actually a sign that unvalidated input is flowing straight into your queries, and a checklist for catching it before attackers do.</p>
+        <div class="card-footer">
+          <span class="card-platforms">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2h3v3M10 2L5.5 6.5M5 3H2v7h7V7"/></svg>
+            Medium &amp; Dev.to
+          </span>
+          <span class="card-cta">Read article →</span>
+        </div>
+      </button>
       <button class="card" onclick="openPost('1000-errors')">
         <div class="card-meta">
           <span class="card-date">2026</span>
@@ -159,6 +176,10 @@ a{color:inherit;text-decoration:none}
 
 <script>
 const POSTS = {
+  'db-map-error': {
+    medium: 'https://medium.com/@jaswanth.mk63/the-error-message-that-hands-attackers-a-map-of-your-database-2e1c02e33304?sharedUserId=jaswanth.mk63',
+    devto:  'https://dev.to/jaswanth_mk/the-error-message-that-hands-attackers-a-map-of-your-database-2ef1'
+  },
   '1000-errors': {
     medium: 'https://medium.com/@jaswanth.mk63/1-000-errors-one-google-sheet-and-five-hours-i-will-never-get-back-a04df405faeb',
     devto:  'https://dev.to/jaswanth_mk/1000-errors-one-google-sheet-and-five-hours-i-will-never-get-back-4okl'
