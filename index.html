@@ -5,8 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BugAura Labs — Remote QA & Bug Testing for SaaS, Ecommerce & Agencies</title>
 <meta name="description" content="Remote QA studio for SaaS, ecommerce, and agency teams. Manual, API, security, automation, and performance testing — first findings in 48 hours."/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self' https://formsubmit.co mailto:; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://unpkg.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; upgrade-insecure-requests"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self' https://formsubmit.co mailto:; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://unpkg.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com; upgrade-insecure-requests"/>
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DGR1PM1XRW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DGR1PM1XRW');
+</script>
 <script src="./support.js" defer></script>
 </head>
 <body>
@@ -674,7 +681,11 @@ class Component extends DCLogic {
     const f = e.target;
     const ok = document.getElementById('form-ok');
     try {
-      await fetch(f.action, { method:'POST', body:new FormData(f), headers:{ 'Accept':'application/json' } });
+      const response = await fetch(f.action, { method:'POST', body:new FormData(f), headers:{ 'Accept':'application/json' } });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.success === false || result.success === 'false') {
+        throw new Error(result.message || 'Form submission failed');
+      }
       if(ok){ ok.style.display='block'; ok.textContent='Brief received. Expect an NDA within 2 hours and first findings shortly after.'; }
       f.reset();
     } catch(err){
