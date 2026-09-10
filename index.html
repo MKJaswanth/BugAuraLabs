@@ -793,21 +793,40 @@ class Component extends DCLogic {
 
   async submitForm(e){
     e.preventDefault();
-    const f = e.target;
+    const f = e.currentTarget || e.target;
+    if (f.dataset.submitting === 'true' || !f.reportValidity()) return;
     const ok = document.getElementById('form-ok');
+    const button = f.querySelector('button[type="submit"]');
+    const originalLabel = button ? button.textContent : '';
+    const showStatus = (message, failed) => {
+      if (!ok) return;
+      ok.style.display = 'block';
+      ok.style.background = failed ? 'rgba(255,57,98,.1)' : 'rgba(26,158,95,.1)';
+      ok.style.borderColor = failed ? 'rgba(255,57,98,.25)' : 'rgba(26,158,95,.25)';
+      ok.style.color = failed ? '#E11D48' : '#1A7E4B';
+      ok.textContent = message;
+    };
+    f.dataset.submitting = 'true';
+    f.setAttribute('aria-busy', 'true');
+    if (button) { button.disabled = true; button.textContent = 'Sending...'; }
+    if (ok) ok.style.display = 'none';
     try {
       const response = await fetch(f.action, { method:'POST', body:new FormData(f), headers:{ 'Accept':'application/json' } });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok || result.success === false || result.success === 'false') {
-        throw new Error(result.message || 'Form submission failed');
-      }
-      if(ok){ ok.style.display='block'; ok.textContent='Brief received. Expect an NDA within 2 hours and first findings shortly after.'; }
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', { method: 'contact_form' });
+      const result = await response.json();
+      if (!response.ok || !result || (result.success !== true && result.success !== 'true')) {
+        throw new Error('Form submission was not confirmed');
       }
       f.reset();
+      showStatus('Your brief was sent successfully. We will reply by email to confirm the scope and next steps.', false);
+      try {
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'contact_form' });
+      } catch (_) { /* Analytics must not affect a successful enquiry. */ }
     } catch(err){
-      if(ok){ ok.style.display='block'; ok.style.background='rgba(255,57,98,.1)'; ok.style.borderColor='rgba(255,57,98,.25)'; ok.style.color='#E11D48'; ok.textContent='Could not send right now, please email jaswanth@bugauralabs.studio directly.'; }
+      showStatus('We could not confirm delivery. Your message is still here. Please try again or email jaswanth@bugauralabs.studio directly.', true);
+    } finally {
+      delete f.dataset.submitting;
+      f.removeAttribute('aria-busy');
+      if (button) { button.disabled = false; button.textContent = originalLabel; }
     }
   }
 
