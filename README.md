@@ -1,59 +1,52 @@
-# BugAura Labs — Website
+# BugAura Labs
 
-Landing page for [BugAura Labs](https://bugauralabs.studio), a remote QA studio offering manual testing, API testing, security testing, automation, and performance testing for SaaS, ecommerce, and agency teams.
+**Find the bugs before your users do.**
 
-## Structure
+[BugAura Labs](https://bugauralabs.studio) is an independent, remote software testing and quality assurance studio helping SaaS companies, ecommerce businesses, web app teams, and digital agencies release with confidence.
 
-```
-├── index.html          # Main landing page
-├── blogs.html          # Blog listing page
-├── privacy.html        # Privacy policy
-├── support.js          # dc-runtime (React-based template engine, CDN-loaded)
-├── assets/             # Logos and favicons
-├── output/             # Publicly served files (sample QA report PDF)
-├── CNAME               # Custom domain: bugauralabs.studio
-├── _headers            # Security headers (Netlify)
-├── robots.txt
-├── sitemap.xml
-└── site.webmanifest
-```
+We focus on the real-world risks that can damage customer trust or interrupt business: broken checkout flows, unreliable APIs, permission mistakes, confusing user journeys, performance issues, and regressions after a change.
 
-## Tech Stack
+## What we do
 
-- **Framework**: [dc-runtime](https://github.com/design-components) — a lightweight React-based template engine. No build step, no bundler.
-- **React 18** loaded from CDN (unpkg)
-- **Fonts**: Sora, Hanken Grotesk, JetBrains Mono via Google Fonts
-- **Form**: [FormSubmit.co](https://formsubmit.co) for the contact form (no backend needed)
-- **Hosting**: GitHub Pages / Netlify
+- **Manual and exploratory testing** – test products as real users do, including edge cases and unexpected journeys.
+- **API testing** – check responses, data integrity, error handling, and consistency between the interface and the service behind it.
+- **Security-focused testing** – review authentication, permissions, access boundaries, and input handling for common weaknesses.
+- **Test automation** – create repeatable checks for important user journeys and release confidence.
+- **Performance testing** – identify slow or unstable experiences before traffic exposes them.
+- **Regression testing** – verify fixes and check that existing features still work after changes.
 
-## Running locally
+## What working with us looks like
 
-Open `index.html` in a browser. No build step or server required — the page is fully static.
+1. **Start with the risk.** Tell us about your product, the flow you are concerned about, and any recent changes.
+2. **Agree on scope and access.** We can arrange an NDA before you share staging links, test accounts, or internal materials.
+3. **Test the important journeys.** We prioritise business-critical paths instead of checking boxes blindly.
+4. **Get actionable findings.** Reports explain how to reproduce a defect, what was expected, what happened, and why it matters.
+5. **Retest fixes.** We verify corrections and check nearby flows for regressions.
 
-For form submissions to work, the page must be served over HTTP (not `file://`). Use any local server:
+Our website offers a free initial QA audit. The advertised target is to return first findings within 48 hours after access is provided, depending on the agreed scope.
 
-```bash
-npx serve .
-# or
-python -m http.server 8080
-```
+## QA tools and resources
 
-## Deploying
+We also share practical tools and resources for people who test software:
 
-Push to the `main` branch. GitHub Pages serves the site automatically. The `CNAME` file points the custom domain `bugauralabs.studio` to the GitHub Pages host.
+- **[QA Lab](https://qaura.bugauralabs.studio/)** – a test management tool for organising cases, tracking defects, and reviewing test progress.
+- **[Stickies](https://sticky-note-ec790.web.app/)** – a lightweight space for capturing and connecting testing notes during a session.
+- **[Playwright Pytest Skill](https://github.com/MKJaswanth/playwright-pytest-qa-skill)** – an open-source starting point for repeatable browser automation.
+- **[Sample QA report](https://bugauralabs.studio/output/C2C_Agri_Sanitized_QA_Document.pdf)** – see the style of findings and documentation we provide.
+- **[QA field notes](https://bugauralabs.studio/blogs.html)** – practical observations and lessons from software testing.
 
-## Assets
+## Who we help
 
-| File | Purpose |
-|------|---------|
-| `assets/logo-wordmark-t.png` | Dark wordmark (transparent bg) — used in nav |
-| `assets/logo-wordmark-white.png` | White wordmark — used in footer |
-| `assets/logo-wordmark.png` | Default wordmark |
-| `assets/logo-full.png` | Full logo with icon |
-| `assets/favicon*.png` | Favicons at various sizes |
-| `output/C2C_Agri_Sanitized_QA_Document.pdf` | Sample QA report linked from the site |
+We work remotely with product teams, startups, ecommerce businesses, and agencies that need focused QA support without unnecessary process overhead.
 
-## Contact
+## Get in touch
 
-**Jaswanth M K** — jaswanth@bugauralabs.studio  
-[LinkedIn](https://www.linkedin.com/company/bugauralabs) · [bugauralabs.studio](https://bugauralabs.studio)
+Have a release coming up or a user journey you do not trust?
+
+- **Website:** [bugauralabs.studio](https://bugauralabs.studio)
+- **Email:** [jaswanth@bugauralabs.studio](mailto:jaswanth@bugauralabs.studio)
+- **LinkedIn:** [BugAura Labs](https://www.linkedin.com/company/bugauralabs)
+
+---
+
+BugAura Labs is built around one simple goal: **make software safer to ship and easier to trust.**
